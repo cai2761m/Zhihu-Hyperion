@@ -30,6 +30,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -51,6 +52,7 @@ import com.github.zly2006.zhihu.icons.Icon
 import com.github.zly2006.zhihu.markdown.RenderMarkdown
 import com.github.zly2006.zhihu.navigation.LocalNavigator
 import com.github.zly2006.zhihu.navigation.requestLoginNavigation
+import com.github.zly2006.zhihu.platform.rememberUserMessageSink
 import com.github.zly2006.zhihu.reading.RegisterReadingQueueSource
 import com.github.zly2006.zhihu.ui.components.AppPullToRefreshBox
 import com.github.zly2006.zhihu.ui.components.EmptyState
@@ -62,6 +64,7 @@ import com.github.zly2006.zhihu.ui.components.pageTurnViewportWithGuide
 import com.github.zly2006.zhihu.ui.components.rememberPageTurnTarget
 import com.github.zly2006.zhihu.viewmodel.ColumnViewModel
 import com.github.zly2006.zhihu.viewmodel.rememberZhihuApiEnvironment
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.launch
 import com.github.zly2006.zhihu.navigation.Column as ColumnDestination
 import com.github.zly2006.zhihu.navigation.Person as PersonDestination
@@ -75,6 +78,7 @@ fun ColumnScreen(destination: ColumnDestination) {
     val listState = rememberLazyListState()
     val pageTurnTarget = rememberPageTurnTarget(listState = listState, enabled = true)
     val scope = rememberCoroutineScope()
+    val userMessages = rememberUserMessageSink()
     val readingQueueSourceId = "column:${destination.id}:articles"
     RegisterReadingQueueSource(readingQueueSourceId, screenViewModel.displayItems)
 
@@ -126,11 +130,35 @@ fun ColumnScreen(destination: ColumnDestination) {
                                 if (introduction.isNotBlank()) {
                                     RenderMarkdown(html = introduction, selectable = false, enableScroll = false)
                                 }
-                                Text(
-                                    "${detail.articlesCount} 篇文章 · ${detail.followers.coerceAtLeast(detail.followerCount)} 人订阅",
-                                    style = MaterialTheme.typography.bodyMedium,
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                )
+                                Row(
+                                    Modifier.fillMaxWidth(),
+                                    horizontalArrangement = Arrangement.spacedBy(12.dp),
+                                    verticalAlignment = Alignment.CenterVertically,
+                                ) {
+                                    Text(
+                                        "${detail.articlesCount} 篇文章 · ${detail.followers.coerceAtLeast(detail.followerCount)} 人订阅",
+                                        style = MaterialTheme.typography.bodyMedium,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                        modifier = Modifier.weight(1f),
+                                    )
+                                    OutlinedButton(
+                                        enabled = !screenViewModel.isFollowLoading && !screenViewModel.isDetailLoading,
+                                        modifier = Modifier.testTag("column_follow_button"),
+                                        onClick = {
+                                            scope.launch {
+                                                try {
+                                                    screenViewModel.toggleFollow(environment)
+                                                } catch (error: CancellationException) {
+                                                    throw error
+                                                } catch (error: Exception) {
+                                                    userMessages.showShortMessage(error.message ?: "专栏关注操作失败")
+                                                }
+                                            }
+                                        },
+                                    ) {
+                                        Text(if (detail.isFollowing) "已订阅" else "关注专栏")
+                                    }
+                                }
                                 val author = remember(detail.author) {
                                     detail.author?.let { runCatching { ZhihuJson.decodeJson<Person>(it) }.getOrNull() }
                                 }
@@ -168,6 +196,20 @@ fun ColumnScreen(destination: ColumnDestination) {
                                 )
                             } else if (detail == null) {
                                 Text("正在加载专栏信息…", style = MaterialTheme.typography.bodyMedium)
+                            }
+                            screenViewModel.pinnedFailure?.let { failure ->
+                                EmptyState(
+                                    AppIcons.Error,
+                                    "置顶文章加载失败",
+                                    description = failure.message,
+                                    action = if (failure.needLogin) {
+                                        EmptyStateAction("登录", AppIcons.Login, onClick = ::requestLoginNavigation)
+                                    } else {
+                                        EmptyStateAction("重试", AppIcons.Refresh, "column_pinned_retry") {
+                                            scope.launch { screenViewModel.loadPinnedArticles(environment) }
+                                        }
+                                    },
+                                )
                             }
                         }
                     }

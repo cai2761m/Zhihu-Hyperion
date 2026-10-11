@@ -282,6 +282,13 @@ adb shell input swipe 540 400 540 1200 500   # 下拉刷新
 | `feed_card` | 卡片主体（点击进入详情） | 多个 |
 | `feed_card_more_btn` | 卡片右上角更多菜单 | 多个，与 feed_card 一一对应 |
 
+### 专栏详情（页面内唯一）
+
+| testTag | 描述 |
+|---------|------|
+| `column_follow_button` | 关注专栏或取消关注，请求期间禁用 |
+| `column_pinned_retry` | 置顶文章加载失败后的重试按钮 |
+
 ---
 
 ## 错误排查
