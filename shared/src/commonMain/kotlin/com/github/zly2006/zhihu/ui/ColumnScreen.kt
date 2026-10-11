@@ -156,7 +156,7 @@ fun ColumnScreen(destination: ColumnDestination) {
                                             }
                                         },
                                     ) {
-                                        Text(if (detail.isFollowing) "已订阅" else "关注专栏")
+                                        Text(if (detail.isFollowing) "已订阅" else "订阅")
                                     }
                                 }
                                 val author = remember(detail.author) {
