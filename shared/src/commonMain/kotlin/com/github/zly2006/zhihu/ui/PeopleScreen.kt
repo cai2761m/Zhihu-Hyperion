@@ -74,6 +74,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.input.pointer.PointerEventPass
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.SubcomposeLayout
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.style.TextOverflow
@@ -1421,6 +1422,18 @@ private fun ColumnListItem(
             }.padding(vertical = 8.dp, horizontal = 4.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
+        if (column.imageUrl.isNotBlank()) {
+            AsyncImage(
+                model = column.imageUrl,
+                contentDescription = "${column.title}的专栏封面",
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .padding(end = 12.dp)
+                    .size(56.dp)
+                    .clip(MaterialTheme.shapes.small)
+                    .testTag("people_screen_column_cover_${column.id}"),
+            )
+        }
         Column(modifier = Modifier.weight(1f)) {
             Text(
                 text = column.title,

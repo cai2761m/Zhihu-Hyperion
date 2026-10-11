@@ -41,6 +41,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -124,7 +125,25 @@ fun ColumnScreen(destination: ColumnDestination) {
                             verticalArrangement = Arrangement.spacedBy(12.dp),
                         ) {
                             val detail = screenViewModel.detail
-                            Text(detail?.title ?: destination.title.ifBlank { "专栏" }, style = MaterialTheme.typography.headlineSmall)
+                            Row(
+                                Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.spacedBy(16.dp),
+                                verticalAlignment = Alignment.CenterVertically,
+                            ) {
+                                if (detail != null && detail.imageUrl.isNotBlank()) {
+                                    AsyncImage(
+                                        model = detail.imageUrl,
+                                        contentDescription = "专栏封面",
+                                        contentScale = ContentScale.Crop,
+                                        modifier = Modifier.size(64.dp).clip(MaterialTheme.shapes.medium).testTag("column_cover_image"),
+                                    )
+                                }
+                                Text(
+                                    detail?.title ?: destination.title.ifBlank { "专栏" },
+                                    style = MaterialTheme.typography.headlineSmall,
+                                    modifier = Modifier.weight(1f),
+                                )
+                            }
                             if (detail != null) {
                                 val introduction = detail.intro.ifBlank { detail.description }
                                 if (introduction.isNotBlank()) {

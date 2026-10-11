@@ -286,8 +286,15 @@ adb shell input swipe 540 400 540 1200 500   # 下拉刷新
 
 | testTag | 描述 |
 |---------|------|
-| `column_follow_button` | 关注专栏或取消关注，请求期间禁用 |
+| `column_follow_button` | 订阅专栏或取消订阅，请求期间禁用 |
+| `column_cover_image` | 专栏详情标题旁的封面，仅有图片时出现 |
 | `column_pinned_retry` | 置顶文章加载失败后的重试按钮 |
+
+### 专栏列表（按专栏 id 唯一）
+
+| testTag | 描述 |
+|---------|------|
+| `people_screen_column_cover_<columnId>` | 作者专栏或订阅列表中的专栏封面，仅有图片时出现 |
 
 ---
 

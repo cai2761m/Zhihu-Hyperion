@@ -48,8 +48,10 @@ import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.encodeToJsonElement
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
+import kotlinx.serialization.json.jsonPrimitive
 import java.io.IOException
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -120,6 +122,14 @@ class ColumnViewModelTest {
             assertEquals("走向奇点", model.detail?.title)
             assertEquals(21, model.detail?.articlesCount)
             assertEquals(73, model.detail?.followers)
+            assertEquals(
+                "https://pic1.zhimg.com/v2-61bb5d458e8ec2b2827ca1dfef22dc14_l.jpg?source=d16d100b",
+                ZhihuJson.json
+                    .encodeToJsonElement(model.detail!!)
+                    .jsonObject["imageUrl"]
+                    ?.jsonPrimitive
+                    ?.content,
+            )
             assertEquals(1, model.allData.size)
             val article = model.displayItems.single().navDestination as Article
             assertEquals(2086872663780282481L, article.id)
@@ -256,6 +266,14 @@ class ColumnViewModelTest {
             advanceUntilIdle()
             assertEquals(21, model.allData.first { it.id == COLUMN_ID }.articlesCount)
             assertEquals(73, model.allData.first { it.id == COLUMN_ID }.followers)
+            assertEquals(
+                "https://picx.zhimg.com/v2-61bb5d458e8ec2b2827ca1dfef22dc14_720w.jpg?source=d16d100b",
+                ZhihuJson.json
+                    .encodeToJsonElement(model.allData.first { it.id == COLUMN_ID })
+                    .jsonObject["imageUrl"]
+                    ?.jsonPrimitive
+                    ?.content,
+            )
             assertEquals(
                 1,
                 requests
