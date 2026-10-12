@@ -281,6 +281,7 @@ adb shell input swipe 540 400 540 1200 500   # 下拉刷新
 |---------|------|----------|
 | `feed_card` | 卡片主体（点击进入详情） | 多个 |
 | `feed_card_more_btn` | 卡片右上角更多菜单 | 多个，与 feed_card 一一对应 |
+| `feed_card_pinned_label` | 标题左侧蓝底白字的置顶标签 | 仅置顶条目出现，配合 --within-text 定位 |
 
 ### 专栏详情（页面内唯一）
 

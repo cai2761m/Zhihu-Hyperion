@@ -89,7 +89,7 @@ class ColumnViewModelTest {
             model.refresh(environment)
             advanceUntilIdle()
             assertEquals(listOf(531315462L, 434074509L, 374403541L), model.displayItems.take(3).map { (it.navDestination as Article).id })
-            assertTrue(model.displayItems.take(3).all { it.details.startsWith("置顶 · ") })
+            assertEquals(model.pinnedArticles.map { it.detailsText }, model.displayItems.take(3).map { it.details })
             assertEquals(4, model.displayItems.size)
             model.loadMore(environment)
             advanceUntilIdle()
@@ -315,12 +315,7 @@ class ColumnViewModelTest {
             assertNull(model.pinnedFailure)
             assertTrue(model.pinnedArticles.isEmpty())
             assertEquals(1, model.displayItems.size)
-            assertFalse(
-                model.displayItems
-                    .single()
-                    .details
-                    .startsWith("置顶"),
-            )
+            assertEquals(model.allData.single().detailsText, model.displayItems.single().details)
         }
     }
 

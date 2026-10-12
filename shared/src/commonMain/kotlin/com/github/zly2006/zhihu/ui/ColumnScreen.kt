@@ -48,6 +48,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import coil3.compose.AsyncImage
 import com.github.zly2006.zhihu.data.Person
 import com.github.zly2006.zhihu.data.ZhihuJson
+import com.github.zly2006.zhihu.data.navDestination
+import com.github.zly2006.zhihu.data.toFeedDisplayItemNavDestinationJson
 import com.github.zly2006.zhihu.icons.AppIcons
 import com.github.zly2006.zhihu.icons.Icon
 import com.github.zly2006.zhihu.markdown.RenderMarkdown
@@ -76,6 +78,9 @@ fun ColumnScreen(destination: ColumnDestination) {
     val navigator = LocalNavigator.current
     val environment = rememberZhihuApiEnvironment(allowGuestAccess = false)
     val screenViewModel: ColumnViewModel = viewModel(key = "column_${destination.id}") { ColumnViewModel(destination.id) }
+    val pinnedArticleKeys = remember(screenViewModel.pinnedArticles) {
+        screenViewModel.pinnedArticles.mapNotNullTo(mutableSetOf()) { it.navDestination?.toFeedDisplayItemNavDestinationJson() }
+    }
     val listState = rememberLazyListState()
     val pageTurnTarget = rememberPageTurnTarget(listState = listState, enabled = true)
     val scope = rememberCoroutineScope()
@@ -234,7 +239,12 @@ fun ColumnScreen(destination: ColumnDestination) {
                     }
                 },
             ) { item ->
-                FeedCard(item, readingQueueSourceId = readingQueueSourceId, modifier = Modifier.testTag("column_article_${item.stableKey}"))
+                FeedCard(
+                    item,
+                    readingQueueSourceId = readingQueueSourceId,
+                    modifier = Modifier.testTag("column_article_${item.stableKey}"),
+                    isPinned = item.navDestinationJson in pinnedArticleKeys,
+                )
             }
         }
     }

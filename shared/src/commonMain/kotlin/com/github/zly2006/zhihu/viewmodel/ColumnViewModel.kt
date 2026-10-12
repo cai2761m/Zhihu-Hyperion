@@ -65,12 +65,11 @@ class ColumnViewModel(
     override val include = ""
 
     val displayItems by derivedStateOf {
-        val pinnedIds = pinnedArticles.mapTo(mutableSetOf()) { it.id }
         (pinnedArticles + allData).distinctBy { it.id }.map { article ->
             FeedDisplayItem(
                 title = article.title,
                 summary = article.excerpt,
-                details = if (article.id in pinnedIds) "置顶 · ${article.detailsText}" else article.detailsText,
+                details = article.detailsText,
                 feed = null,
                 navDestinationJson = article.navDestination?.toFeedDisplayItemNavDestinationJson(),
                 avatarSrc = article.author.avatarUrl,
