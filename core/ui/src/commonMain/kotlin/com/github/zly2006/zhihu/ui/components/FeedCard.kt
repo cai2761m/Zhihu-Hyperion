@@ -28,6 +28,7 @@ import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
@@ -122,6 +123,7 @@ fun FeedCard(
     horizontalPadding: Dp = 16.dp,
     menuItems: @Composable ColumnScope.(dismissMenu: () -> Unit) -> Unit = { _ -> },
     showSourceLabel: Boolean = false,
+    isPinned: Boolean = false,
     /**
      * 默认点击行为：优先跳转到信息流条目的详情页；如果只能识别为外链则打开外链，否则提示暂不支持。
      */
@@ -196,6 +198,7 @@ fun FeedCard(
                     duo3CardLayout = duo3CardLayout,
                     duo3CardLargeTitle = duo3CardLargeTitle,
                     showSourceLabel = showSourceLabel,
+                    isPinned = isPinned,
                     onLinkClick = onPreviewLinkClick,
                 )
             }
@@ -231,11 +234,32 @@ fun FeedCard(
                     duo3CardLayout = duo3CardLayout,
                     duo3CardLargeTitle = duo3CardLargeTitle,
                     showSourceLabel = showSourceLabel,
+                    isPinned = isPinned,
                     onLinkClick = onPreviewLinkClick,
                 )
             }
         }
     }
+}
+
+@Composable
+private fun RowScope.FeedCardPinnedLabel(fontSizePercent: Int) {
+    val style = MaterialTheme.typography.labelSmall
+    Text(
+        text = "置顶",
+        color = Color.White,
+        style = style.copy(
+            fontSize = style.fontSize * fontSizePercent / 100,
+            lineHeight = style.lineHeight * fontSizePercent / 100,
+        ),
+        modifier = Modifier
+            .alignByBaseline()
+            .padding(end = 6.dp)
+            .clip(RoundedCornerShape(4.dp))
+            .background(Color(0xFF056DE8))
+            .testTag("feed_card_pinned_label")
+            .padding(horizontal = 6.dp, vertical = 2.dp),
+    )
 }
 
 /**
@@ -308,6 +332,7 @@ private fun FeedCardContent(
     duo3CardLayout: Boolean,
     duo3CardLargeTitle: Boolean,
     showSourceLabel: Boolean,
+    isPinned: Boolean,
     onLinkClick: (String) -> Unit,
 ) {
     val settings = koinInject<SettingsStore>()
@@ -344,6 +369,9 @@ private fun FeedCardContent(
                 MaterialTheme.typography.titleMedium
             }
             Row(verticalAlignment = Alignment.CenterVertically) {
+                if (isPinned && !item.isFiltered) {
+                    FeedCardPinnedLabel(fontSizePercent)
+                }
                 Text(
                     text = parseEmphasizedHtmlTextWithTheme(item.title),
                     style = titleStyle.copy(
@@ -353,7 +381,7 @@ private fun FeedCardContent(
                     maxLines = 2,
                     color = MaterialTheme.colorScheme.onSurface,
                     overflow = TextOverflow.Ellipsis,
-                    modifier = Modifier.padding(bottom = 8.dp),
+                    modifier = Modifier.weight(1f).alignByBaseline().padding(bottom = 8.dp),
                 )
             }
         }
@@ -449,12 +477,16 @@ private fun FeedCardContent(
         }
         if (!item.title.isEmpty() && !item.isFiltered) {
             Row(verticalAlignment = Alignment.CenterVertically) {
+                if (isPinned) {
+                    FeedCardPinnedLabel(fontSizePercent)
+                }
                 Text(
                     text = parseEmphasizedHtmlTextWithTheme(item.title),
                     fontSize = 16.sp * fontSizePercent / 100,
                     fontWeight = FontWeight.Bold,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
+                    modifier = Modifier.weight(1f).alignByBaseline(),
                 )
             }
         }

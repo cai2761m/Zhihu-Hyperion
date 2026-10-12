@@ -22,7 +22,9 @@ import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
+import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.tween
+import androidx.compose.animation.core.updateTransition
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.scaleIn
@@ -318,6 +320,10 @@ fun ZhihuMain(
         (showListDetail || navEntry?.id == detailOwnerEntryId)
     val hasOpenDetail = showDetailPane && selectedContentDestination != null
     val useSecondaryContentNavigation = enableLandscapeListDetail && isListPaneContext
+    val detailPaneTransition = updateTransition(showListDetail || showDetailPane, label = "detail_pane_visibility")
+    val detailPaneProgress by detailPaneTransition.animateFloat(transitionSpec = { tween(300) }, label = "detail_pane_progress") {
+        if (it) 1f else 0f
+    }
     val detailLifecycleOwner = rememberLifecycleOwner(
         maxLifecycle = if (showListDetail || showDetailPane) Lifecycle.State.RESUMED else Lifecycle.State.CREATED,
     )
@@ -579,12 +585,19 @@ fun ZhihuMain(
                 popExitTransition = { slideOutHorizontally(tween(300)) { it } + fadeOut(tween(300)) },
             ) {
                 composable<EmptyDetail> {
-                    EmptyDetailPane()
+                    if (showListDetail) EmptyDetailPane()
                 }
                 composable<Article>(
                     typeMap = mapOf(typeOf<ArticleType>() to ArticleTypeNavType),
                     enterTransition = articleEnterTransition,
                     exitTransition = articleExitTransition,
+                    popExitTransition = {
+                        if (showListDetail || !targetState.destination.hasRoute<EmptyDetail>()) {
+                            slideOutHorizontally(tween(300)) { it } + fadeOut(tween(300))
+                        } else {
+                            fadeOut(tween(300))
+                        }
+                    },
                 ) { entry ->
                     articleContent(entry.toRoute(), entry)
                 }
@@ -828,6 +841,7 @@ fun ZhihuMain(
                                     typeMap = mapOf(typeOf<ArticleType>() to ArticleTypeNavType),
                                     enterTransition = articleEnterTransition,
                                     exitTransition = articleExitTransition,
+                                    popExitTransition = { slideOutHorizontally(tween(300)) { it } + fadeOut(tween(300)) },
                                 ) { navEntry ->
                                     val article: Article = navEntry.toRoute()
                                     // 启用自适应导航时由 effect 转交详情栈，不创建会抢先消费一次性交接数据的临时页面。
@@ -934,10 +948,15 @@ fun ZhihuMain(
                 }
             }
 
-            if (showListDetail || showDetailPane || detailEntry == null) {
+            if (detailPaneTransition.currentState || detailPaneTransition.targetState || detailPaneTransition.isRunning || detailEntry == null) {
                 paneStateHolder.SaveableStateProvider("detail") {
                     // 尺寸变化只调整同一宿主的布局；隐藏时保存整个导航子树，独立弹窗也随页面离开组合。
-                    Row(if (showListDetail || showDetailPane) Modifier.fillMaxSize() else Modifier.size(0.dp)) {
+                    Row(
+                        (if (detailEntry != null) Modifier.fillMaxSize() else Modifier.size(0.dp)).graphicsLayer {
+                            translationX = if (showListDetail) 0f else size.width * (1f - detailPaneProgress)
+                            alpha = if (showListDetail) 1f else detailPaneProgress
+                        },
+                    ) {
                         if (showListDetail) {
                             Spacer(Modifier.width(listPaneWidth))
                             ListDetailDivider(
@@ -1188,6 +1207,7 @@ private fun NavBackStackEntry?.isListPaneDestination(): Boolean = when {
     destination.hasRoute<Question>() -> true
     destination.hasRoute<Person>() -> true
     destination.hasRoute<Topic>() -> true
+    destination.hasRoute<com.github.zly2006.zhihu.navigation.Column>() -> true
     destination.hasRoute<Notification>() -> true
     destination.hasRoute<Notification.Entry>() -> true
     destination.hasRoute<Notification.Invitations>() -> true

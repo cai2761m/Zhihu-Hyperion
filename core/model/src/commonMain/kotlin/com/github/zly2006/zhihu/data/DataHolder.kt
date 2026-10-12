@@ -977,5 +977,6 @@ object DataHolder {
         val created: Long = 0L,
         val updated: Long = 0L,
         val author: JsonElement? = null,
+        val imageUrl: String = "",
     )
 }

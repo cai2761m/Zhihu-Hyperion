@@ -31,10 +31,15 @@ import io.ktor.client.engine.mock.respond
 import io.ktor.client.request.HttpRequestData
 import io.ktor.client.request.HttpResponseData
 import io.ktor.http.HttpHeaders
+import io.ktor.http.HttpMethod
+import io.ktor.http.HttpStatusCode
 import io.ktor.http.Url
 import io.ktor.http.headersOf
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.advanceUntilIdle
@@ -43,11 +48,15 @@ import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.encodeToJsonElement
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
+import kotlinx.serialization.json.jsonPrimitive
 import java.io.IOException
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
+import kotlin.test.assertFalse
 import kotlin.test.assertNotNull
 import kotlin.test.assertNull
 import kotlin.test.assertTrue
@@ -55,13 +64,50 @@ import kotlin.test.assertTrue
 @OptIn(ExperimentalCoroutinesApi::class)
 class ColumnViewModelTest {
     @Test
+    fun pinnedArticlesPrecedeOrdinaryArticlesAndAppearOnlyOnceAcrossPages() = runTest {
+        val pinned = fixture("pinned-items.json")
+        val pinnedData = ZhihuJson.json
+            .parseToJsonElement(pinned)
+            .jsonObject
+            .getValue("data")
+            .jsonArray
+        val firstPage = ZhihuJson.json.parseToJsonElement(fixture("page0.json")).jsonObject
+        val overlap = JsonObject(firstPage + ("data" to JsonArray(firstPage.getValue("data").jsonArray + pinnedData.reversed())))
+        withEnvironment(
+            handler = { request ->
+                respond(
+                    when {
+                        request.url.encodedPath.endsWith("/pinned-items/v2") -> pinned
+                        request.url.encodedPath.endsWith("/articles") -> overlap.toString()
+                        else -> fixture("detail.json")
+                    },
+                    headers = headersOf(HttpHeaders.ContentType, "application/json"),
+                )
+            },
+        ) { environment, requests ->
+            val model = ColumnViewModel(COLUMN_ID)
+            model.refresh(environment)
+            advanceUntilIdle()
+            assertEquals(listOf(531315462L, 434074509L, 374403541L), model.displayItems.take(3).map { (it.navDestination as Article).id })
+            assertEquals(model.pinnedArticles.map { it.detailsText }, model.displayItems.take(3).map { it.details })
+            assertEquals(4, model.displayItems.size)
+            model.loadMore(environment)
+            advanceUntilIdle()
+            assertEquals(4, model.displayItems.size)
+            assertEquals(1, requests.count { it.encodedPath.endsWith("/pinned-items/v2") })
+        }
+    }
+
+    @Test
     fun verifiedColumnResponsesLoadNativeArticleDestinationsAndServerPaging() = runTest {
         val firstPage = fixture("page0.json")
         val secondPage = fixture("page1.json")
         withEnvironment(
             handler = { request ->
                 respond(
-                    if (request.url.encodedPath.endsWith("/articles")) {
+                    if (request.url.encodedPath.endsWith("/pinned-items/v2")) {
+                        fixture("pinned-empty.json")
+                    } else if (request.url.encodedPath.endsWith("/articles")) {
                         if (request.url.parameters["offset"] == "0") firstPage else secondPage
                     } else {
                         fixture("detail.json")
@@ -76,6 +122,14 @@ class ColumnViewModelTest {
             assertEquals("走向奇点", model.detail?.title)
             assertEquals(21, model.detail?.articlesCount)
             assertEquals(73, model.detail?.followers)
+            assertEquals(
+                "https://pic1.zhimg.com/v2-61bb5d458e8ec2b2827ca1dfef22dc14_l.jpg?source=d16d100b",
+                ZhihuJson.json
+                    .encodeToJsonElement(model.detail!!)
+                    .jsonObject["imageUrl"]
+                    ?.jsonPrimitive
+                    ?.content,
+            )
             assertEquals(1, model.allData.size)
             val article = model.displayItems.single().navDestination as Article
             assertEquals(2086872663780282481L, article.id)
@@ -99,7 +153,9 @@ class ColumnViewModelTest {
         var secondPageAttempts = 0
         withEnvironment(
             handler = { request ->
-                val body = if (!request.url.encodedPath.endsWith("/articles")) {
+                val body = if (request.url.encodedPath.endsWith("/pinned-items/v2")) {
+                    fixture("pinned-empty.json")
+                } else if (!request.url.encodedPath.endsWith("/articles")) {
                     fixture("detail.json")
                 } else if (request.url.parameters["offset"] == "0") {
                     fixture("page0.json")
@@ -130,7 +186,9 @@ class ColumnViewModelTest {
         var detailAttempts = 0
         withEnvironment(
             handler = { request ->
-                val body = if (request.url.encodedPath.endsWith("/articles")) {
+                val body = if (request.url.encodedPath.endsWith("/pinned-items/v2")) {
+                    fixture("pinned-empty.json")
+                } else if (request.url.encodedPath.endsWith("/articles")) {
                     fixture("page0.json")
                 } else {
                     if (detailAttempts++ == 1) throw IOException("专栏信息连接中断")
@@ -146,6 +204,7 @@ class ColumnViewModelTest {
             advanceUntilIdle()
             assertEquals("走向奇点", model.detail?.title)
             assertEquals(1, model.displayItems.size)
+            assertNull(model.pinnedFailure)
             assertNotNull(model.detailFailure)
             model.loadDetail(environment)
             assertNull(model.detailFailure)
@@ -162,7 +221,9 @@ class ColumnViewModelTest {
         withEnvironment(
             handler = { request ->
                 respond(
-                    if (!request.url.encodedPath.endsWith("/articles")) {
+                    if (request.url.encodedPath.endsWith("/pinned-items/v2")) {
+                        fixture("pinned-empty.json")
+                    } else if (!request.url.encodedPath.endsWith("/articles")) {
                         fixture("detail.json")
                     } else if (request.url.parameters["offset"] == "0") {
                         first.toString()
@@ -206,6 +267,14 @@ class ColumnViewModelTest {
             assertEquals(21, model.allData.first { it.id == COLUMN_ID }.articlesCount)
             assertEquals(73, model.allData.first { it.id == COLUMN_ID }.followers)
             assertEquals(
+                "https://picx.zhimg.com/v2-61bb5d458e8ec2b2827ca1dfef22dc14_720w.jpg?source=d16d100b",
+                ZhihuJson.json
+                    .encodeToJsonElement(model.allData.first { it.id == COLUMN_ID })
+                    .jsonObject["imageUrl"]
+                    ?.jsonPrimitive
+                    ?.content,
+            )
+            assertEquals(
                 1,
                 requests
                     .single()
@@ -213,6 +282,130 @@ class ColumnViewModelTest {
                     .getAll("include")
                     ?.size,
             )
+        }
+    }
+
+    @Test
+    fun pinnedFailureKeepsLoadedArticlesAndRetryCanClearRemovedPins() = runTest {
+        var pinnedAttempts = 0
+        withEnvironment(
+            handler = { request ->
+                val body = when {
+                    request.url.encodedPath.endsWith("/pinned-items/v2") -> when (pinnedAttempts++) {
+                        0 -> fixture("pinned-items.json")
+                        1 -> throw IOException("置顶文章连接中断")
+                        else -> fixture("pinned-empty.json")
+                    }
+
+                    request.url.encodedPath.endsWith("/articles") -> fixture("page0.json")
+
+                    else -> fixture("detail.json")
+                }
+                respond(body, headers = headersOf(HttpHeaders.ContentType, "application/json"))
+            },
+        ) { environment, _ ->
+            val model = ColumnViewModel(COLUMN_ID)
+            model.refresh(environment)
+            advanceUntilIdle()
+            model.refresh(environment)
+            advanceUntilIdle()
+            assertNotNull(model.pinnedFailure)
+            assertEquals(4, model.displayItems.size)
+            model.loadPinnedArticles(environment)
+            assertNull(model.pinnedFailure)
+            assertTrue(model.pinnedArticles.isEmpty())
+            assertEquals(1, model.displayItems.size)
+            assertEquals(model.allData.single().detailsText, model.displayItems.single().details)
+        }
+    }
+
+    @Test
+    fun followAndUnfollowUseVerifiedPutRoutesAndUpdateCountsOnlyAfterSuccess() = runTest {
+        val methods = mutableListOf<HttpMethod>()
+        withEnvironment(
+            handler = { request ->
+                methods += request.method
+                respond(
+                    if (request.method == HttpMethod.Put) """{"success":true}""" else fixture("detail.json"),
+                    headers = headersOf(HttpHeaders.ContentType, "application/json"),
+                )
+            },
+        ) { environment, requests ->
+            val model = ColumnViewModel(COLUMN_ID)
+            model.loadDetail(environment)
+            model.toggleFollow(environment)
+            assertTrue(model.detail!!.isFollowing)
+            assertEquals(74, model.detail!!.followers)
+            model.toggleFollow(environment)
+            assertFalse(model.detail!!.isFollowing)
+            assertEquals(73, model.detail!!.followers)
+            assertFalse(model.isFollowLoading)
+            assertEquals(listOf(HttpMethod.Get, HttpMethod.Put, HttpMethod.Put), methods)
+            assertEquals(listOf("/api/v4/columns/$COLUMN_ID/follow", "/api/v4/columns/$COLUMN_ID/unfollow"), requests.drop(1).map { it.encodedPath })
+        }
+    }
+
+    @Test
+    fun failedOrCancelledFollowKeepsRelationshipAndCountsAndAllowsRetry() = runTest {
+        var attempts = 0
+        withEnvironment(
+            handler = { request ->
+                if (request.method != HttpMethod.Put) {
+                    respond(fixture("detail.json"), headers = headersOf(HttpHeaders.ContentType, "application/json"))
+                } else {
+                    when (attempts++) {
+                        0 -> respond("""{"error":{"message":"关注失败"}}""", HttpStatusCode.BadRequest, headersOf(HttpHeaders.ContentType, "application/json"))
+                        1 -> throw CancellationException("取消关注请求")
+                        else -> respond("""{"success":true}""", headers = headersOf(HttpHeaders.ContentType, "application/json"))
+                    }
+                }
+            },
+        ) { environment, _ ->
+            val model = ColumnViewModel(COLUMN_ID)
+            model.loadDetail(environment)
+            val before = model.detail
+            assertFailsWith<Exception> { model.toggleFollow(environment) }
+            assertEquals(before, model.detail)
+            assertFalse(model.isFollowLoading)
+            assertFailsWith<CancellationException> { model.toggleFollow(environment) }
+            assertEquals(before, model.detail)
+            assertFalse(model.isFollowLoading)
+            model.toggleFollow(environment)
+            assertTrue(model.detail!!.isFollowing)
+        }
+    }
+
+    @Test
+    fun pendingFollowIgnoresRepeatedClicksAndRefreshUntilTheResponseArrives() = runTest {
+        val responseReady = CompletableDeferred<Unit>()
+        var followRequests = 0
+        withEnvironment(
+            handler = { request ->
+                if (request.method == HttpMethod.Put) {
+                    followRequests++
+                    responseReady.await()
+                    respond("""{"success":true}""", headers = headersOf(HttpHeaders.ContentType, "application/json"))
+                } else {
+                    respond(fixture("detail.json"), headers = headersOf(HttpHeaders.ContentType, "application/json"))
+                }
+            },
+        ) { environment, requests ->
+            val model = ColumnViewModel(COLUMN_ID)
+            model.loadDetail(environment)
+            val pending = launch { model.toggleFollow(environment) }
+            advanceUntilIdle()
+            assertTrue(model.isFollowLoading)
+            assertFalse(model.detail!!.isFollowing)
+            assertEquals(73, model.detail!!.followers)
+            model.toggleFollow(environment)
+            model.refresh(environment)
+            model.loadDetail(environment)
+            assertEquals(2, requests.size)
+            responseReady.complete(Unit)
+            pending.join()
+            assertEquals(1, followRequests)
+            assertTrue(model.detail!!.isFollowing)
+            assertFalse(model.isFollowLoading)
         }
     }
 

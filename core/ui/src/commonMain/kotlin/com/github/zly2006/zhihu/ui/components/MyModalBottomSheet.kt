@@ -34,6 +34,7 @@ import androidx.compose.foundation.layout.imePadding
 import androidx.compose.material3.BottomSheetDefaults
 import androidx.compose.material3.BottomSheetImpl
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheetDialog
 import androidx.compose.material3.ModalBottomSheetProperties
 import androidx.compose.material3.SheetState
@@ -47,6 +48,7 @@ import androidx.compose.material3.tokens.MotionSchemeKeyTokens
 import androidx.compose.material3.value
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -99,6 +101,13 @@ fun MyModalBottomSheet(
         RectangleShape
     } else {
         shape
+    }
+    val showMotion = MaterialTheme.motionScheme.slowSpatialSpec<Float>()
+    val hideMotion = MaterialTheme.motionScheme.slowEffectsSpec<Float>()
+    // BottomSheetImpl 不负责初始化过渡规格，SheetState 默认的 show/hide 规格为 snap。
+    SideEffect {
+        sheetState.showMotionSpec = showMotion
+        sheetState.hideMotionSpec = hideMotion
     }
     val scope = rememberCoroutineScope()
     val animateToDismiss: () -> Unit = {
@@ -207,7 +216,7 @@ private fun MyBottomSheetScrim(
         val alpha by
             animateFloatAsState(
                 targetValue = if (visible) 1f else 0f,
-                animationSpec = MotionSchemeKeyTokens.DefaultEffects.value(),
+                animationSpec = MotionSchemeKeyTokens.SlowEffects.value(),
                 label = "ScrimAlphaAnimation",
             )
         val closeSheet = getString(Strings.CloseSheet)

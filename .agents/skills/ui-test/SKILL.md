@@ -281,6 +281,21 @@ adb shell input swipe 540 400 540 1200 500   # 下拉刷新
 |---------|------|----------|
 | `feed_card` | 卡片主体（点击进入详情） | 多个 |
 | `feed_card_more_btn` | 卡片右上角更多菜单 | 多个，与 feed_card 一一对应 |
+| `feed_card_pinned_label` | 标题左侧蓝底白字的置顶标签 | 仅置顶条目出现，配合 --within-text 定位 |
+
+### 专栏详情（页面内唯一）
+
+| testTag | 描述 |
+|---------|------|
+| `column_follow_button` | 订阅专栏或取消订阅，请求期间禁用 |
+| `column_cover_image` | 专栏详情标题旁的封面，仅有图片时出现 |
+| `column_pinned_retry` | 置顶文章加载失败后的重试按钮 |
+
+### 专栏列表（按专栏 id 唯一）
+
+| testTag | 描述 |
+|---------|------|
+| `people_screen_column_cover_<columnId>` | 作者专栏或订阅列表中的专栏封面，仅有图片时出现 |
 
 ---
 
