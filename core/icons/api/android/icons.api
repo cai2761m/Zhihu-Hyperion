@@ -195,6 +195,8 @@ public final class com/github/zly2006/zhihu/icons/AppIcons {
 	public final fun getTag ()Lcom/github/zly2006/zhihu/icons/AppIcon;
 	public final fun getTextIncrease ()Lcom/github/zly2006/zhihu/icons/AppIcon;
 	public final fun getTextSnippet ()Lcom/github/zly2006/zhihu/icons/AppIcon;
+	public final fun getThumbDown ()Lcom/github/zly2006/zhihu/icons/AppIcon;
+	public final fun getThumbDownFilled ()Lcom/github/zly2006/zhihu/icons/AppIcon;
 	public final fun getThumbUp ()Lcom/github/zly2006/zhihu/icons/AppIcon;
 	public final fun getThumbUpFilled ()Lcom/github/zly2006/zhihu/icons/AppIcon;
 	public final fun getTimer ()Lcom/github/zly2006/zhihu/icons/AppIcon;

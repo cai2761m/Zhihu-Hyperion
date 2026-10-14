@@ -39,7 +39,6 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -60,9 +59,6 @@ import com.github.zly2006.zhihu.icons.Icon
 import com.github.zly2006.zhihu.markdown.RenderMarkdown
 import com.github.zly2006.zhihu.ui.components.AuthorBadge
 import com.github.zly2006.zhihu.viewmodel.ArticleViewModel.CachedAnswerContent
-import org.jetbrains.compose.resources.painterResource
-import zhihu.shared.generated.resources.Res
-import zhihu.shared.generated.resources.ic_vote_up_24dp
 
 /** 渲染水平回答切换时的缓存内容预览。 */
 @OptIn(ExperimentalLayoutApi::class)
@@ -115,7 +111,7 @@ internal fun CachedAnswerPreview(cached: CachedAnswerContent, useTiqianMarkdown:
                             contentPadding = PaddingValues(horizontal = 0.dp),
                         ) {
                             Spacer(modifier = Modifier.width(4.dp))
-                            Icon(painterResource(Res.drawable.ic_vote_up_24dp), "赞同")
+                            Icon(AppIcons.ThumbUp, "赞同")
                             Spacer(modifier = Modifier.width(4.dp))
                             Text(text = cached.voteUpCount.toString())
                         }

@@ -233,7 +233,7 @@ private val settingsSearchEntries = buildList {
     add(appearanceEntry("appearance.showSearchHotSearch", "搜索界面显示热搜", "控制搜索页空查询时是否展示热搜。", "showSearchHotSearch", listOf("热搜")))
     add(appearanceEntry("appearance.showSearchHistory", "记录并显示搜索历史", "控制搜索历史记录和展示。", "showSearchHistory", listOf("搜索记录", "历史记录", "清除搜索历史")))
     add(appearanceEntry("appearance.customNavHost", "使用自定义导航", "切换实验性的导航实现。", "use_custom_nav_host"))
-    add(appearanceEntry("appearance.predictiveBack", "启用预测性返回", "控制 Android 预测性返回动画。", "enable_predictive_back", listOf("返回手势")))
+    add(appearanceEntry("appearance.predictiveBack", "启用预测性返回", "控制 Android 预测性返回动画。", ENABLE_PREDICTIVE_BACK_PREFERENCE_KEY, listOf("返回手势")))
     if (isTopLevelBackToLauncherSupported) {
         add(appearanceEntry("appearance.topLevelBackToLauncher", "一级页面返回时回到桌面", "在底栏任意页面按返回都直接回到系统桌面。", TOP_LEVEL_BACK_TO_LAUNCHER_PREFERENCE_KEY, listOf("返回手势", "返回键", "退出", "后台", "主页")))
     }

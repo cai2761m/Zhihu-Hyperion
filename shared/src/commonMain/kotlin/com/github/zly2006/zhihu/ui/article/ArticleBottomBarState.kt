@@ -19,9 +19,9 @@
 package com.github.zly2006.zhihu.ui.article
 
 import androidx.compose.animation.core.Animatable
-import androidx.compose.animation.core.tween
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.gestures.BringIntoViewSpec
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.SideEffect
@@ -70,6 +70,7 @@ internal fun rememberArticleBottomBarState(
     navigationBarHeightPx: Float,
 ): ArticleBottomBarState {
     val state = remember { ArticleBottomBarState() }
+    val settleMotion = MaterialTheme.motionScheme.fastSpatialSpec<Float>()
 
     SideEffect {
         state.showSlot = showSlot
@@ -115,7 +116,7 @@ internal fun rememberArticleBottomBarState(
             if (target != state.offset.value) {
                 try {
                     state.isSnapping = true
-                    state.offset.animateTo(target, tween(150))
+                    state.offset.animateTo(target, settleMotion)
                 } finally {
                     state.isSnapping = false
                 }

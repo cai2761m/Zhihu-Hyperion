@@ -19,6 +19,7 @@
 package com.github.zly2006.zhihu.ui.components
 
 import androidx.compose.foundation.pager.PagerState
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.geometry.Offset
@@ -43,8 +44,9 @@ fun rememberNestedHorizontalPagerConnection(
     childState: PagerState,
 ): NestedScrollConnection {
     val minimumFlingVelocity = LocalViewConfiguration.current.minimumFlingVelocity
+    val settleMotion = MaterialTheme.motionScheme.defaultSpatialSpec<Float>()
 
-    return remember(parentState, childState, minimumFlingVelocity) {
+    return remember(parentState, childState, minimumFlingVelocity, settleMotion) {
         object : NestedScrollConnection {
             var parentDragActive = false
 
@@ -65,7 +67,7 @@ fun rememberNestedHorizontalPagerConnection(
                     velocityX > minimumFlingVelocity && parentState.canScrollBackward -> parentState.currentPage - 1
                     else -> parentState.currentPage
                 }.coerceIn(0, parentState.pageCount - 1)
-                parentState.animateScrollToPage(targetPage)
+                parentState.animateScrollToPage(targetPage, animationSpec = settleMotion)
             }
 
             fun shouldParentHandleFling(velocityX: Float): Boolean {

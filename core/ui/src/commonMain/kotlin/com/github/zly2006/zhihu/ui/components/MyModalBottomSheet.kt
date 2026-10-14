@@ -66,6 +66,9 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.traversalIndex
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LocalLifecycleOwner
+import androidx.lifecycle.compose.currentStateAsState
 import com.github.zly2006.zhihu.platform.PlatformPredictiveBackHandler
 import com.github.zly2006.zhihu.platform.SettingsStore
 import com.github.zly2006.zhihu.platform.exportTestTagsForUiAutomation
@@ -168,6 +171,10 @@ fun MyModalBottomSheet(
             )
         }
     }
+
+    val lifecycleState by LocalLifecycleOwner.current.lifecycle.currentStateAsState()
+    // 返回预览会重新组合后台页面；只隐藏弹层窗口，保留调用层的评论位置、草稿与 sheet 状态。
+    if (!lifecycleState.isAtLeast(Lifecycle.State.STARTED)) return
 
     if (usePlatformWindow) {
         val dismissFromWindow: () -> Unit = {

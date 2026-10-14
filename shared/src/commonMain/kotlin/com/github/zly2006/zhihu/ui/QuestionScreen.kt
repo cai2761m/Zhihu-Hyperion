@@ -447,7 +447,7 @@ private fun QuestionHeaderSection(
                 verticalArrangement = Arrangement.spacedBy(8.dp), // 垂直间距
             ) {
                 StatItem(icon = AppIcons.Visibility, text = "$visitCount 浏览")
-                StatItem(icon = AppIcons.ChatBubble, text = "$commentCount 评论")
+                StatItem(icon = AppIcons.Comment, text = "$commentCount 评论")
                 StatItem(icon = AppIcons.Favorite, text = "$followerCount 关注")
             }
             OutlinedButton(

@@ -168,6 +168,8 @@ dependencies {
     implementation(libs.zxing.android.embedded)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.navigationevent)
+    implementation(libs.jetbrains.navigationevent.compose)
     implementation(libs.androidx.webkit)
     implementation(libs.jetbrains.lifecycle.runtime.compose)
     implementation(libs.jetbrains.lifecycle.viewmodel.compose)

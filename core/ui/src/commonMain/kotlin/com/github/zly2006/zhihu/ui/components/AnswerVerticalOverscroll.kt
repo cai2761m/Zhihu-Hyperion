@@ -19,8 +19,6 @@
 package com.github.zly2006.zhihu.ui.components
 
 import androidx.compose.animation.core.Animatable
-import androidx.compose.animation.core.Spring
-import androidx.compose.animation.core.spring
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.awaitFirstDown
@@ -119,6 +117,7 @@ fun AnswerVerticalOverscroll(
     }
 
     val overscrollOffset = remember { Animatable(0f) }
+    val settleMotion by rememberUpdatedState(MaterialTheme.motionScheme.fastSpatialSpec<Float>())
     var hasTriggeredHaptic by remember { mutableStateOf(false) }
     var rawDragAccumulator by remember { mutableFloatStateOf(0f) }
     val currentOnOverscrollOffsetChange by rememberUpdatedState(onOverscrollOffsetChange)
@@ -218,10 +217,7 @@ fun AnswerVerticalOverscroll(
                     if (!didNavigate) {
                         overscrollOffset.animateTo(
                             0f,
-                            animationSpec = spring(
-                                dampingRatio = Spring.DampingRatioMediumBouncy,
-                                stiffness = Spring.StiffnessMedium,
-                            ),
+                            animationSpec = settleMotion,
                         )
                     }
                     return available
@@ -311,10 +307,7 @@ fun AnswerVerticalOverscroll(
                                     coroutineScope.launch {
                                         overscrollOffset.animateTo(
                                             0f,
-                                            animationSpec = spring(
-                                                dampingRatio = Spring.DampingRatioMediumBouncy,
-                                                stiffness = Spring.StiffnessMedium,
-                                            ),
+                                            animationSpec = settleMotion,
                                         )
                                     }
                                 }

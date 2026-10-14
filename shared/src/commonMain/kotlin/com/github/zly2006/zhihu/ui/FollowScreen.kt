@@ -173,6 +173,7 @@ private fun FollowScreenContent(
         pageCount = { titles.size },
     )
     val coroutineScope = rememberCoroutineScope()
+    val settleMotion = MaterialTheme.motionScheme.defaultSpatialSpec<Float>()
 
     LaunchedEffect(pagerState.currentPage) {
         viewModel.selectedTabIndex = pagerState.currentPage
@@ -185,7 +186,7 @@ private fun FollowScreenContent(
             onTabSelected = { index ->
                 viewModel.selectedTabIndex = index
                 coroutineScope.launch {
-                    pagerState.animateScrollToPage(index)
+                    pagerState.animateScrollToPage(index, animationSpec = settleMotion)
                 }
             },
             modifier = Modifier
