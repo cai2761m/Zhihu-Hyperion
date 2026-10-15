@@ -51,6 +51,7 @@ import com.github.zly2006.zhihu.ui.components.PREF_VOLUME_KEY_PAGE_TURN
 import com.github.zly2006.zhihu.ui.subscreens.COLLECTION_DIRECT_BROWSE_PREFERENCE_KEY
 import com.github.zly2006.zhihu.ui.subscreens.CONTINUOUS_USAGE_REMINDER_INTERVAL_MINUTES_KEY
 import com.github.zly2006.zhihu.ui.subscreens.DUO3_CARD_LARGE_TITLE_PREFERENCE_KEY
+import com.github.zly2006.zhihu.ui.subscreens.ENABLE_PREDICTIVE_BACK_PREFERENCE_KEY
 import com.github.zly2006.zhihu.ui.subscreens.LANDSCAPE_LIST_DETAIL_PREFERENCE_KEY
 import com.github.zly2006.zhihu.ui.subscreens.TOP_LEVEL_BACK_TO_LAUNCHER_PREFERENCE_KEY
 import com.github.zly2006.zhihu.update.CHECK_NIGHTLY_UPDATES_PREFERENCE_KEY
@@ -160,7 +161,7 @@ private val syncedSettings: Map<String, SyncedSettingType> = buildMap {
         "enableKeywordBlocking",
         "enableTopicBlocking",
         "enableUserBlocking",
-        "enable_predictive_back",
+        ENABLE_PREDICTIVE_BACK_PREFERENCE_KEY,
         "filterFollowedUserContent",
         "loginForRecommendation",
         "pinAnswerDate",

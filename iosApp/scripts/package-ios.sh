@@ -47,9 +47,30 @@ mkdir -p "$(dirname "$output")"
 output="$(cd "$(dirname "$output")" && pwd)/$(basename "$output")"
 derived="$root/iosApp/build/derived-data"
 
-# macOS ships bash 3.2, where expanding an empty array under `set -u` fails without the `+` guard.
-xcodebuild -project "$root/iosApp/ZhihuHyperion.xcodeproj" -scheme ZhihuHyperion -configuration Release \
-  -sdk "$sdk" -destination "$destination" -derivedDataPath "$derived" ${signing[@]+"${signing[@]}"} build
+build_log="$(mktemp)"
+trap 'rm -f "$build_log"' EXIT
+for attempt in 1 2 3; do
+  # macOS ships bash 3.2, where expanding an empty array under `set -u` fails without the `+` guard.
+  if xcodebuild -project "$root/iosApp/ZhihuHyperion.xcodeproj" -scheme ZhihuHyperion -configuration Release \
+    -sdk "$sdk" -destination "$destination" -derivedDataPath "$derived" ${signing[@]+"${signing[@]}"} build 2>&1 | tee "$build_log"; then
+    break
+  else
+    pipeline_status=("${PIPESTATUS[@]}")
+    status="${pipeline_status[0]}"
+    if [[ "$status" == 0 ]]; then exit "${pipeline_status[1]}"; fi
+  fi
+  # GitHub macOS runner 曾在 Gradle 下载依赖前发生 Plugin Portal DNS 失败；只重试此下载错误，保留其他构建错误。
+  # 失败记录：https://github.com/eltavine/Zhihu-Hyperion/actions/runs/38501572364/job/115649533640
+  if [[ "$attempt" == 3 ]] ||
+    ! grep -Eq "Could not (HEAD|GET).*https://plugins\\.gradle\\.org/" "$build_log" ||
+    ! grep -Fq 'plugins.gradle.org: nodename nor servname provided, or not known' "$build_log"; then
+    exit "$status"
+  fi
+  echo "Gradle Plugin Portal DNS lookup failed; retrying iOS build (${attempt}/3)." >&2
+  sleep "$((attempt * 10))"
+done
+rm -f "$build_log"
+trap - EXIT
 
 app="$derived/Build/Products/Release-$sdk/Zhihu-Hyperion.app"
 test "$(/usr/bin/lipo -archs "$app/Zhihu-Hyperion")" = arm64

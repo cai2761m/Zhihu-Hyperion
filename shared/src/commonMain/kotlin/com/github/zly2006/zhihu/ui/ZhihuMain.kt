@@ -22,6 +22,7 @@ import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
+import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.core.updateTransition
@@ -68,6 +69,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableIntStateOf
@@ -91,8 +93,10 @@ import androidx.compose.ui.input.pointer.PointerEventPass
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalWindowInfo
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.DpOffset
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LocalLifecycleOwner
@@ -107,6 +111,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
+import androidx.navigationevent.NavigationEventTransitionState
+import androidx.navigationevent.compose.LocalNavigationEventDispatcherOwner
 import com.github.zly2006.zhihu.account.LoginScreen
 import com.github.zly2006.zhihu.filter.ContentOpenFrom
 import com.github.zly2006.zhihu.glass.LIQUID_GLASS_PREFERENCE_KEY
@@ -182,6 +188,10 @@ import com.github.zly2006.zhihu.ui.subscreens.WebDavSyncScreen
 import com.github.zly2006.zhihu.update.UpdateOnLaunch
 import com.github.zly2006.zhihu.video.VideoScreen
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import org.koin.compose.koinInject
 import kotlin.reflect.KClass
@@ -263,6 +273,7 @@ fun ZhihuMain(
     articleContent: @Composable (Article, NavBackStackEntry) -> Unit,
     showMainNavigationBar: Boolean = true,
     showHomeTopActions: Boolean = true,
+    predictiveBackEnabled: Boolean = true,
     onCurrentMainTabDestinationChange: (TopLevelDestination) -> Unit = {},
     sentenceSimilarityContent: @Composable () -> Unit = {
         error("$platformName 暂不支持句子相似度测试")
@@ -281,6 +292,23 @@ fun ZhihuMain(
         width = containerWidth,
         height = maxHeight,
     )
+    val motion = MaterialTheme.motionScheme
+    val navigationDispatcher = LocalNavigationEventDispatcherOwner.current?.navigationEventDispatcher
+    val backGestureInProgress by remember(navigationDispatcher) {
+        navigationDispatcher
+            ?.transitionState
+            ?.map { it is NavigationEventTransitionState.InProgress && it.direction == NavigationEventTransitionState.TRANSITIONING_BACK }
+            ?.distinctUntilChanged()
+            ?: flowOf(false)
+    }.collectAsState(false)
+    val isPredictiveBack = predictiveBackEnabled && backGestureInProgress && LocalWindowInfo.current.isWindowFocused
+    var predictiveBackEntry by remember { mutableStateOf<NavBackStackEntry?>(null) }
+    val useLinearBackProgress = isPredictiveBack || predictiveBackEntry != null
+    // NavHost 按总时长 seek：API 36 的 1080px 窗口中，15% 进度直接 seek slowSpatial 会移动 812px。
+    // 线性插值保留到当前导航项结束转场，避免提交或取消时切换曲线导致跳帧；普通转场仍使用主题弹簧。
+    val backSpatialSpec = if (useLinearBackProgress) tween<IntOffset>(easing = LinearEasing) else motion.slowSpatialSpec<IntOffset>()
+    val backExitTransition = slideOutHorizontally(backSpatialSpec) { it } +
+        if (useLinearBackProgress) ExitTransition.None else fadeOut(motion.defaultEffectsSpec())
     val bottomPadding = ScaffoldDefaults.contentWindowInsets.asPaddingValues().calculateBottomPadding()
     val duo3HomeAccount = preferenceState.duo3HomeAccount
     val tapToScrollToTopEnabled = preferenceState.tapToScrollToTopEnabled
@@ -329,10 +357,23 @@ fun ZhihuMain(
     val showListDetail = isLargeLandscape && isListPaneContext
     val showDetailPane = hasOpenSecondaryDetail &&
         (showListDetail || navEntry?.id == detailOwnerEntryId)
+    LaunchedEffect(isPredictiveBack, predictiveBackEntry) {
+        if (isPredictiveBack) {
+            predictiveBackEntry = if (showDetailPane) detailEntry else navEntry
+        } else {
+            predictiveBackEntry?.let { entry ->
+                entry.lifecycle.currentStateFlow.first { it == Lifecycle.State.RESUMED || it == Lifecycle.State.DESTROYED }
+                predictiveBackEntry = null
+            }
+        }
+    }
     val hasOpenDetail = showDetailPane && selectedContentDestination != null
     val useSecondaryContentNavigation = enableLandscapeListDetail && isListPaneContext
     val detailPaneTransition = updateTransition(showListDetail || showDetailPane, label = "detail_pane_visibility")
-    val detailPaneProgress by detailPaneTransition.animateFloat(transitionSpec = { tween(300) }, label = "detail_pane_progress") {
+    val detailPaneProgress by detailPaneTransition.animateFloat(transitionSpec = { motion.slowSpatialSpec() }, label = "detail_pane_progress") {
+        if (it) 1f else 0f
+    }
+    val detailPaneAlpha by detailPaneTransition.animateFloat(transitionSpec = { motion.defaultEffectsSpec() }, label = "detail_pane_alpha") {
         if (it) 1f else 0f
     }
     val detailLifecycleOwner = rememberLifecycleOwner(
@@ -488,7 +529,7 @@ fun ZhihuMain(
         }
         val targetPage = pageIndexForDestination(destination)
         coroutineScope.launch {
-            mainPagerState.animateScrollToPage(targetPage)
+            mainPagerState.animateScrollToPage(targetPage, animationSpec = motion.defaultSpatialSpec())
         }
     }
 
@@ -529,7 +570,7 @@ fun ZhihuMain(
             !topLevelBackToLauncher,
     ) {
         coroutineScope.launch {
-            mainPagerState.animateScrollToPage(0)
+            mainPagerState.animateScrollToPage(0, animationSpec = motion.defaultSpatialSpec())
         }
     }
 
@@ -590,10 +631,10 @@ fun ZhihuMain(
                 navController = detailNavController,
                 startDestination = EmptyDetail,
                 modifier = modifier.testTag("detail_pane"),
-                enterTransition = { slideInHorizontally(tween(300)) { it } },
+                enterTransition = { slideInHorizontally(motion.slowSpatialSpec()) { it } },
                 exitTransition = { ExitTransition.None },
                 popEnterTransition = { EnterTransition.None },
-                popExitTransition = { slideOutHorizontally(tween(300)) { it } + fadeOut(tween(300)) },
+                popExitTransition = { backExitTransition },
             ) {
                 composable<EmptyDetail> {
                     if (showListDetail) EmptyDetailPane()
@@ -602,11 +643,12 @@ fun ZhihuMain(
                     typeMap = mapOf(typeOf<ArticleType>() to ArticleTypeNavType),
                     enterTransition = articleEnterTransition,
                     exitTransition = articleExitTransition,
+                    popEnterTransition = { EnterTransition.None },
                     popExitTransition = {
-                        if (showListDetail || !targetState.destination.hasRoute<EmptyDetail>()) {
-                            slideOutHorizontally(tween(300)) { it } + fadeOut(tween(300))
+                        if (useLinearBackProgress || showListDetail || !targetState.destination.hasRoute<EmptyDetail>()) {
+                            backExitTransition
                         } else {
-                            fadeOut(tween(300))
+                            fadeOut(motion.defaultEffectsSpec())
                         }
                     },
                 ) { entry ->
@@ -700,7 +742,7 @@ fun ZhihuMain(
                     detailNavController.navigate(directReadingDestination)
                 }
             }
-            if (showListDetail || !showDetailPane) {
+            if (showListDetail || !showDetailPane || useLinearBackProgress) {
                 paneStateHolder.SaveableStateProvider("list") {
                     Scaffold(
                         modifier = listPaneModifier
@@ -713,8 +755,8 @@ fun ZhihuMain(
                                 AnimatedVisibility(
                                     visible = showMainNavigation && (!autoHideBottomBar || isBottomBarVisible),
                                     modifier = Modifier.onSizeChanged { bottomBarHeightPx = it.height },
-                                    enter = slideInVertically(tween(200)) { it },
-                                    exit = slideOutVertically(tween(200)) { it },
+                                    enter = slideInVertically(motion.slowSpatialSpec()) { it },
+                                    exit = slideOutVertically(motion.slowSpatialSpec()) { it },
                                 ) {
                                     Box {
                                         if (glassBackdrop != null) {
@@ -852,7 +894,7 @@ fun ZhihuMain(
                                 },
                                 startDestination = MainTabs,
                                 enterTransition = {
-                                    slideInHorizontally(tween(300)) { it }
+                                    slideInHorizontally(motion.slowSpatialSpec()) { it }
                                 },
                                 exitTransition = {
                                     ExitTransition.None
@@ -861,7 +903,7 @@ fun ZhihuMain(
                                     EnterTransition.None
                                 },
                                 popExitTransition = {
-                                    slideOutHorizontally(tween(300)) { it } + fadeOut(tween(300))
+                                    backExitTransition
                                 },
                             ) {
                                 composable<MainTabs> {
@@ -908,7 +950,8 @@ fun ZhihuMain(
                                     typeMap = mapOf(typeOf<ArticleType>() to ArticleTypeNavType),
                                     enterTransition = articleEnterTransition,
                                     exitTransition = articleExitTransition,
-                                    popExitTransition = { slideOutHorizontally(tween(300)) { it } + fadeOut(tween(300)) },
+                                    popEnterTransition = { EnterTransition.None },
+                                    popExitTransition = { backExitTransition },
                                 ) { navEntry ->
                                     val article: Article = navEntry.toRoute()
                                     // 启用自适应导航时由 effect 转交详情栈，不创建会抢先消费一次性交接数据的临时页面。
@@ -941,22 +984,25 @@ fun ZhihuMain(
                                         if (initialState.destination.hasRoute<Search>()) {
                                             EnterTransition.None
                                         } else {
-                                            fadeIn(animationSpec = tween(durationMillis = 240)) +
-                                                slideInVertically(animationSpec = tween(durationMillis = 280)) { it / 16 } +
+                                            fadeIn(animationSpec = motion.defaultEffectsSpec()) +
+                                                slideInVertically(animationSpec = motion.slowSpatialSpec()) { it / 16 } +
                                                 scaleIn(
-                                                    animationSpec = tween(durationMillis = 280),
+                                                    animationSpec = motion.slowSpatialSpec(),
                                                     initialScale = 0.985f,
                                                 )
                                         }
                                     },
+                                    popEnterTransition = { EnterTransition.None },
                                     popExitTransition = {
                                         if (targetState.destination.hasRoute<Search>()) {
                                             ExitTransition.None
+                                        } else if (useLinearBackProgress) {
+                                            backExitTransition
                                         } else {
-                                            fadeOut(animationSpec = tween(durationMillis = 180)) +
-                                                slideOutVertically(animationSpec = tween(durationMillis = 220)) { it / 20 } +
+                                            fadeOut(animationSpec = motion.defaultEffectsSpec()) +
+                                                slideOutVertically(animationSpec = motion.slowSpatialSpec()) { it / 20 } +
                                                 scaleOut(
-                                                    animationSpec = tween(durationMillis = 220),
+                                                    animationSpec = motion.slowSpatialSpec(),
                                                     targetScale = 0.985f,
                                                 )
                                         }
@@ -1020,8 +1066,8 @@ fun ZhihuMain(
                     // 尺寸变化只调整同一宿主的布局；隐藏时保存整个导航子树，独立弹窗也随页面离开组合。
                     Row(
                         (if (detailEntry != null) Modifier.fillMaxSize() else Modifier.size(0.dp)).graphicsLayer {
-                            translationX = if (showListDetail) 0f else size.width * (1f - detailPaneProgress)
-                            alpha = if (showListDetail) 1f else detailPaneProgress
+                            translationX = if (showListDetail) 0f else size.width * (1f - detailPaneProgress.coerceIn(0f, 1f))
+                            alpha = if (showListDetail) 1f else detailPaneAlpha
                         },
                     ) {
                         if (showListDetail) {
@@ -1066,8 +1112,8 @@ fun ZhihuMain(
                         },
                     ).fillMaxWidth(),
                 visible = isReadingPlayerExpanded,
-                enter = fadeIn(tween(220)) + scaleIn(tween(220), initialScale = 0.92f),
-                exit = fadeOut(tween(160)) + scaleOut(tween(160), targetScale = 0.92f),
+                enter = fadeIn(motion.defaultEffectsSpec()) + scaleIn(motion.slowSpatialSpec(), initialScale = 0.92f),
+                exit = fadeOut(motion.defaultEffectsSpec()) + scaleOut(motion.slowSpatialSpec(), targetScale = 0.92f),
             ) {
                 ReadingPlayerBar(
                     state = readingPlayerState,
@@ -1093,8 +1139,8 @@ fun ZhihuMain(
 
             AnimatedVisibility(
                 visible = readingPlayerState.hasSession && !isReadingPlayerExpanded,
-                enter = fadeIn(tween(220)),
-                exit = fadeOut(tween(160)),
+                enter = fadeIn(motion.defaultEffectsSpec()),
+                exit = fadeOut(motion.defaultEffectsSpec()),
             ) {
                 Box(modifier = Modifier.fillMaxSize()) {
                     CompactReadingPlayerButton(

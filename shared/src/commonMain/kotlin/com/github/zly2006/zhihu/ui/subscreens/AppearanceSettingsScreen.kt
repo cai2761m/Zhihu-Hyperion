@@ -150,6 +150,8 @@ import kotlin.math.abs
 import kotlin.math.roundToInt
 import kotlin.time.Duration.Companion.milliseconds
 
+const val ENABLE_PREDICTIVE_BACK_PREFERENCE_KEY = "enable_predictive_back"
+
 const val DUO3_CARD_LARGE_TITLE_PREFERENCE_KEY = "duo3_card_large_title"
 const val APPEARANCE_SETTINGS_SCROLL_TAG = "appearanceSettings.scroll"
 const val APPEARANCE_SETTINGS_START_DESTINATION_TAG = "appearanceSettings.startDestination"
@@ -1649,7 +1651,7 @@ fun AppearanceSettingsScreen(
                     bringIntoViewRequester = requesterFor("use_custom_nav_host"),
                 )
 
-                val enablePredictiveBack = remember { mutableStateOf(settings.getBoolean("enable_predictive_back", true)) }
+                val enablePredictiveBack = remember { mutableStateOf(settings.getBoolean(ENABLE_PREDICTIVE_BACK_PREFERENCE_KEY, true)) }
                 SettingItemWithSwitch(
                     title = { Text("启用预测性返回") },
                     icon = { Icon(AppIcons.SwipeLeft, contentDescription = null) },
@@ -1657,11 +1659,11 @@ fun AppearanceSettingsScreen(
                     checked = enablePredictiveBack.value,
                     onCheckedChange = {
                         enablePredictiveBack.value = it
-                        settings.putBoolean("enable_predictive_back", it)
+                        settings.putBoolean(ENABLE_PREDICTIVE_BACK_PREFERENCE_KEY, it)
                     },
-                    settingKey = "enable_predictive_back",
+                    settingKey = ENABLE_PREDICTIVE_BACK_PREFERENCE_KEY,
                     highlightedKey = settingKey,
-                    bringIntoViewRequester = requesterFor("enable_predictive_back"),
+                    bringIntoViewRequester = requesterFor(ENABLE_PREDICTIVE_BACK_PREFERENCE_KEY),
                 )
 
                 if (isTopLevelBackToLauncherSupported) {

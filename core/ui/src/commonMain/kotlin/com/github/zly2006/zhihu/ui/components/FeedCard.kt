@@ -37,7 +37,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -406,9 +405,9 @@ private fun FeedCardContent(
                         contentDescription = "Thumbnail",
                         modifier = Modifier
                             .padding(top = 8.dp)
-                            .sizeIn(maxHeight = 80.dp, maxWidth = 128.dp)
+                            .size(80.dp)
                             .clip(RoundedCornerShape(8.dp)),
-                        contentScale = ContentScale.FillHeight,
+                        contentScale = ContentScale.Crop,
                     )
                 }
             }
@@ -539,7 +538,7 @@ private fun FeedCardContent(
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(top = 6.dp),
+                            .padding(top = 12.dp),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
                         FeedCardDetails(item.details, Modifier.weight(1f))
@@ -553,9 +552,9 @@ private fun FeedCardContent(
                     model = thumbnailUrl,
                     contentDescription = "Thumbnail",
                     modifier = Modifier
-                        .weight(1f)
-                        .sizeIn(maxWidth = 60.dp)
+                        .size(80.dp)
                         .clip(RoundedCornerShape(8.dp)),
+                    contentScale = ContentScale.Crop,
                 )
             }
         }
@@ -752,10 +751,7 @@ internal fun feedDetailParts(details: String): List<FeedDetailPart> = details
         parts
     }
 
-/**
- * 卡片左下角的详情行：赞同用主色、评论用次色、推荐来源用第三色的色块单独强调，收藏、浏览用中性色块；
- * 空间不够时换行，不截掉计数。
- */
+/** 卡片计数与来源使用次级文字色；空间不足时换行，保留完整计数和无障碍说明。 */
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun FeedCardDetails(details: String, modifier: Modifier = Modifier) {
@@ -763,7 +759,7 @@ private fun FeedCardDetails(details: String, modifier: Modifier = Modifier) {
     val colors = MaterialTheme.colorScheme
     FlowRow(
         modifier = modifier,
-        horizontalArrangement = Arrangement.spacedBy(6.dp),
+        horizontalArrangement = Arrangement.spacedBy(12.dp),
         verticalArrangement = Arrangement.spacedBy(4.dp),
         itemVerticalAlignment = Alignment.CenterVertically,
     ) {
@@ -779,23 +775,14 @@ private fun FeedCardDetails(details: String, modifier: Modifier = Modifier) {
                 )
                 return@forEach
             }
-            val (containerColor, contentColor) = when (kind) {
-                FeedDetailKind.VoteUp -> colors.primaryContainer to colors.onPrimaryContainer
-                FeedDetailKind.Comment -> colors.secondaryContainer to colors.onSecondaryContainer
-                FeedDetailKind.Recommendation -> colors.tertiaryContainer to colors.onTertiaryContainer
-                FeedDetailKind.Collect, FeedDetailKind.View -> colors.surfaceContainerHighest to colors.onSurfaceVariant
-            }
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
-                    .clip(CircleShape)
-                    .background(containerColor)
-                    .padding(horizontal = 8.dp, vertical = 2.dp)
                     .clearAndSetSemantics { contentDescription = part.description },
             ) {
-                Icon(kind.icon, contentDescription = null, tint = contentColor, modifier = Modifier.size(14.dp))
+                Icon(kind.icon, contentDescription = null, tint = colors.onSurfaceVariant, modifier = Modifier.size(14.dp))
                 Spacer(Modifier.width(4.dp))
-                Text(part.text, style = MaterialTheme.typography.labelMedium, color = contentColor, maxLines = 1)
+                Text(part.text, style = MaterialTheme.typography.labelMedium, color = colors.onSurfaceVariant, maxLines = 1)
             }
         }
     }

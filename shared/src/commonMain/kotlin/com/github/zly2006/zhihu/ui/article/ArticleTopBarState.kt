@@ -1,6 +1,7 @@
 /*
  * Zhihu-Hyperion - Free & Ad-Free Zhihu client for all platforms.
  * Copyright (C) 2024-2026, zly2006 <i@zly2006.me>
+ * Co-author: eltavine <me@eltavine.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -18,8 +19,8 @@
 package com.github.zly2006.zhihu.ui.article
 
 import androidx.compose.animation.core.Animatable
-import androidx.compose.animation.core.tween
 import androidx.compose.foundation.ScrollState
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.Stable
@@ -47,6 +48,7 @@ internal fun rememberArticleTopBarState(
     autoHide: Boolean,
 ): ArticleTopBarState {
     val state = remember { ArticleTopBarState() }
+    val settleMotion = MaterialTheme.motionScheme.fastSpatialSpec<Float>()
 
     LaunchedEffect(autoHide) {
         if (!autoHide) state.offset.snapTo(0f)
@@ -86,7 +88,7 @@ internal fun rememberArticleTopBarState(
                     // This collector observes ScrollState.isScrollInProgress. Mutating that same
                     // ScrollState while settling would restart the flow and trap input dispatch
                     // in a cancellation loop, so snapping is limited to the app bar itself.
-                    state.offset.animateTo(target, tween(150))
+                    state.offset.animateTo(target, settleMotion)
                 } finally {
                     state.isSnapping = false
                 }

@@ -190,6 +190,8 @@ switch_account
 tag
 text_increase
 text_snippet
+thumb_down
+thumb_down filled
 thumb_up
 thumb_up filled
 timer

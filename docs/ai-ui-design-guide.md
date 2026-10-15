@@ -1,6 +1,6 @@
-# Zhihu-Hyperion AI UI Design Guide
+# Zhihu-Hyperion UI 设计约定
 
-这份文档给 AI agent 快速建立 UI、导航、按钮和设置项的共同语义。改代码前仍然要读对应源码；这里负责告诉你先读哪里、状态从哪里来、一个开关会影响哪些界面。
+本文说明 UI、导航、按钮和设置项的共同语义、状态来源与影响范围。改动前仍须核对对应源码。
 
 ## 先读顺序
 
@@ -51,10 +51,10 @@ URL 解析集中在 `resolveContent()`。支持知乎问题、回答、文章、
 
 ### 设计系统：Material 3 Expressive
 
-- 主题：`ZhihuTheme` 用 `MaterialExpressiveTheme`，动效是 `MotionScheme.expressive()` 的弹簧物理，形状和字体用 Expressive 默认尺度（含 `largeIncreased`、`extraLargeIncreased`、`extraExtraLarge` 形状和 `*Emphasized` 字体样式）。自定义动画优先取 `MaterialTheme.motionScheme` 的 spring token，不再手写 tween 时长。
+- 主题：`ZhihuTheme` 用 `MaterialExpressiveTheme`，动效是 `MotionScheme.expressive()` 的弹簧物理，形状和字体用 Expressive 默认尺度（含 `largeIncreased`、`extraLargeIncreased`、`extraExtraLarge` 形状和 `*Emphasized` 字体样式）。自定义动画优先取 `MaterialTheme.motionScheme` 的 spring token，不再手写 tween 时长。预测性返回按手势进度线性 seek，插值规则保留到当前导航项结束转场，提交和取消交由 NavHost 收尾；普通转场使用主题 spring。预览应显示原页面并保留其上下文。
 - 配色：平台壁纸取色可用时用平台配色；否则（关闭动态取色、桌面、macOS、Android 12 以下）用 `customThemeColor` 经 material-kolor 按 2025 版规范生成。
 - 组件：优先用 material3 已提供的 Expressive 组件（分段列表、按钮组、切换按钮、FAB 菜单、浮动工具栏、加载指示器等），不要手写外观相似的替代品；只有承载应用语义时才封装（如设置项）。
-- 图标：界面只用 `:core:icons` 的 `AppIcons.<名称>`，用 `Icon(icon = ...)` 渲染，不依赖任何图标库或直接引用图标资源。图标是 Material Symbols Rounded 的未填充版本；`*Filled` 只用于选中、已赞、已收藏等状态，底栏选中项也用填充版本。新增图标先在 `core/icons/symbols.txt` 登记一行，再运行 `python3 core/icons/symbols.py`，CI 用 `--check` 校验清单、资源和 `AppIcons.kt` 一致。品牌标志（GitHub、Telegram）和知乎投票箭头这类 Material Symbols 没有的图形才保留独立资源。同一个概念全局只用一个图标（如“收藏夹”一律用 `Bookmarks`，赞数用 `ThumbUp`，粉丝数和关注数用 `Group`），一个图标也只表示一种含义；选图标前先搜一遍 `AppIcons.<名称>` 的现有用法。
+- 图标：界面只用 `:core:icons` 的 `AppIcons.<名称>`，用 `Icon(icon = ...)` 渲染，不依赖任何图标库或直接引用图标资源。图标是 Material Symbols Rounded 的未填充版本；`*Filled` 只用于选中、已赞、已收藏等状态，底栏选中项也用填充版本。新增图标先在 `core/icons/symbols.txt` 登记一行，再运行 `python3 core/icons/symbols.py`，CI 用 `--check` 校验清单、资源和 `AppIcons.kt` 一致。品牌标志（GitHub、Telegram）这类 Material Symbols 没有的图形才保留独立资源。同一个概念全局只用一个图标（如“收藏夹”一律用 `Bookmarks`，赞数与赞同用 `ThumbUp`、反对用 `ThumbDown`，粉丝数和关注数用 `Group`），一个图标也只表示一种含义；选图标前先搜一遍 `AppIcons.<名称>` 的现有用法。
 - 实验 API 的边界：Expressive 组件大多仍标注 `@ExperimentalMaterial3ExpressiveApi`，只在 `:core:ui` 的封装里使用（`SettingItem` 系列、`ChoiceButtonGroup`、`AppLoadingIndicator`、`AppPullToRefreshBox`、`FabMenu`、`EmptyState`、`ShapedIcon`、`MediumActionButton`、`BottomFloatingToolbar`、`ActionToggleButton`、`GroupedListItem`），公开参数只用稳定类型；页面直接调用这些封装，不在页面里 opt-in 实验 API。`ShortNavigationBar` 等已稳定的组件可以直接用。
 - 自适应导航：窗口宽度达到 600dp（横屏手机、平板、桌面窗口）且没有进入列表-详情双栏时，主壳用左侧导航轨 `WideNavigationRail` 代替底栏，标题和图标同样只取 `allBottomBarItems`；双栏时列表栏本身是窄屏宽度，仍在列表栏底部用底栏。悬浮在内容上的控件要按所在容器而不是整个窗口计算位置，因为导航轨会占去左侧宽度。
 - 设置项：每一行都配一个表意的图标，`SettingItem` 把它放进色调圆形容器。有整行动作的行由 Expressive 分段列表项绘制，按下时圆角形变；开关行带 `Role.Switch` 语义。行尾只放开关、数值和跳转箭头；选择控件（按钮组、下拉框）、滑杆和输入框放进 `bottomAction`，横跨整行宽度，不和标题抢宽度。
@@ -74,7 +74,7 @@ URL 解析集中在 `resolveContent()`。支持知乎问题、回答、文章、
 
 信息流卡片由 `FeedCard` 读取 `showFeedThumbnail`、`feedCardStyle`、`duo3_card_appearance`、`duo3_card_layout`、`duo3_card_large_title`。改这些 key 的语义时要同时查主页、关注、热榜、历史和搜索结果等复用卡片的页面。
 
-卡片左下角的详情行由 `feedDetailParts` 按「 · 」拆段：赞同、评论、收藏、浏览计数和「…推荐」来源各自显示为带图标的色块（赞同主色、评论次色、推荐第三色，收藏与浏览中性色），其余片段保持原文。数据源新增计数时沿用「数字 量词」的写法并在 `FeedDetailKind` 登记量词，不要另拼带图标的文字。
+卡片左下角的详情行由 `feedDetailParts` 按「 · 」拆段：赞同、评论、收藏、浏览计数和「…推荐」来源使用图标与 `onSurfaceVariant` 次级文字，不加彩色色块；其余片段保持原文。标题、作者、摘要、互动信息依次分层，互动信息与摘要之间保留独立间距。数据源新增计数时沿用「数字 量词」的写法并在 `FeedDetailKind` 登记量词，不要另拼带图标的文字。
 
 文章、问题详情和想法正文会根据 `ARTICLE_USE_WEBVIEW_PREFERENCE_KEY` 在 WebView 与 Compose Markdown 之间切换；该常量当前值是 `webviewRender`。WebView 正文渲染只作为废弃路径保留，不再接受新功能；阅读体验新能力只接入 Compose Markdown 路径。Compose Markdown 路径依赖 `RenderMarkdown` 和 `SegmentedText` 的字号、行高和段间距设置。
 

@@ -1,6 +1,7 @@
 /*
  * Zhihu-Hyperion - Free & Ad-Free Zhihu client for all platforms.
  * Copyright (C) 2024-2026, zly2006 <i@zly2006.me>
+ * Co-author: eltavine <me@eltavine.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -18,18 +19,18 @@
 package com.github.zly2006.zhihu.ui.components
 
 import androidx.compose.animation.core.Animatable
-import androidx.compose.animation.core.Spring
-import androidx.compose.animation.core.spring
 import androidx.compose.foundation.gestures.detectHorizontalDragGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.offset
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clipToBounds
@@ -71,6 +72,7 @@ fun AnswerHorizontalOverscroll(
     }
 
     val overscrollOffset = remember { Animatable(0f) }
+    val settleMotion by rememberUpdatedState(MaterialTheme.motionScheme.fastSpatialSpec<Float>())
     var hasTriggeredHaptic by remember { mutableStateOf(false) }
     var rawDragAccumulator by remember { mutableFloatStateOf(0f) }
     var containerWidthPx by remember { mutableFloatStateOf(0f) }
@@ -104,10 +106,7 @@ fun AnswerHorizontalOverscroll(
                             coroutineScope.launch {
                                 overscrollOffset.animateTo(
                                     0f,
-                                    animationSpec = spring(
-                                        dampingRatio = Spring.DampingRatioMediumBouncy,
-                                        stiffness = Spring.StiffnessMedium,
-                                    ),
+                                    animationSpec = settleMotion,
                                 )
                             }
                         }
@@ -115,7 +114,7 @@ fun AnswerHorizontalOverscroll(
                     onDragCancel = {
                         rawDragAccumulator = 0f
                         hasTriggeredHaptic = false
-                        coroutineScope.launch { overscrollOffset.snapTo(0f) }
+                        coroutineScope.launch { overscrollOffset.animateTo(0f, settleMotion) }
                     },
                 ) { _, dragAmount ->
                     val canDragRight = dragAmount > 0 && canGoPrevious

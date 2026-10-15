@@ -74,6 +74,7 @@ kotlin {
             implementation(libs.coil.compose)
             implementation(libs.coil.network.core)
             implementation(libs.jetbrains.navigation.compose)
+            implementation(libs.jetbrains.navigationevent.compose)
             implementation(libs.jetbrains.lifecycle.runtime.compose)
             implementation(libs.jetbrains.lifecycle.viewmodel.compose)
             implementation(libs.kotlinx.coroutines.core)
@@ -132,7 +133,6 @@ kotlin {
         }
         macosMain.dependencies {
             implementation(libs.ktor.client.darwin)
-            implementation(libs.jetbrains.navigationevent.compose)
         }
         jvmTest.dependencies {
             implementation(libs.jsoup)

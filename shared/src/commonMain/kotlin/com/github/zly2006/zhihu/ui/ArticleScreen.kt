@@ -188,8 +188,6 @@ import kotlinx.coroutines.flow.collectLatest
 import org.jetbrains.compose.resources.painterResource
 import org.koin.compose.koinInject
 import zhihu.shared.generated.resources.Res
-import zhihu.shared.generated.resources.ic_vote_down_24dp
-import zhihu.shared.generated.resources.ic_vote_up_24dp
 import kotlin.math.max
 
 private const val SCROLL_THRESHOLD = 10 // 滑动阈值，单位为dp
@@ -576,8 +574,9 @@ fun ArticleScreen(
                             .onSizeChanged {
                                 topBarState.heightPx = it.height.toFloat()
                             }.graphicsLayer {
-                                translationY = topBarState.offset.value
-                                alpha = if (topBarState.heightPx > 0f) 1f + (topBarState.offset.value / topBarState.heightPx) else 1f
+                                // 弹簧可以越过目标，工具栏位移和由其计算的透明度仍受测量高度约束。
+                                translationY = topBarState.offset.value.coerceIn(-topBarState.heightPx, 0f)
+                                alpha = if (topBarState.heightPx > 0f) 1f + (translationY / topBarState.heightPx) else 1f
                             },
                     ) {
                         ZhihuTwoRowsTopAppBar(
@@ -659,7 +658,7 @@ fun ArticleScreen(
                                     onCheckedChange = { checked ->
                                         viewModel.toggleVoteUp(environment, if (checked) VoteUpState.Up else VoteUpState.Neutral)
                                     },
-                                    icon = { Icon(painterResource(Res.drawable.ic_vote_up_24dp), "赞同") },
+                                    icon = { Icon(if (viewModel.voteUpState == VoteUpState.Up) AppIcons.ThumbUpFilled else AppIcons.ThumbUp, "赞同") },
                                     label = viewModel.voteUpCount.toString(),
                                     checkedContainerColor = voteColor,
                                     checkedContentColor = Color.White,
@@ -669,7 +668,7 @@ fun ArticleScreen(
                                     onCheckedChange = { checked ->
                                         viewModel.toggleVoteUp(environment, if (checked) VoteUpState.Down else VoteUpState.Neutral)
                                     },
-                                    icon = { Icon(painterResource(Res.drawable.ic_vote_down_24dp), "反对") },
+                                    icon = { Icon(if (viewModel.voteUpState == VoteUpState.Down) AppIcons.ThumbDownFilled else AppIcons.ThumbDown, "反对") },
                                     checkedContainerColor = voteColor,
                                     checkedContentColor = Color.White,
                                 )
@@ -733,7 +732,7 @@ fun ArticleScreen(
                                             verticalAlignment = Alignment.CenterVertically,
                                         ) {
                                             Icon(
-                                                painter = painterResource(Res.drawable.ic_vote_up_24dp),
+                                                icon = if (viewModel.voteUpState == VoteUpState.Up) AppIcons.ThumbUpFilled else AppIcons.ThumbUp,
                                                 contentDescription = "赞同",
                                                 tint = upContentColor,
                                                 modifier = Modifier.size(24.dp),
@@ -776,7 +775,7 @@ fun ArticleScreen(
                                                 Spacer(modifier = Modifier.width(2.dp))
                                             }
                                             Icon(
-                                                painter = painterResource(Res.drawable.ic_vote_down_24dp),
+                                                icon = if (viewModel.voteUpState == VoteUpState.Down) AppIcons.ThumbDownFilled else AppIcons.ThumbDown,
                                                 contentDescription = "反对",
                                                 tint = downContentColor,
                                                 modifier = Modifier.size(24.dp),
@@ -864,9 +863,9 @@ fun ArticleScreen(
                                 modifier = Modifier
                                     .onSizeChanged { bottomBarState.heightPx = it.height.toFloat() }
                                     .graphicsLayer {
-                                        translationY = bottomBarState.offset.value
+                                        translationY = bottomBarState.offset.value.coerceIn(0f, bottomBarState.heightPx)
                                         alpha = if (bottomBarState.heightPx > 0f) {
-                                            1f - (bottomBarState.offset.value / bottomBarState.heightPx)
+                                            1f - (translationY / bottomBarState.heightPx)
                                         } else {
                                             1f
                                         }
