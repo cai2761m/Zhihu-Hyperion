@@ -89,7 +89,6 @@ fun AndroidZhihuMain(navController: NavHostController) {
         consumeMainTabNavigationTarget = activity::consumeMainTabNavigationTarget,
         preferenceState = rememberAndroidZhihuMainPreferenceState(),
         predictiveBackEnabled = enablePredictiveBack,
-        isDarkTheme = com.github.zly2006.zhihu.theme.ThemeManager.isDarkTheme,
         articleEnterTransition = {
             when (answerSwitchState.answerTransitionDirection) {
                 ArticleAnswerTransitionDirection.VERTICAL_NEXT -> {

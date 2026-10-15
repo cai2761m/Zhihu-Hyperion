@@ -43,8 +43,8 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FilledTonalIconButton
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
@@ -256,7 +256,7 @@ fun AccountSettingScreen(
                             )
                         }
                         if (launchQrScanner != null) {
-                            FilledTonalIconButton(
+                            IconButton(
                                 onClick = launchQrScanner,
                                 modifier = Modifier.testTag(ACCOUNT_SETTINGS_SCAN_TAG),
                             ) {
@@ -307,7 +307,7 @@ fun AccountSettingScreen(
                     Modifier
                         .padding(start = 16.dp, end = 16.dp, bottom = 32.dp)
                         .clip(RoundedCornerShape(24.dp)),
-                    horizontalArrangement = Arrangement.spacedBy(2.dp),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
                     if (data.login) {
                         Column(
@@ -315,7 +315,6 @@ fun AccountSettingScreen(
                                 .testTag(ACCOUNT_SETTINGS_SHORTCUT_COLLECTIONS_TAG)
                                 .weight(1f)
                                 .clip(RoundedCornerShape(4.dp))
-                                .background(MaterialTheme.colorScheme.primaryContainer)
                                 .clickable {
                                     data.urlToken?.let { navigator.onNavigate(Collections(it)) }
                                 }.padding(8.dp, 16.dp),
@@ -325,13 +324,13 @@ fun AccountSettingScreen(
                             Icon(
                                 AppIcons.BookmarksFilled,
                                 null,
-                                tint = MaterialTheme.colorScheme.onPrimaryContainer,
+                                tint = MaterialTheme.colorScheme.onSurface,
                             )
                             Spacer(Modifier.height(4.dp))
                             Text(
                                 "收藏夹",
                                 style = MaterialTheme.typography.labelLarge,
-                                color = MaterialTheme.colorScheme.onPrimaryContainer,
+                                color = MaterialTheme.colorScheme.onSurface,
                             )
                         }
                         Column(
@@ -339,7 +338,6 @@ fun AccountSettingScreen(
                                 .testTag(ACCOUNT_SETTINGS_SHORTCUT_SUBSCRIPTIONS_TAG)
                                 .weight(1f)
                                 .clip(RoundedCornerShape(4.dp))
-                                .background(MaterialTheme.colorScheme.primaryContainer)
                                 .clickable {
                                     navigator.onNavigate(
                                         Person(
@@ -356,13 +354,13 @@ fun AccountSettingScreen(
                             Icon(
                                 AppIcons.Groups,
                                 null,
-                                tint = MaterialTheme.colorScheme.onPrimaryContainer,
+                                tint = MaterialTheme.colorScheme.onSurface,
                             )
                             Spacer(Modifier.height(4.dp))
                             Text(
                                 "关注订阅",
                                 style = MaterialTheme.typography.labelLarge,
-                                color = MaterialTheme.colorScheme.onPrimaryContainer,
+                                color = MaterialTheme.colorScheme.onSurface,
                             )
                         }
                         Column(
@@ -370,7 +368,6 @@ fun AccountSettingScreen(
                                 .testTag(ACCOUNT_SETTINGS_SHORTCUT_NOTIFICATION_TAG)
                                 .weight(1f)
                                 .clip(RoundedCornerShape(4.dp))
-                                .background(MaterialTheme.colorScheme.primaryContainer)
                                 .clickable {
                                     onDismissRequest()
                                     navigator.onNavigate(Notification)
@@ -388,14 +385,14 @@ fun AccountSettingScreen(
                                 Icon(
                                     AppIcons.Notifications,
                                     null,
-                                    tint = MaterialTheme.colorScheme.onPrimaryContainer,
+                                    tint = MaterialTheme.colorScheme.onSurface,
                                 )
                             }
                             Spacer(Modifier.height(4.dp))
                             Text(
                                 "通知",
                                 style = MaterialTheme.typography.labelLarge,
-                                color = MaterialTheme.colorScheme.onPrimaryContainer,
+                                color = MaterialTheme.colorScheme.onSurface,
                             )
                         }
                         if (shouldShowAccountHistoryShortcut(useDuo3HomeAccount, selectedBottomBarItemKeys)) {
@@ -404,7 +401,6 @@ fun AccountSettingScreen(
                                     .testTag(ACCOUNT_SETTINGS_SHORTCUT_HISTORY_TAG)
                                     .weight(1f)
                                     .clip(RoundedCornerShape(4.dp))
-                                    .background(MaterialTheme.colorScheme.primaryContainer)
                                     .clickable {
                                         onDismissRequest()
                                         navigator.onNavigateTopLevel(OnlineHistory)
@@ -415,13 +411,13 @@ fun AccountSettingScreen(
                                 Icon(
                                     AppIcons.History,
                                     null,
-                                    tint = MaterialTheme.colorScheme.onPrimaryContainer,
+                                    tint = MaterialTheme.colorScheme.onSurface,
                                 )
                                 Spacer(Modifier.height(4.dp))
                                 Text(
                                     "浏览历史",
                                     style = MaterialTheme.typography.labelLarge,
-                                    color = MaterialTheme.colorScheme.onPrimaryContainer,
+                                    color = MaterialTheme.colorScheme.onSurface,
                                 )
                             }
                         }

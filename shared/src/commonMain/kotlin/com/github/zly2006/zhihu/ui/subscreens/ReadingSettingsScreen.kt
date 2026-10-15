@@ -142,7 +142,6 @@ fun ReadingSettingsScreen() {
                     IconButton(
                         onClick = navigator.onNavigateBack,
                         colors = IconButtonDefaults.iconButtonColors(
-                            containerColor = MaterialTheme.colorScheme.surfaceVariant,
                             contentColor = MaterialTheme.colorScheme.onSurfaceVariant,
                         ),
                     ) {

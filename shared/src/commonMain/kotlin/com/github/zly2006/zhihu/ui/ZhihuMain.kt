@@ -84,7 +84,7 @@ import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.compositeOver
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
 import androidx.compose.ui.input.nestedscroll.NestedScrollSource
@@ -269,7 +269,6 @@ fun ZhihuMain(
     setCurrentMainTabOpenFrom: (String?) -> Unit,
     consumeMainTabNavigationTarget: (TopLevelDestination) -> Unit,
     preferenceState: ZhihuMainPreferenceState,
-    isDarkTheme: Boolean,
     articleContent: @Composable (Article, NavBackStackEntry) -> Unit,
     showMainNavigationBar: Boolean = true,
     showHomeTopActions: Boolean = true,
@@ -794,16 +793,9 @@ fun ZhihuMain(
                                             )
                                         } else {
                                             ShortNavigationBar(containerColor = MaterialTheme.colorScheme.surfaceContainerHigh) {
-                                                val itemColors = if (!isDarkTheme) {
-                                                    ShortNavigationBarItemDefaults.colors(
-                                                        selectedIndicatorColor =
-                                                            MaterialTheme.colorScheme.secondaryContainer
-                                                                .copy(alpha = 0.92f)
-                                                                .compositeOver(MaterialTheme.colorScheme.secondary),
-                                                    )
-                                                } else {
-                                                    ShortNavigationBarItemDefaults.colors()
-                                                }
+                                                val itemColors = ShortNavigationBarItemDefaults.colors(
+                                                    selectedIndicatorColor = Color.Transparent,
+                                                )
                                                 bottomBarItems.forEachIndexed { index, item ->
                                                     if (showBottomCreateEntry && index == bottomBarItems.size / 2) {
                                                         ShortNavigationBarItem(

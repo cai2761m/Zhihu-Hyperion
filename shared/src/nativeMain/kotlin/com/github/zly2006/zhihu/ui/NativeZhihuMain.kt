@@ -59,7 +59,6 @@ import com.github.zly2006.zhihu.navigation.TopLevelDestination
 import com.github.zly2006.zhihu.platform.SettingsStore
 import com.github.zly2006.zhihu.platform.platformBottomBarItemLimit
 import com.github.zly2006.zhihu.platform.rememberUserMessageSink
-import com.github.zly2006.zhihu.theme.ThemeManager
 import com.github.zly2006.zhihu.ui.subscreens.BOTTOM_BAR_ITEMS_PREFERENCE_KEY
 import com.github.zly2006.zhihu.ui.subscreens.BOTTOM_BAR_ITEM_ORDER_PREFERENCE_KEY
 import com.github.zly2006.zhihu.ui.subscreens.COLLECTION_DIRECT_BROWSE_PREFERENCE_KEY
@@ -192,7 +191,6 @@ fun NativeZhihuMain(chrome: NativeMainChromeHost? = null) {
                 }
             },
             preferenceState = preferenceState,
-            isDarkTheme = ThemeManager.isDarkTheme(),
             showMainNavigationBar = chrome == null,
             showHomeTopActions = chrome == null,
             onCurrentMainTabDestinationChange = { currentMainTabDestination = it },

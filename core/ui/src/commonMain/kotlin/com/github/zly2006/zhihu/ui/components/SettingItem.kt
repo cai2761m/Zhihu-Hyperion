@@ -283,8 +283,7 @@ fun SettingItemOverall(
             trailingContentColor = colorScheme.onPrimaryContainer,
         ),
         contentPadding = PaddingValues(horizontal = 24.dp, vertical = 12.dp),
-        iconContainerColor = colorScheme.primary,
-        iconContentColor = colorScheme.onPrimary,
+        iconContentColor = colorScheme.onPrimaryContainer,
     )
 }
 
@@ -438,8 +437,7 @@ private fun SettingRow(
     shapes: ListItemShapes = ListItemDefaults.shapes(),
     colors: ListItemColors = ListItemDefaults.segmentedColors(),
     contentPadding: PaddingValues = ListItemDefaults.ContentPadding,
-    iconContainerColor: Color = MaterialTheme.colorScheme.secondaryContainer,
-    iconContentColor: Color = MaterialTheme.colorScheme.onSecondaryContainer,
+    iconContentColor: Color = MaterialTheme.colorScheme.onSurfaceVariant,
 ) {
     val colorScheme = MaterialTheme.colorScheme
     val rowModifier = modifier
@@ -462,9 +460,7 @@ private fun SettingRow(
     val leading: (@Composable () -> Unit)? = icon?.let {
         {
             Box(
-                Modifier
-                    .size(40.dp)
-                    .background(if (enabled) iconContainerColor else colorScheme.onSurface.copy(alpha = 0.12f), CircleShape),
+                Modifier.size(40.dp),
                 contentAlignment = Alignment.Center,
             ) {
                 CompositionLocalProvider(

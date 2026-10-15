@@ -51,7 +51,6 @@ import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -450,7 +449,7 @@ private fun QuestionHeaderSection(
                 StatItem(icon = AppIcons.Comment, text = "$commentCount 评论")
                 StatItem(icon = AppIcons.Favorite, text = "$followerCount 关注")
             }
-            OutlinedButton(
+            TextButton(
                 onClick = onShowComments,
                 modifier = Modifier.testTag(QUESTION_COMMENTS_BUTTON_TAG),
             ) {
@@ -806,8 +805,8 @@ private fun QuestionPrimaryActions(
             modifier = Modifier.weight(1f).testTag(QUESTION_WRITE_ANSWER_BUTTON_TAG),
             colors =
                 ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.secondaryContainer,
-                    contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
+                    containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+                    contentColor = MaterialTheme.colorScheme.onSurface,
                 ),
         ) {
             Icon(AppIcons.Edit, contentDescription = "写回答")
@@ -827,7 +826,10 @@ private fun QuestionPrimaryActions(
                         contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
                     )
                 } else {
-                    ButtonDefaults.filledTonalButtonColors()
+                    ButtonDefaults.filledTonalButtonColors(
+                        containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+                        contentColor = MaterialTheme.colorScheme.onSurface,
+                    )
                 },
         ) {
             Icon(

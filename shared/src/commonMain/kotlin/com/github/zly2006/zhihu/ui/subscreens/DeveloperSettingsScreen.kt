@@ -123,7 +123,6 @@ fun DeveloperSettingsScreen() {
                         modifier = Modifier.testTag(DEVELOPER_SETTINGS_BACK_BUTTON_TAG),
                         onClick = navigator.onNavigateBack,
                         colors = IconButtonDefaults.iconButtonColors(
-                            containerColor = MaterialTheme.colorScheme.surfaceVariant,
                             contentColor = MaterialTheme.colorScheme.onSurfaceVariant,
                         ),
                     ) {

@@ -37,7 +37,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.ToggleButton
 import androidx.compose.material3.ToggleButtonDefaults
-import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -82,7 +81,7 @@ fun BottomFloatingToolbar(
 }
 
 /**
- * 操作栏和列表项里的开关按钮（赞同、点赞、收藏）：选中时填充 [checkedContainerColor]，按下和选中时形状变化。
+ * 操作栏和列表项里的开关按钮（赞同、点赞、收藏）：默认不绘制独立底色，选中时用 [checkedContentColor] 和填充图标区分状态。
  *
  * [label] 为 null 时是 48dp 的图标开关；带 [label]（如赞同数）时是图标加文字的开关按钮。
  */
@@ -94,8 +93,8 @@ fun ActionToggleButton(
     modifier: Modifier = Modifier,
     label: String? = null,
     enabled: Boolean = true,
-    checkedContainerColor: Color = MaterialTheme.colorScheme.secondaryContainer,
-    checkedContentColor: Color = contentColorFor(checkedContainerColor),
+    checkedContainerColor: Color = Color.Transparent,
+    checkedContentColor: Color = MaterialTheme.colorScheme.primary,
 ) {
     if (label == null) {
         IconToggleButton(

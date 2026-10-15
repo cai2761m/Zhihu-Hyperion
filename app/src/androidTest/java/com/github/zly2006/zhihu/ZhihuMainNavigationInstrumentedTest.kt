@@ -86,7 +86,6 @@ import com.github.zly2006.zhihu.reading.ReadingQueueItem
 import com.github.zly2006.zhihu.test.MainActivityComposeRule
 import com.github.zly2006.zhihu.test.resetAppPreferences
 import com.github.zly2006.zhihu.test.setZhihuMainContent
-import com.github.zly2006.zhihu.theme.ThemeManager
 import com.github.zly2006.zhihu.theme.ZhihuTheme
 import com.github.zly2006.zhihu.ui.AndroidZhihuMain
 import com.github.zly2006.zhihu.ui.FOLLOW_SCREEN_PAGER_TAG
@@ -558,7 +557,6 @@ class ZhihuMainNavigationInstrumentedTest {
                     setCurrentMainTabOpenFrom = activity::setCurrentMainTabOpenFrom,
                     consumeMainTabNavigationTarget = activity::consumeMainTabNavigationTarget,
                     preferenceState = rememberAndroidZhihuMainPreferenceState(),
-                    isDarkTheme = ThemeManager.isDarkTheme,
                     articleContent = { _, _ ->
                         val navigator = LocalNavigator.current
                         var expanded by rememberSaveable { mutableStateOf(false) }

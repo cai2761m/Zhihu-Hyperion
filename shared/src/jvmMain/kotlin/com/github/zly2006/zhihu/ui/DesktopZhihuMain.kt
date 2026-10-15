@@ -58,7 +58,6 @@ import com.github.zly2006.zhihu.navigation.TopLevelDestination
 import com.github.zly2006.zhihu.platform.SettingsStore
 import com.github.zly2006.zhihu.platform.platformBottomBarItemLimit
 import com.github.zly2006.zhihu.platform.rememberUserMessageSink
-import com.github.zly2006.zhihu.theme.ThemeManager
 import com.github.zly2006.zhihu.ui.subscreens.BOTTOM_BAR_ITEMS_PREFERENCE_KEY
 import com.github.zly2006.zhihu.ui.subscreens.BOTTOM_BAR_ITEM_ORDER_PREFERENCE_KEY
 import com.github.zly2006.zhihu.ui.subscreens.COLLECTION_DIRECT_BROWSE_PREFERENCE_KEY
@@ -169,7 +168,6 @@ fun DesktopZhihuMain() {
             }
         },
         preferenceState = rememberDesktopZhihuMainPreferenceState(),
-        isDarkTheme = ThemeManager.isDarkTheme(),
         articleEnterTransition = {
             when (answerSwitchState.answerTransitionDirection) {
                 ArticleAnswerTransitionDirection.VERTICAL_NEXT -> {

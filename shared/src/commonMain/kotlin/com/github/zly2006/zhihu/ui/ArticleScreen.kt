@@ -60,6 +60,7 @@ import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.IconButtonDefaults
+import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -590,7 +591,6 @@ fun ArticleScreen(
                                         }
                                     },
                                     colors = IconButtonDefaults.iconButtonColors(
-                                        containerColor = MaterialTheme.colorScheme.surfaceVariant,
                                         contentColor = MaterialTheme.colorScheme.onSurfaceVariant,
                                     ),
                                 ) {
@@ -612,6 +612,11 @@ fun ArticleScreen(
                             title = { expanded ->
                                 Text(
                                     text = viewModel.title,
+                                    style = if (expanded && article.type == ArticleType.Answer) {
+                                        MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold)
+                                    } else {
+                                        LocalTextStyle.current
+                                    },
                                     modifier = Modifier
                                         .padding(if (expanded) PaddingValues(end = 16.dp, bottom = 8.dp) else PaddingValues())
                                         .let {
@@ -660,8 +665,7 @@ fun ArticleScreen(
                                     },
                                     icon = { Icon(if (viewModel.voteUpState == VoteUpState.Up) AppIcons.ThumbUpFilled else AppIcons.ThumbUp, "赞同") },
                                     label = viewModel.voteUpCount.toString(),
-                                    checkedContainerColor = voteColor,
-                                    checkedContentColor = Color.White,
+                                    checkedContentColor = voteColor,
                                 )
                                 ActionToggleButton(
                                     checked = viewModel.voteUpState == VoteUpState.Down,
@@ -669,8 +673,7 @@ fun ArticleScreen(
                                         viewModel.toggleVoteUp(environment, if (checked) VoteUpState.Down else VoteUpState.Neutral)
                                     },
                                     icon = { Icon(if (viewModel.voteUpState == VoteUpState.Down) AppIcons.ThumbDownFilled else AppIcons.ThumbDown, "反对") },
-                                    checkedContainerColor = voteColor,
-                                    checkedContentColor = Color.White,
+                                    checkedContentColor = voteColor,
                                 )
                                 TextButton(
                                     onClick = { showComments = true },
@@ -688,7 +691,7 @@ fun ArticleScreen(
                                     icon = {
                                         Icon(if (viewModel.isFavorited) AppIcons.BookmarkFilled else AppIcons.Bookmark, contentDescription = "收藏")
                                     },
-                                    checkedContainerColor = MaterialTheme.colorScheme.tertiaryContainer,
+                                    checkedContentColor = MaterialTheme.colorScheme.tertiary,
                                 )
                                 IconButton(onClick = { showActionsMenu = true }) {
                                     Icon(AppIcons.MoreVert, contentDescription = "更多选项")
@@ -713,16 +716,12 @@ fun ArticleScreen(
                                     AnimatedVisibility(
                                         visible = viewModel.voteUpState == VoteUpState.Neutral || viewModel.voteUpState == VoteUpState.Up,
                                     ) {
-                                        val upBgColor by animateColorAsState(
-                                            targetValue = if (viewModel.voteUpState == VoteUpState.Up) voteUpNeutralContentDuo3() else MaterialTheme.colorScheme.surfaceContainer,
-                                        )
                                         val upContentColor by animateColorAsState(
-                                            targetValue = if (viewModel.voteUpState == VoteUpState.Up) Color.White else MaterialTheme.colorScheme.onSurface,
+                                            targetValue = if (viewModel.voteUpState == VoteUpState.Up) voteUpNeutralContentDuo3() else MaterialTheme.colorScheme.onSurface,
                                         )
                                         Row(
                                             modifier = Modifier
                                                 .clip(RoundedCornerShape(50))
-                                                .background(upBgColor)
                                                 .clickable {
                                                     viewModel.toggleVoteUp(
                                                         environment,
@@ -753,16 +752,12 @@ fun ArticleScreen(
                                     AnimatedVisibility(
                                         visible = viewModel.voteUpState == VoteUpState.Neutral || viewModel.voteUpState == VoteUpState.Down,
                                     ) {
-                                        val downBgColor by animateColorAsState(
-                                            targetValue = if (viewModel.voteUpState == VoteUpState.Down) voteUpNeutralContentDuo3() else MaterialTheme.colorScheme.surfaceContainer,
-                                        )
                                         val downContentColor by animateColorAsState(
-                                            targetValue = if (viewModel.voteUpState == VoteUpState.Down) Color.White else MaterialTheme.colorScheme.onSurface,
+                                            targetValue = if (viewModel.voteUpState == VoteUpState.Down) voteUpNeutralContentDuo3() else MaterialTheme.colorScheme.onSurface,
                                         )
                                         Row(
                                             modifier = Modifier
                                                 .clip(RoundedCornerShape(50))
-                                                .background(downBgColor)
                                                 .clickable {
                                                     viewModel.toggleVoteUp(
                                                         environment,
@@ -804,13 +799,8 @@ fun ArticleScreen(
                                     IconButton(
                                         onClick = { showCollectionDialog = true },
                                         colors = IconButtonDefaults.iconButtonColors(
-                                            containerColor = if (viewModel.isFavorited) {
-                                                Color(0xFFF57C00).harmonize(MaterialTheme.colorScheme.primary)
-                                            } else {
-                                                MaterialTheme.colorScheme.surfaceContainer
-                                            },
                                             contentColor = if (viewModel.isFavorited) {
-                                                Color.White.copy(alpha = 0.87f)
+                                                Color(0xFFF57C00).harmonize(MaterialTheme.colorScheme.primary)
                                             } else {
                                                 MaterialTheme.colorScheme.onSurface
                                             },
@@ -832,19 +822,17 @@ fun ArticleScreen(
                                             },
                                             enabled = ttsState !in listOf(TtsState.Error, TtsState.Uninitialized, TtsState.Initializing),
                                             colors = IconButtonDefaults.iconButtonColors(
-                                                containerColor = Color(0xFF4CAF50).harmonize(MaterialTheme.colorScheme.primary),
-                                                contentColor = Color.White,
+                                                contentColor = Color(0xFF4CAF50).harmonize(MaterialTheme.colorScheme.primary),
                                             ),
                                         ) {
                                             Icon(AppIcons.VolumeOff, contentDescription = "停止朗读")
                                         }
                                     }
 
-                                    Button(
+                                    TextButton(
                                         onClick = { showComments = true },
                                         contentPadding = PaddingValues(start = 8.dp, end = 12.dp),
-                                        colors = ButtonDefaults.buttonColors(
-                                            containerColor = MaterialTheme.colorScheme.surfaceContainer,
+                                        colors = ButtonDefaults.textButtonColors(
                                             contentColor = MaterialTheme.colorScheme.onSurface,
                                         ),
                                     ) {
