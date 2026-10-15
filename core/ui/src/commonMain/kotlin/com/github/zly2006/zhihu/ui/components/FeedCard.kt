@@ -28,6 +28,7 @@ import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
@@ -65,6 +66,8 @@ import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.selected
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.LinkAnnotation
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
@@ -86,6 +89,7 @@ import com.github.zly2006.zhihu.navigation.Account
 import com.github.zly2006.zhihu.navigation.LocalNavigator
 import com.github.zly2006.zhihu.navigation.NavDestination
 import com.github.zly2006.zhihu.navigation.Navigator
+import com.github.zly2006.zhihu.navigation.resolveContent
 import com.github.zly2006.zhihu.navigation.withReadingQueueSource
 import com.github.zly2006.zhihu.platform.SettingsStore
 import com.github.zly2006.zhihu.platform.UserMessageDuration
@@ -119,6 +123,7 @@ fun FeedCard(
     horizontalPadding: Dp = 16.dp,
     menuItems: @Composable ColumnScope.(dismissMenu: () -> Unit) -> Unit = { _ -> },
     showSourceLabel: Boolean = false,
+    isPinned: Boolean = false,
     /**
      * 默认点击行为：优先跳转到信息流条目的详情页；如果只能识别为外链则打开外链，否则提示暂不支持。
      */
@@ -161,6 +166,13 @@ fun FeedCard(
             }
         }
     }
+    val onPreviewLinkClick: (String) -> Unit = { url ->
+        if (url.startsWith("https://", ignoreCase = true) || url.startsWith("http://", ignoreCase = true)) {
+            resolveContent(url)?.let(navigator.onNavigate) ?: uriHandler.openUri(url)
+        } else {
+            performClick(item)
+        }
+    }
     if (feedCardStyle == "divider") {
         Column(
             modifier = modifier
@@ -186,6 +198,8 @@ fun FeedCard(
                     duo3CardLayout = duo3CardLayout,
                     duo3CardLargeTitle = duo3CardLargeTitle,
                     showSourceLabel = showSourceLabel,
+                    isPinned = isPinned,
+                    onLinkClick = onPreviewLinkClick,
                 )
             }
             HorizontalDivider(thickness = 0.3.dp)
@@ -220,10 +234,32 @@ fun FeedCard(
                     duo3CardLayout = duo3CardLayout,
                     duo3CardLargeTitle = duo3CardLargeTitle,
                     showSourceLabel = showSourceLabel,
+                    isPinned = isPinned,
+                    onLinkClick = onPreviewLinkClick,
                 )
             }
         }
     }
+}
+
+@Composable
+private fun RowScope.FeedCardPinnedLabel(fontSizePercent: Int) {
+    val style = MaterialTheme.typography.labelSmall
+    Text(
+        text = "置顶",
+        color = Color.White,
+        style = style.copy(
+            fontSize = style.fontSize * fontSizePercent / 100,
+            lineHeight = style.lineHeight * fontSizePercent / 100,
+        ),
+        modifier = Modifier
+            .alignByBaseline()
+            .padding(end = 6.dp)
+            .clip(RoundedCornerShape(4.dp))
+            .background(Color(0xFF056DE8))
+            .testTag("feed_card_pinned_label")
+            .padding(horizontal = 6.dp, vertical = 2.dp),
+    )
 }
 
 /**
@@ -296,6 +332,8 @@ private fun FeedCardContent(
     duo3CardLayout: Boolean,
     duo3CardLargeTitle: Boolean,
     showSourceLabel: Boolean,
+    isPinned: Boolean,
+    onLinkClick: (String) -> Unit,
 ) {
     val settings = koinInject<SettingsStore>()
     val fontSizePercent = remember { settings.getInt(PREF_FONT_SIZE, 100) }
@@ -303,6 +341,22 @@ private fun FeedCardContent(
     val navigator = LocalNavigator.current
     val visiblePinImages = pinImages.takeIf { showFeedThumbnail && !item.isFiltered }.orEmpty()
     val sourceLabel = item.feed?.sourceLabel.takeUnless { item.isFiltered }
+    val parsedSummary = parseEmphasizedHtmlTextWithTheme(item.summary.orEmpty())
+    val summary = remember(parsedSummary, onLinkClick) {
+        parsedSummary.mapAnnotations { range ->
+            val link = range.item as? LinkAnnotation.Url
+            if (link == null) {
+                range
+            } else {
+                AnnotatedString.Range(
+                    item = link.copy(linkInteractionListener = { onLinkClick(link.url) }),
+                    start = range.start,
+                    end = range.end,
+                    tag = range.tag,
+                )
+            }
+        }
+    }
     if (duo3CardLayout) {
         // ── 新排版（duo3）────────────────────────────────────────────────────
         if (showSourceLabel) {
@@ -315,6 +369,9 @@ private fun FeedCardContent(
                 MaterialTheme.typography.titleMedium
             }
             Row(verticalAlignment = Alignment.CenterVertically) {
+                if (isPinned && !item.isFiltered) {
+                    FeedCardPinnedLabel(fontSizePercent)
+                }
                 Text(
                     text = parseEmphasizedHtmlTextWithTheme(item.title),
                     style = titleStyle.copy(
@@ -324,7 +381,7 @@ private fun FeedCardContent(
                     maxLines = 2,
                     color = MaterialTheme.colorScheme.onSurface,
                     overflow = TextOverflow.Ellipsis,
-                    modifier = Modifier.padding(bottom = 8.dp),
+                    modifier = Modifier.weight(1f).alignByBaseline().padding(bottom = 8.dp),
                 )
             }
         }
@@ -332,7 +389,7 @@ private fun FeedCardContent(
         Column {
             Row {
                 Text(
-                    text = parseEmphasizedHtmlTextWithTheme(item.summary ?: ""),
+                    text = summary,
                     style = MaterialTheme.typography.bodyMedium.copy(
                         fontSize = 14.sp * fontSizePercent / 100,
                         lineHeight = 14.sp * fontSizePercent / 100 * lineHeightPercent / 100,
@@ -420,12 +477,16 @@ private fun FeedCardContent(
         }
         if (!item.title.isEmpty() && !item.isFiltered) {
             Row(verticalAlignment = Alignment.CenterVertically) {
+                if (isPinned) {
+                    FeedCardPinnedLabel(fontSizePercent)
+                }
                 Text(
                     text = parseEmphasizedHtmlTextWithTheme(item.title),
                     fontSize = 16.sp * fontSizePercent / 100,
                     fontWeight = FontWeight.Bold,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
+                    modifier = Modifier.weight(1f).alignByBaseline(),
                 )
             }
         }
@@ -463,7 +524,7 @@ private fun FeedCardContent(
         Row {
             Column(modifier = Modifier.weight(2f)) {
                 Text(
-                    text = parseEmphasizedHtmlTextWithTheme(item.summary ?: ""),
+                    text = summary,
                     fontSize = 14.sp * fontSizePercent / 100,
                     lineHeight = 14.sp * fontSizePercent / 100 * lineHeightPercent / 100,
                     maxLines = 3,

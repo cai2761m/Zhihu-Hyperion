@@ -222,6 +222,12 @@ data class CollectionContent(
 ) : NavDestination
 
 @Serializable
+data class Column(
+    val id: String,
+    val title: String = "",
+) : NavDestination
+
+@Serializable
 enum class ArticleType {
     @SerialName("article")
     Article,
@@ -305,6 +311,13 @@ data class WriteAnswer(
 data class WritePin(
     val topicName: String = "",
     val publishTopicId: String = "",
+) : NavDestination
+
+@Serializable
+data class FollowUserUpdates(
+    val id: String,
+    val urlToken: String = "",
+    val name: String = "",
 ) : NavDestination
 
 @Serializable
@@ -439,6 +452,8 @@ fun resolveContent(url: Url): NavDestination? {
                 return Pin(id = pinId)
             } else if (segments.size == 2 && segments[0] == "collection") {
                 return segments[1].takeIf { it.toLongOrNull() != null }?.let(::CollectionContent)
+            } else if (segments.size == 2 && segments[0] == "column") {
+                return Column(segments[1])
             } else if (segments.size >= 2 && segments[0] == "topic") {
                 return Topic(id = segments[1], section = segments.getOrNull(2).orEmpty())
             } else if (segments.size == 3 && segments[0] == "appview") {
@@ -459,12 +474,14 @@ fun resolveContent(url: Url): NavDestination? {
              * 尚未支持的 destination，等待后续补充对应的 NavDestination：
              * - https://www.zhihu.com/appview/roundtable -> https://www.zhihu.com/roundtable
              * - https://www.zhihu.com/appview/special -> https://www.zhihu.com/special/all
-             * - https://www.zhihu.com/column/{columnToken}
              * - https://daily.zhihu.com/story/{storyId}
              * - https://www.zhihu.com/special/{specialId}
              */
             Log.w("NavDestination", "Cannot resolve content from url: $url")
         } else if (url.host == "zhuanlan.zhihu.com") {
+            if (segments.size == 1 && segments[0] !in listOf("p", "write", "drafts")) {
+                return Column(segments[0])
+            }
             if (segments.size == 2 &&
                 segments[0] == "p"
             ) {
@@ -521,6 +538,8 @@ fun resolveContent(url: Url): NavDestination? {
         } else if (url.host == "articles") {
             val articleId = segments[0].toLong()
             return Article(type = ArticleType.Article, id = articleId)
+        } else if (url.host == "column" && segments.size == 1) {
+            return Column(segments[0])
         } else if (url.host == "search") {
             val query = url.parameters["q"] ?: ""
             return Search(query)

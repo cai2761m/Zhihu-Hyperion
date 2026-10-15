@@ -24,12 +24,14 @@ import androidx.compose.material3.FloatingActionButtonMenu
 import androidx.compose.material3.FloatingActionButtonMenuItem
 import androidx.compose.material3.Text
 import androidx.compose.material3.ToggleFloatingActionButton
+import androidx.compose.material3.ToggleFloatingActionButtonDefaults
 import androidx.compose.material3.ToggleFloatingActionButtonDefaults.animateIcon
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.unit.dp
 import com.github.zly2006.zhihu.icons.AppIcon
 import com.github.zly2006.zhihu.icons.AppIcons
 import com.github.zly2006.zhihu.icons.Icon
@@ -71,11 +73,16 @@ fun FabMenu(
                 checked = expanded,
                 onCheckedChange = onExpandedChange,
                 modifier = buttonModifier.graphicsLayer { alpha = if (expanded) 1f else buttonAlpha },
+                containerSize = ToggleFloatingActionButtonDefaults.containerSize(48.dp, 48.dp),
+                containerCornerRadius = ToggleFloatingActionButtonDefaults.containerCornerRadius(12.dp, 24.dp),
             ) {
                 Icon(
                     if (checkedProgress > 0.5f) AppIcons.Close else icon,
                     contentDescription = if (expanded) "收起" else contentDescription,
-                    modifier = Modifier.animateIcon({ checkedProgress }),
+                    modifier = Modifier.animateIcon(
+                        checkedProgress = { checkedProgress },
+                        size = ToggleFloatingActionButtonDefaults.iconSize(22.dp, 22.dp),
+                    ),
                 )
             }
         },

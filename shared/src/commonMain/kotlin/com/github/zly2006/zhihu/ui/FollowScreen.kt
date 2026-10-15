@@ -74,8 +74,8 @@ import com.github.zly2006.zhihu.data.Feed
 import com.github.zly2006.zhihu.data.target
 import com.github.zly2006.zhihu.icons.AppIcons
 import com.github.zly2006.zhihu.icons.Icon
+import com.github.zly2006.zhihu.navigation.FollowUserUpdates
 import com.github.zly2006.zhihu.navigation.LocalNavigator
-import com.github.zly2006.zhihu.navigation.Person
 import com.github.zly2006.zhihu.navigation.requestLoginNavigation
 import com.github.zly2006.zhihu.platform.SettingsStore
 import com.github.zly2006.zhihu.platform.rememberUserMessageSink
@@ -315,12 +315,12 @@ fun FollowingUsersRow() {
                         modifier = Modifier
                             .testTag("following_users_item_${user.actor.id}")
                             .clickable {
+                                viewModel.markRead(environment, user.actor.id)
                                 navigator.onNavigate(
-                                    Person(
+                                    FollowUserUpdates(
                                         id = user.actor.id,
                                         urlToken = user.actor.urlToken,
                                         name = user.actor.name,
-                                        jumpTo = "动态",
                                     ),
                                 )
                             }.padding(vertical = 4.dp),
@@ -328,7 +328,7 @@ fun FollowingUsersRow() {
                         BadgedBox(
                             badge = {
                                 if (user.unreadCount > 0) {
-                                    Badge()
+                                    Badge(modifier = Modifier.testTag("following_users_unread_${user.actor.id}"))
                                 }
                             },
                         ) {

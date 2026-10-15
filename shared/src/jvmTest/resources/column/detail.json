@@ -1,0 +1,100 @@
+{
+  "updated": 1789909408,
+  "description": "",
+  "column_type": "normal",
+  "excerpt": "ASI 前夜，人类何去何从？",
+  "intro": "ASI 前夜，人类何去何从？",
+  "is_following": false,
+  "id": "c_2085111823087547085",
+  "voteup_count": 2279,
+  "accept_submission": true,
+  "purchase_count": 0,
+  "author": {
+    "avatar_url_template": "https://example.invalid/column-author-1-{size}.png",
+    "badge": [
+      {
+        "type": "identity",
+        "description": "信息技术行业 算法工程师"
+      }
+    ],
+    "badge_v2": {
+      "icon": "https://pic1.zhimg.com/v2-27bfcba90e66db79ce8768ab807e017e_l.png?source=32738c0c",
+      "detail_badges": [
+        {
+          "description": "知势榜影响力榜教育校园领域上榜答主",
+          "title": "社区成就",
+          "url": "",
+          "sources": [
+            {
+              "avatar_path": "",
+              "name": "知势榜8月",
+              "url": "",
+              "priority": 27,
+              "token": "",
+              "avatar_url": "",
+              "type": "content_potential_category",
+              "id": "27",
+              "description": ""
+            }
+          ],
+          "night_icon": "https://pica.zhimg.com/v2-4a07bc69c4bb04444721f35b32125c75_l.png?source=32738c0c",
+          "detail_type": "super_activity",
+          "type": "reward",
+          "icon": "https://pic1.zhimg.com/v2-4a07bc69c4bb04444721f35b32125c75_l.png?source=32738c0c"
+        },
+        {
+          "description": "信息技术行业 算法工程师",
+          "title": "已认证的个人",
+          "url": "https://zhuanlan.zhihu.com/p/96956163",
+          "sources": [],
+          "night_icon": "https://picx.zhimg.com/v2-2ddc5cc683982648f6f123616fb4ec09_l.png?source=32738c0c",
+          "detail_type": "identity_people",
+          "type": "identity",
+          "icon": "https://pic1.zhimg.com/v2-2ddc5cc683982648f6f123616fb4ec09_l.png?source=32738c0c"
+        }
+      ],
+      "night_icon": "https://pica.zhimg.com/v2-27bfcba90e66db79ce8768ab807e017e_l.png?source=32738c0c",
+      "merged_badges": [
+        {
+          "description": "知势榜影响力榜教育校园领域上榜答主",
+          "title": "社区成就",
+          "url": "",
+          "sources": [],
+          "night_icon": "",
+          "detail_type": "best",
+          "type": "best",
+          "icon": ""
+        },
+        {
+          "description": "信息技术行业 算法工程师",
+          "title": "认证",
+          "url": "https://zhuanlan.zhihu.com/p/96956163",
+          "sources": [],
+          "night_icon": "",
+          "detail_type": "identity_people",
+          "type": "identity",
+          "icon": ""
+        }
+      ],
+      "title": "知势榜影响力榜教育校园领域上榜答主"
+    },
+    "name": "专栏作者 1",
+    "headline": "专栏作者简介",
+    "gender": -1,
+    "user_type": "people",
+    "is_advertiser": false,
+    "avatar_url": "https://example.invalid/column-author-1.png",
+    "url": "https://www.zhihu.com/people/column-author-1",
+    "type": "people",
+    "url_token": "column-author-1",
+    "id": "e219f5b9815ed42c28dfcdb0fcc7c967",
+    "is_org": false
+  },
+  "url": "http://www.zhihu.com/api/v4/columns/c_2085111823087547085",
+  "comment_permission": "all",
+  "title": "走向奇点",
+  "image_url": "https://pic1.zhimg.com/v2-61bb5d458e8ec2b2827ca1dfef22dc14_l.jpg?source=d16d100b",
+  "followers": 73,
+  "articles_count": 21,
+  "type": "column"
+}

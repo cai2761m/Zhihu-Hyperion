@@ -18,11 +18,13 @@ public final class com/github/zly2006/zhihu/glass/LiquidGlassKt {
 
 public final class com/github/zly2006/zhihu/glass/LiquidGlassTab {
 	public static final field $stable I
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function0;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function0;Z)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function0;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun getIcon ()Lkotlin/jvm/functions/Function3;
 	public final fun getLabel ()Ljava/lang/String;
 	public final fun getOnClick ()Lkotlin/jvm/functions/Function0;
 	public final fun getTestTag ()Ljava/lang/String;
+	public final fun isNavigation ()Z
 }
 
 public final class com/github/zly2006/zhihu/glass/LiquidGlassTabBarKt {

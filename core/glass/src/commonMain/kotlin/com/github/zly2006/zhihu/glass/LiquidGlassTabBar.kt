@@ -95,13 +95,14 @@ import kotlin.math.abs
 import kotlin.math.roundToInt
 import kotlin.math.sign
 
-/** 液态玻璃底栏里的一项：标题、图标、测试标签和点击动作写在同一个声明里，底栏只负责渲染与手势。 */
+/** 液态玻璃底栏里的一项；[isNavigation] 为 false 时只执行动作，保留当前页面和选中指示器。 */
 @Immutable
 class LiquidGlassTab(
     val label: String,
     val testTag: String,
     val icon: @Composable (selected: Boolean) -> Unit,
     val onClick: () -> Unit,
+    val isNavigation: Boolean = true,
 )
 
 private val LocalTabScale = staticCompositionLocalOf { { 1f } }
@@ -156,7 +157,7 @@ fun LiquidGlassTabBar(
     }
 
     fun activate(index: Int) {
-        currentIndex = index
+        if (currentTabs[index].isNavigation) currentIndex = index
         currentTabs[index].onClick()
     }
 
@@ -173,7 +174,7 @@ fun LiquidGlassTabBar(
             onDragStopped = {
                 val targetIndex = targetValue.roundToInt().coerceIn(0, tabCount - 1)
                 if (targetIndex != currentIndex || gestureDistance < touchSlop) activate(targetIndex)
-                updateValue(targetIndex.toFloat())
+                updateValue(currentIndex.toFloat())
                 animationScope.launch { offsetAnimation.animateTo(0f, spring(1f, 300f, 0.5f)) }
             },
             onDragCancelled = {
@@ -261,14 +262,14 @@ fun LiquidGlassTabBar(
                 tabs.forEachIndexed { index, tab ->
                     TabContent(
                         tab = tab,
-                        selected = index == currentIndex,
+                        selected = tab.isNavigation && index == currentIndex,
                         modifier = Modifier
                             .semantics(mergeDescendants = true) {
-                                selected = index == currentIndex
-                                role = Role.Tab
+                                if (tab.isNavigation) selected = index == currentIndex
+                                role = if (tab.isNavigation) Role.Tab else Role.Button
                                 onClick(label = tab.label) {
                                     activate(index)
-                                    dampedDrag.animateToValue(index.toFloat())
+                                    dampedDrag.animateToValue(currentIndex.toFloat())
                                     true
                                 }
                             }.testTag(tab.testTag),

@@ -22,7 +22,9 @@ import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
+import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.tween
+import androidx.compose.animation.core.updateTransition
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.scaleIn
@@ -35,6 +37,7 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.gestures.awaitFirstDown
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -49,6 +52,9 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.ScaffoldDefaults
@@ -86,6 +92,7 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LocalLifecycleOwner
@@ -160,8 +167,10 @@ import com.github.zly2006.zhihu.ui.components.NoOpPagerNestedScrollConnection
 import com.github.zly2006.zhihu.ui.components.rememberObservedSetting
 import com.github.zly2006.zhihu.ui.subscreens.AppearanceSettingsScreen
 import com.github.zly2006.zhihu.ui.subscreens.BlockedFeedHistoryScreen
+import com.github.zly2006.zhihu.ui.subscreens.CREATION_ENTRY_POSITION_PREFERENCE_KEY
 import com.github.zly2006.zhihu.ui.subscreens.ColorSchemeScreen
 import com.github.zly2006.zhihu.ui.subscreens.ContentFilterSettingsScreen
+import com.github.zly2006.zhihu.ui.subscreens.CreationEntryPosition
 import com.github.zly2006.zhihu.ui.subscreens.DeveloperSettingsScreen
 import com.github.zly2006.zhihu.ui.subscreens.IdentityManagementScreen
 import com.github.zly2006.zhihu.ui.subscreens.OpenSourceLicensesScreen
@@ -283,6 +292,10 @@ fun ZhihuMain(
     val readingPlayer = rememberReadingPlayerController()
     val readingPlayerState by readingPlayer.state
     val settings = koinInject<SettingsStore>()
+    val creationEntryPosition by rememberObservedSetting(settings, CREATION_ENTRY_POSITION_PREFERENCE_KEY) {
+        val stored = getString(CREATION_ENTRY_POSITION_PREFERENCE_KEY, CreationEntryPosition.Floating.key)
+        CreationEntryPosition.entries.firstOrNull { it.key == stored } ?: CreationEntryPosition.Floating
+    }
     val liquidGlassEnabled by rememberObservedSetting(settings, LIQUID_GLASS_PREFERENCE_KEY) {
         getBoolean(LIQUID_GLASS_PREFERENCE_KEY, isLiquidGlassEnabledByDefault)
     }
@@ -318,6 +331,10 @@ fun ZhihuMain(
         (showListDetail || navEntry?.id == detailOwnerEntryId)
     val hasOpenDetail = showDetailPane && selectedContentDestination != null
     val useSecondaryContentNavigation = enableLandscapeListDetail && isListPaneContext
+    val detailPaneTransition = updateTransition(showListDetail || showDetailPane, label = "detail_pane_visibility")
+    val detailPaneProgress by detailPaneTransition.animateFloat(transitionSpec = { tween(300) }, label = "detail_pane_progress") {
+        if (it) 1f else 0f
+    }
     val detailLifecycleOwner = rememberLifecycleOwner(
         maxLifecycle = if (showListDetail || showDetailPane) Lifecycle.State.RESUMED else Lifecycle.State.CREATED,
     )
@@ -579,12 +596,19 @@ fun ZhihuMain(
                 popExitTransition = { slideOutHorizontally(tween(300)) { it } + fadeOut(tween(300)) },
             ) {
                 composable<EmptyDetail> {
-                    EmptyDetailPane()
+                    if (showListDetail) EmptyDetailPane()
                 }
                 composable<Article>(
                     typeMap = mapOf(typeOf<ArticleType>() to ArticleTypeNavType),
                     enterTransition = articleEnterTransition,
                     exitTransition = articleExitTransition,
+                    popExitTransition = {
+                        if (showListDetail || !targetState.destination.hasRoute<EmptyDetail>()) {
+                            slideOutHorizontally(tween(300)) { it } + fadeOut(tween(300))
+                        } else {
+                            fadeOut(tween(300))
+                        }
+                    },
                 ) { entry ->
                     articleContent(entry.toRoute(), entry)
                 }
@@ -604,6 +628,8 @@ fun ZhihuMain(
     var navigationRailWidth by remember { mutableStateOf(0.dp) }
     val contentWidth = if (showNavigationRail) containerWidth - navigationRailWidth else containerWidth
     val currentBottomDestination = mainTabPages.getOrNull(mainPagerState.targetPage)?.bottomDestination
+    var showBottomCreateMenu by remember(creationEntryPosition, navEntry, currentBottomDestination, isBottomBarVisible) { mutableStateOf(false) }
+    val showBottomCreateEntry = creationEntryPosition == CreationEntryPosition.Bottom
 
     fun onTopLevelItemClick(destination: TopLevelDestination, selected: Boolean) {
         isReadingPlayerExpandedByUser = false
@@ -618,20 +644,37 @@ fun ZhihuMain(
         if (showNavigationRail) {
             WideNavigationRail(
                 modifier = Modifier.onSizeChanged { navigationRailWidth = with(density) { it.width.toDp() } },
+                header = if (showBottomCreateEntry) {
+                    {
+                        Box(Modifier.width(navigationRailWidth), contentAlignment = Alignment.Center) {
+                            IconButton(
+                                onClick = { showBottomCreateMenu = true },
+                                modifier = Modifier.testTag(MAIN_CREATE_NAV_BUTTON_TAG),
+                            ) {
+                                Icon(AppIcons.Add, contentDescription = "发布")
+                            }
+                            CreationDropdownMenu(showBottomCreateMenu, { showBottomCreateMenu = false }, navigate)
+                        }
+                    }
+                } else {
+                    null
+                },
             ) {
-                bottomBarItems.forEach { item ->
-                    val destination = item.destination
-                    val selected = currentBottomDestination?.let { it::class == destination::class } == true
-                    WideNavigationRailItem(
-                        selected = selected,
-                        onClick = { onTopLevelItemClick(destination, selected) },
-                        icon = {
-                            Icon(if (selected) item.selectedIcon else item.icon, contentDescription = item.label)
-                        },
-                        label = { Text(item.label) },
-                        railExpanded = false,
-                        modifier = Modifier.testTag("nav_tab_${destination.name.lowercase()}"),
-                    )
+                Column(Modifier.verticalScroll(rememberScrollState())) {
+                    bottomBarItems.forEach { item ->
+                        val destination = item.destination
+                        val selected = currentBottomDestination?.let { it::class == destination::class } == true
+                        WideNavigationRailItem(
+                            selected = selected,
+                            onClick = { onTopLevelItemClick(destination, selected) },
+                            icon = {
+                                Icon(if (selected) item.selectedIcon else item.icon, contentDescription = item.label)
+                            },
+                            label = { Text(item.label) },
+                            railExpanded = false,
+                            modifier = Modifier.testTag("nav_tab_${destination.name.lowercase()}"),
+                        )
+                    }
                 }
             }
         }
@@ -673,51 +716,87 @@ fun ZhihuMain(
                                     enter = slideInVertically(tween(200)) { it },
                                     exit = slideOutVertically(tween(200)) { it },
                                 ) {
-                                    if (glassBackdrop != null) {
-                                        val selectedIndex = bottomBarItems.indexOfFirst { item ->
-                                            currentBottomDestination?.let { it::class == item.destination::class } == true
-                                        }
-                                        LiquidGlassTabBar(
-                                            tabs = bottomBarItems.mapIndexed { index, item ->
-                                                LiquidGlassTab(
-                                                    label = item.label,
-                                                    testTag = "nav_tab_${item.destination.name.lowercase()}",
-                                                    icon = { selected ->
-                                                        Icon(if (selected) item.selectedIcon else item.icon, contentDescription = null)
+                                    Box {
+                                        if (glassBackdrop != null) {
+                                            val selectedIndex = bottomBarItems.indexOfFirst { item ->
+                                                currentBottomDestination?.let { it::class == item.destination::class } == true
+                                            }
+                                            LiquidGlassTabBar(
+                                                tabs = bottomBarItems
+                                                    .mapIndexed { index, item ->
+                                                        LiquidGlassTab(
+                                                            label = item.label,
+                                                            testTag = "nav_tab_${item.destination.name.lowercase()}",
+                                                            icon = { selected ->
+                                                                Icon(if (selected) item.selectedIcon else item.icon, contentDescription = null)
+                                                            },
+                                                            onClick = { onTopLevelItemClick(item.destination, index == selectedIndex) },
+                                                        )
+                                                    }.toMutableList()
+                                                    .apply {
+                                                        if (showBottomCreateEntry) {
+                                                            add(
+                                                                size / 2,
+                                                                LiquidGlassTab(
+                                                                    label = "发布",
+                                                                    testTag = MAIN_CREATE_NAV_BUTTON_TAG,
+                                                                    icon = { Icon(AppIcons.Add, contentDescription = null) },
+                                                                    onClick = { showBottomCreateMenu = true },
+                                                                    isNavigation = false,
+                                                                ),
+                                                            )
+                                                        }
                                                     },
-                                                    onClick = { onTopLevelItemClick(item.destination, index == selectedIndex) },
-                                                )
-                                            },
-                                            selectedIndex = selectedIndex,
-                                            backdrop = glassBackdrop,
+                                                selectedIndex = selectedIndex + if (showBottomCreateEntry && selectedIndex >= bottomBarItems.size / 2) 1 else 0,
+                                                backdrop = glassBackdrop,
+                                            )
+                                        } else {
+                                            ShortNavigationBar(containerColor = MaterialTheme.colorScheme.surfaceContainerHigh) {
+                                                val itemColors = if (!isDarkTheme) {
+                                                    ShortNavigationBarItemDefaults.colors(
+                                                        selectedIndicatorColor =
+                                                            MaterialTheme.colorScheme.secondaryContainer
+                                                                .copy(alpha = 0.92f)
+                                                                .compositeOver(MaterialTheme.colorScheme.secondary),
+                                                    )
+                                                } else {
+                                                    ShortNavigationBarItemDefaults.colors()
+                                                }
+                                                bottomBarItems.forEachIndexed { index, item ->
+                                                    if (showBottomCreateEntry && index == bottomBarItems.size / 2) {
+                                                        ShortNavigationBarItem(
+                                                            selected = false,
+                                                            onClick = { showBottomCreateMenu = true },
+                                                            icon = { Icon(AppIcons.Add, contentDescription = "发布") },
+                                                            label = { Text("发布") },
+                                                            colors = itemColors,
+                                                            modifier = Modifier.testTag(MAIN_CREATE_NAV_BUTTON_TAG),
+                                                        )
+                                                    }
+                                                    val destination = item.destination
+                                                    val selected = currentBottomDestination?.let { it::class == destination::class } == true
+                                                    ShortNavigationBarItem(
+                                                        selected = selected,
+                                                        onClick = { onTopLevelItemClick(destination, selected) },
+                                                        icon = {
+                                                            Icon(if (selected) item.selectedIcon else item.icon, contentDescription = item.label)
+                                                        },
+                                                        label = { Text(item.label) },
+                                                        colors = itemColors,
+                                                        modifier = Modifier.testTag("nav_tab_${destination.name.lowercase()}"),
+                                                    )
+                                                }
+                                            }
+                                        }
+                                        CreationDropdownMenu(
+                                            expanded = showBottomCreateMenu,
+                                            onDismiss = { showBottomCreateMenu = false },
+                                            onNavigate = navigate,
+                                            offset = DpOffset(
+                                                x = listPaneWidth / (bottomBarItems.size + 1) * (bottomBarItems.size / 2),
+                                                y = 0.dp,
+                                            ),
                                         )
-                                    } else {
-                                        ShortNavigationBar(containerColor = MaterialTheme.colorScheme.surfaceContainerHigh) {
-                                            val itemColors = if (!isDarkTheme) {
-                                                ShortNavigationBarItemDefaults.colors(
-                                                    selectedIndicatorColor =
-                                                        MaterialTheme.colorScheme.secondaryContainer
-                                                            .copy(alpha = 0.92f)
-                                                            .compositeOver(MaterialTheme.colorScheme.secondary),
-                                                )
-                                            } else {
-                                                ShortNavigationBarItemDefaults.colors()
-                                            }
-                                            bottomBarItems.forEach { item ->
-                                                val destination = item.destination
-                                                val selected = currentBottomDestination?.let { it::class == destination::class } == true
-                                                ShortNavigationBarItem(
-                                                    selected = selected,
-                                                    onClick = { onTopLevelItemClick(destination, selected) },
-                                                    icon = {
-                                                        Icon(if (selected) item.selectedIcon else item.icon, contentDescription = item.label)
-                                                    },
-                                                    label = { Text(item.label) },
-                                                    colors = itemColors,
-                                                    modifier = Modifier.testTag("nav_tab_${destination.name.lowercase()}"),
-                                                )
-                                            }
-                                        }
                                     }
                                 }
                             }
@@ -793,6 +872,7 @@ fun ZhihuMain(
                                         innerPadding = innerPadding,
                                         collectionDirectBrowseEnabled = collectionDirectBrowseEnabled,
                                         showHomeTopActions = showHomeTopActions,
+                                        creationEntryPosition = if (!showMainNavigationBar && showBottomCreateEntry) CreationEntryPosition.Top else creationEntryPosition,
                                     )
                                 }
                                 composable<Login> {
@@ -811,6 +891,12 @@ fun ZhihuMain(
                                 composable<Topic> { navEntry ->
                                     TopicScreen(navEntry.toRoute())
                                 }
+                                composable<com.github.zly2006.zhihu.navigation.Column> { navEntry ->
+                                    ColumnScreen(navEntry.toRoute())
+                                }
+                                composable<com.github.zly2006.zhihu.navigation.FollowUserUpdates> { navEntry ->
+                                    FollowUserUpdatesScreen(navEntry.toRoute())
+                                }
                                 composable<WriteAnswer> { navEntry ->
                                     val args: WriteAnswer = navEntry.toRoute()
                                     WriteAnswerScreen(args)
@@ -822,6 +908,7 @@ fun ZhihuMain(
                                     typeMap = mapOf(typeOf<ArticleType>() to ArticleTypeNavType),
                                     enterTransition = articleEnterTransition,
                                     exitTransition = articleExitTransition,
+                                    popExitTransition = { slideOutHorizontally(tween(300)) { it } + fadeOut(tween(300)) },
                                 ) { navEntry ->
                                     val article: Article = navEntry.toRoute()
                                     // 启用自适应导航时由 effect 转交详情栈，不创建会抢先消费一次性交接数据的临时页面。
@@ -928,10 +1015,15 @@ fun ZhihuMain(
                 }
             }
 
-            if (showListDetail || showDetailPane || detailEntry == null) {
+            if (detailPaneTransition.currentState || detailPaneTransition.targetState || detailPaneTransition.isRunning || detailEntry == null) {
                 paneStateHolder.SaveableStateProvider("detail") {
                     // 尺寸变化只调整同一宿主的布局；隐藏时保存整个导航子树，独立弹窗也随页面离开组合。
-                    Row(if (showListDetail || showDetailPane) Modifier.fillMaxSize() else Modifier.size(0.dp)) {
+                    Row(
+                        (if (detailEntry != null) Modifier.fillMaxSize() else Modifier.size(0.dp)).graphicsLayer {
+                            translationX = if (showListDetail) 0f else size.width * (1f - detailPaneProgress)
+                            alpha = if (showListDetail) 1f else detailPaneProgress
+                        },
+                    ) {
                         if (showListDetail) {
                             Spacer(Modifier.width(listPaneWidth))
                             ListDetailDivider(
@@ -1054,6 +1146,7 @@ private fun MainTabsPager(
     innerPadding: PaddingValues,
     collectionDirectBrowseEnabled: Boolean,
     showHomeTopActions: Boolean,
+    creationEntryPosition: CreationEntryPosition,
 ) {
     HorizontalPager(
         state = pagerState,
@@ -1067,6 +1160,7 @@ private fun MainTabsPager(
                 innerPadding = innerPadding,
                 showTopActions = showHomeTopActions,
                 isActive = pagerState.currentPage == pageIndex,
+                creationEntryPosition = creationEntryPosition,
             )
 
             MainTabPage.FollowPage -> FollowScreen(
@@ -1182,6 +1276,7 @@ private fun NavBackStackEntry?.isListPaneDestination(): Boolean = when {
     destination.hasRoute<Question>() -> true
     destination.hasRoute<Person>() -> true
     destination.hasRoute<Topic>() -> true
+    destination.hasRoute<com.github.zly2006.zhihu.navigation.Column>() -> true
     destination.hasRoute<Notification>() -> true
     destination.hasRoute<Notification.Entry>() -> true
     destination.hasRoute<Notification.Invitations>() -> true

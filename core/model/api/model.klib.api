@@ -4780,7 +4780,7 @@ final object com.github.zly2006.zhihu.data/DataHolder { // com.github.zly2006.zh
     }
 
     final class Column { // com.github.zly2006.zhihu.data/DataHolder.Column|null[0]
-        constructor <init>(kotlin/String, kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/Int = ..., kotlin/Int = ..., kotlin/Int = ..., kotlin/Boolean = ..., kotlin/Long = ..., kotlin/Long = ..., kotlinx.serialization.json/JsonElement? = ...) // com.github.zly2006.zhihu.data/DataHolder.Column.<init>|<init>(kotlin.String;kotlin.String;kotlin.String;kotlin.String;kotlin.String;kotlin.String;kotlin.String;kotlin.Int;kotlin.Int;kotlin.Int;kotlin.Boolean;kotlin.Long;kotlin.Long;kotlinx.serialization.json.JsonElement?){}[0]
+        constructor <init>(kotlin/String, kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/Int = ..., kotlin/Int = ..., kotlin/Int = ..., kotlin/Boolean = ..., kotlin/Long = ..., kotlin/Long = ..., kotlinx.serialization.json/JsonElement? = ..., kotlin/String = ...) // com.github.zly2006.zhihu.data/DataHolder.Column.<init>|<init>(kotlin.String;kotlin.String;kotlin.String;kotlin.String;kotlin.String;kotlin.String;kotlin.String;kotlin.Int;kotlin.Int;kotlin.Int;kotlin.Boolean;kotlin.Long;kotlin.Long;kotlinx.serialization.json.JsonElement?;kotlin.String){}[0]
 
         final val articlesCount // com.github.zly2006.zhihu.data/DataHolder.Column.articlesCount|{}articlesCount[0]
             final fun <get-articlesCount>(): kotlin/Int // com.github.zly2006.zhihu.data/DataHolder.Column.articlesCount.<get-articlesCount>|<get-articlesCount>(){}[0]
@@ -4798,6 +4798,8 @@ final object com.github.zly2006.zhihu.data/DataHolder { // com.github.zly2006.zh
             final fun <get-followers>(): kotlin/Int // com.github.zly2006.zhihu.data/DataHolder.Column.followers.<get-followers>|<get-followers>(){}[0]
         final val id // com.github.zly2006.zhihu.data/DataHolder.Column.id|{}id[0]
             final fun <get-id>(): kotlin/String // com.github.zly2006.zhihu.data/DataHolder.Column.id.<get-id>|<get-id>(){}[0]
+        final val imageUrl // com.github.zly2006.zhihu.data/DataHolder.Column.imageUrl|{}imageUrl[0]
+            final fun <get-imageUrl>(): kotlin/String // com.github.zly2006.zhihu.data/DataHolder.Column.imageUrl.<get-imageUrl>|<get-imageUrl>(){}[0]
         final val intro // com.github.zly2006.zhihu.data/DataHolder.Column.intro|{}intro[0]
             final fun <get-intro>(): kotlin/String // com.github.zly2006.zhihu.data/DataHolder.Column.intro.<get-intro>|<get-intro>(){}[0]
         final val isFollowing // com.github.zly2006.zhihu.data/DataHolder.Column.isFollowing|{}isFollowing[0]
@@ -4817,6 +4819,7 @@ final object com.github.zly2006.zhihu.data/DataHolder { // com.github.zly2006.zh
         final fun component12(): kotlin/Long // com.github.zly2006.zhihu.data/DataHolder.Column.component12|component12(){}[0]
         final fun component13(): kotlin/Long // com.github.zly2006.zhihu.data/DataHolder.Column.component13|component13(){}[0]
         final fun component14(): kotlinx.serialization.json/JsonElement? // com.github.zly2006.zhihu.data/DataHolder.Column.component14|component14(){}[0]
+        final fun component15(): kotlin/String // com.github.zly2006.zhihu.data/DataHolder.Column.component15|component15(){}[0]
         final fun component2(): kotlin/String // com.github.zly2006.zhihu.data/DataHolder.Column.component2|component2(){}[0]
         final fun component3(): kotlin/String // com.github.zly2006.zhihu.data/DataHolder.Column.component3|component3(){}[0]
         final fun component4(): kotlin/String // com.github.zly2006.zhihu.data/DataHolder.Column.component4|component4(){}[0]
@@ -4825,7 +4828,7 @@ final object com.github.zly2006.zhihu.data/DataHolder { // com.github.zly2006.zh
         final fun component7(): kotlin/String // com.github.zly2006.zhihu.data/DataHolder.Column.component7|component7(){}[0]
         final fun component8(): kotlin/Int // com.github.zly2006.zhihu.data/DataHolder.Column.component8|component8(){}[0]
         final fun component9(): kotlin/Int // com.github.zly2006.zhihu.data/DataHolder.Column.component9|component9(){}[0]
-        final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/Int = ..., kotlin/Int = ..., kotlin/Int = ..., kotlin/Boolean = ..., kotlin/Long = ..., kotlin/Long = ..., kotlinx.serialization.json/JsonElement? = ...): com.github.zly2006.zhihu.data/DataHolder.Column // com.github.zly2006.zhihu.data/DataHolder.Column.copy|copy(kotlin.String;kotlin.String;kotlin.String;kotlin.String;kotlin.String;kotlin.String;kotlin.String;kotlin.Int;kotlin.Int;kotlin.Int;kotlin.Boolean;kotlin.Long;kotlin.Long;kotlinx.serialization.json.JsonElement?){}[0]
+        final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/Int = ..., kotlin/Int = ..., kotlin/Int = ..., kotlin/Boolean = ..., kotlin/Long = ..., kotlin/Long = ..., kotlinx.serialization.json/JsonElement? = ..., kotlin/String = ...): com.github.zly2006.zhihu.data/DataHolder.Column // com.github.zly2006.zhihu.data/DataHolder.Column.copy|copy(kotlin.String;kotlin.String;kotlin.String;kotlin.String;kotlin.String;kotlin.String;kotlin.String;kotlin.Int;kotlin.Int;kotlin.Int;kotlin.Boolean;kotlin.Long;kotlin.Long;kotlinx.serialization.json.JsonElement?;kotlin.String){}[0]
         final fun equals(kotlin/Any?): kotlin/Boolean // com.github.zly2006.zhihu.data/DataHolder.Column.equals|equals(kotlin.Any?){}[0]
         final fun hashCode(): kotlin/Int // com.github.zly2006.zhihu.data/DataHolder.Column.hashCode|hashCode(){}[0]
         final fun toString(): kotlin/String // com.github.zly2006.zhihu.data/DataHolder.Column.toString|toString(){}[0]

@@ -19,10 +19,42 @@
 package com.github.zly2006.zhihu.navigation
 
 import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.jsonObject
+import kotlinx.serialization.json.jsonPrimitive
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertNotNull
 
 class NavDestinationTest {
+    @Test
+    fun userUpdateDestinationPreservesTheSelectedUser() {
+        val destination: NavDestination = FollowUserUpdates("actor-id", "actor-token", "更新用户")
+        val encoded = json.encodeToString<NavDestination>(destination)
+        assertEquals(destination, json.decodeFromString<NavDestination>(encoded))
+    }
+
+    @Test
+    fun columnLinksResolveToNativeContentAndPreserveIdentity() {
+        val id = "c_2085111823087547085"
+        listOf(
+            "https://www.zhihu.com/column/$id",
+            "https://zhuanlan.zhihu.com/$id",
+            "zhihu://column/$id",
+        ).forEach { url ->
+            val destination = assertNotNull(resolveContent(url), "专栏链接必须在应用内打开：$url")
+            val encoded = json.encodeToString<NavDestination>(destination)
+            assertEquals(
+                id,
+                json
+                    .parseToJsonElement(encoded)
+                    .jsonObject
+                    .getValue("id")
+                    .jsonPrimitive.content,
+            )
+            assertEquals(destination, json.decodeFromString<NavDestination>(encoded))
+        }
+    }
+
     @Test
     fun resolvesSupportedContentLinks() {
         listOf(

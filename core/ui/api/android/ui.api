@@ -253,12 +253,12 @@ public final class com/github/zly2006/zhihu/ui/components/ComposableSingletons$E
 public final class com/github/zly2006/zhihu/ui/components/ComposableSingletons$FeedCardKt {
 	public static final field INSTANCE Lcom/github/zly2006/zhihu/ui/components/ComposableSingletons$FeedCardKt;
 	public fun <init> ()V
-	public final fun getLambda$-1487038049$Zhihu_Hyperion_core_ui ()Lkotlin/jvm/functions/Function4;
 	public final fun getLambda$-187149017$Zhihu_Hyperion_core_ui ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda$-779291569$Zhihu_Hyperion_core_ui ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda$-816286772$Zhihu_Hyperion_core_ui ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda$1349799402$Zhihu_Hyperion_core_ui ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda$1638330147$Zhihu_Hyperion_core_ui ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$548772803$Zhihu_Hyperion_core_ui ()Lkotlin/jvm/functions/Function4;
 }
 
 public final class com/github/zly2006/zhihu/ui/components/ComposableSingletons$MyModalBottomSheetKt {
@@ -426,7 +426,7 @@ public final class com/github/zly2006/zhihu/ui/components/FeedAuthorBlockType : 
 public final class com/github/zly2006/zhihu/ui/components/FeedCardKt {
 	public static final field DEFAULT_FEED_CARD_STYLE Ljava/lang/String;
 	public static final field FEED_CARD_STYLE_PREFERENCE_KEY Ljava/lang/String;
-	public static final fun FeedCard-E4Q9ldg (Lcom/github/zly2006/zhihu/data/FeedDisplayItem;Landroidx/compose/ui/Modifier;Ljava/lang/String;FLjava/lang/String;FLkotlin/jvm/functions/Function4;ZLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+	public static final fun FeedCard-C0BM_JI (Lcom/github/zly2006/zhihu/data/FeedDisplayItem;Landroidx/compose/ui/Modifier;Ljava/lang/String;FLjava/lang/String;FLkotlin/jvm/functions/Function4;ZZLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 	public static final fun getLocalSelectedContentDestination ()Landroidx/compose/runtime/ProvidableCompositionLocal;
 }
 

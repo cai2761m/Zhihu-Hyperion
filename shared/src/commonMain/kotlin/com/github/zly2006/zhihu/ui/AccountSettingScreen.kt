@@ -458,7 +458,7 @@ fun AccountSettingScreen(
             Column(Modifier.padding(horizontal = 16.dp)) {
                 Surface(
                     modifier = Modifier
-                        .height(36.dp)
+                        .height(48.dp)
                         .testTag(ACCOUNT_SETTINGS_SEARCH_TAG),
                     shape = RoundedCornerShape(24.dp),
                     color = MaterialTheme.colorScheme.surfaceVariant,

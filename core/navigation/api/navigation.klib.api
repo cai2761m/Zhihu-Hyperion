@@ -142,6 +142,35 @@ final class com.github.zly2006.zhihu.navigation/Collections : com.github.zly2006
     }
 }
 
+final class com.github.zly2006.zhihu.navigation/Column : com.github.zly2006.zhihu.navigation/NavDestination { // com.github.zly2006.zhihu.navigation/Column|null[0]
+    constructor <init>(kotlin/String, kotlin/String = ...) // com.github.zly2006.zhihu.navigation/Column.<init>|<init>(kotlin.String;kotlin.String){}[0]
+
+    final val id // com.github.zly2006.zhihu.navigation/Column.id|{}id[0]
+        final fun <get-id>(): kotlin/String // com.github.zly2006.zhihu.navigation/Column.id.<get-id>|<get-id>(){}[0]
+    final val title // com.github.zly2006.zhihu.navigation/Column.title|{}title[0]
+        final fun <get-title>(): kotlin/String // com.github.zly2006.zhihu.navigation/Column.title.<get-title>|<get-title>(){}[0]
+
+    final fun component1(): kotlin/String // com.github.zly2006.zhihu.navigation/Column.component1|component1(){}[0]
+    final fun component2(): kotlin/String // com.github.zly2006.zhihu.navigation/Column.component2|component2(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ...): com.github.zly2006.zhihu.navigation/Column // com.github.zly2006.zhihu.navigation/Column.copy|copy(kotlin.String;kotlin.String){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.github.zly2006.zhihu.navigation/Column.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.github.zly2006.zhihu.navigation/Column.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.github.zly2006.zhihu.navigation/Column.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<com.github.zly2006.zhihu.navigation/Column> { // com.github.zly2006.zhihu.navigation/Column.$serializer|null[0]
+        final val descriptor // com.github.zly2006.zhihu.navigation/Column.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // com.github.zly2006.zhihu.navigation/Column.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // com.github.zly2006.zhihu.navigation/Column.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): com.github.zly2006.zhihu.navigation/Column // com.github.zly2006.zhihu.navigation/Column.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, com.github.zly2006.zhihu.navigation/Column) // com.github.zly2006.zhihu.navigation/Column.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;com.github.zly2006.zhihu.navigation.Column){}[0]
+    }
+
+    final object Companion { // com.github.zly2006.zhihu.navigation/Column.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<com.github.zly2006.zhihu.navigation/Column> // com.github.zly2006.zhihu.navigation/Column.Companion.serializer|serializer(){}[0]
+    }
+}
+
 final class com.github.zly2006.zhihu.navigation/CommentHolder : com.github.zly2006.zhihu.navigation/NavDestination { // com.github.zly2006.zhihu.navigation/CommentHolder|null[0]
     constructor <init>(kotlin/String, com.github.zly2006.zhihu.navigation/NavDestination) // com.github.zly2006.zhihu.navigation/CommentHolder.<init>|<init>(kotlin.String;com.github.zly2006.zhihu.navigation.NavDestination){}[0]
 
@@ -170,6 +199,38 @@ final class com.github.zly2006.zhihu.navigation/CommentHolder : com.github.zly20
         final val $childSerializers // com.github.zly2006.zhihu.navigation/CommentHolder.Companion.$childSerializers|{}$childSerializers[0]
 
         final fun serializer(): kotlinx.serialization/KSerializer<com.github.zly2006.zhihu.navigation/CommentHolder> // com.github.zly2006.zhihu.navigation/CommentHolder.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class com.github.zly2006.zhihu.navigation/FollowUserUpdates : com.github.zly2006.zhihu.navigation/NavDestination { // com.github.zly2006.zhihu.navigation/FollowUserUpdates|null[0]
+    constructor <init>(kotlin/String, kotlin/String = ..., kotlin/String = ...) // com.github.zly2006.zhihu.navigation/FollowUserUpdates.<init>|<init>(kotlin.String;kotlin.String;kotlin.String){}[0]
+
+    final val id // com.github.zly2006.zhihu.navigation/FollowUserUpdates.id|{}id[0]
+        final fun <get-id>(): kotlin/String // com.github.zly2006.zhihu.navigation/FollowUserUpdates.id.<get-id>|<get-id>(){}[0]
+    final val name // com.github.zly2006.zhihu.navigation/FollowUserUpdates.name|{}name[0]
+        final fun <get-name>(): kotlin/String // com.github.zly2006.zhihu.navigation/FollowUserUpdates.name.<get-name>|<get-name>(){}[0]
+    final val urlToken // com.github.zly2006.zhihu.navigation/FollowUserUpdates.urlToken|{}urlToken[0]
+        final fun <get-urlToken>(): kotlin/String // com.github.zly2006.zhihu.navigation/FollowUserUpdates.urlToken.<get-urlToken>|<get-urlToken>(){}[0]
+
+    final fun component1(): kotlin/String // com.github.zly2006.zhihu.navigation/FollowUserUpdates.component1|component1(){}[0]
+    final fun component2(): kotlin/String // com.github.zly2006.zhihu.navigation/FollowUserUpdates.component2|component2(){}[0]
+    final fun component3(): kotlin/String // com.github.zly2006.zhihu.navigation/FollowUserUpdates.component3|component3(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/String = ...): com.github.zly2006.zhihu.navigation/FollowUserUpdates // com.github.zly2006.zhihu.navigation/FollowUserUpdates.copy|copy(kotlin.String;kotlin.String;kotlin.String){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.github.zly2006.zhihu.navigation/FollowUserUpdates.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.github.zly2006.zhihu.navigation/FollowUserUpdates.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.github.zly2006.zhihu.navigation/FollowUserUpdates.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<com.github.zly2006.zhihu.navigation/FollowUserUpdates> { // com.github.zly2006.zhihu.navigation/FollowUserUpdates.$serializer|null[0]
+        final val descriptor // com.github.zly2006.zhihu.navigation/FollowUserUpdates.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // com.github.zly2006.zhihu.navigation/FollowUserUpdates.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // com.github.zly2006.zhihu.navigation/FollowUserUpdates.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): com.github.zly2006.zhihu.navigation/FollowUserUpdates // com.github.zly2006.zhihu.navigation/FollowUserUpdates.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, com.github.zly2006.zhihu.navigation/FollowUserUpdates) // com.github.zly2006.zhihu.navigation/FollowUserUpdates.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;com.github.zly2006.zhihu.navigation.FollowUserUpdates){}[0]
+    }
+
+    final object Companion { // com.github.zly2006.zhihu.navigation/FollowUserUpdates.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<com.github.zly2006.zhihu.navigation/FollowUserUpdates> // com.github.zly2006.zhihu.navigation/FollowUserUpdates.Companion.serializer|serializer(){}[0]
     }
 }
 
@@ -905,11 +966,15 @@ final val com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigatio
 final val com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_CollectionContent_$serializer$stableprop // com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_CollectionContent_$serializer$stableprop|#static{}com_github_zly2006_zhihu_navigation_CollectionContent_$serializer$stableprop[0]
 final val com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_Collections$stableprop // com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_Collections$stableprop|#static{}com_github_zly2006_zhihu_navigation_Collections$stableprop[0]
 final val com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_Collections_$serializer$stableprop // com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_Collections_$serializer$stableprop|#static{}com_github_zly2006_zhihu_navigation_Collections_$serializer$stableprop[0]
+final val com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_Column$stableprop // com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_Column$stableprop|#static{}com_github_zly2006_zhihu_navigation_Column$stableprop[0]
+final val com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_Column_$serializer$stableprop // com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_Column_$serializer$stableprop|#static{}com_github_zly2006_zhihu_navigation_Column_$serializer$stableprop[0]
 final val com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_CommentHolder$stableprop // com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_CommentHolder$stableprop|#static{}com_github_zly2006_zhihu_navigation_CommentHolder$stableprop[0]
 final val com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_CommentHolder_$serializer$stableprop // com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_CommentHolder_$serializer$stableprop|#static{}com_github_zly2006_zhihu_navigation_CommentHolder_$serializer$stableprop[0]
 final val com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_Daily$stableprop // com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_Daily$stableprop|#static{}com_github_zly2006_zhihu_navigation_Daily$stableprop[0]
 final val com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_EmptyDetail$stableprop // com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_EmptyDetail$stableprop|#static{}com_github_zly2006_zhihu_navigation_EmptyDetail$stableprop[0]
 final val com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_Follow$stableprop // com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_Follow$stableprop|#static{}com_github_zly2006_zhihu_navigation_Follow$stableprop[0]
+final val com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_FollowUserUpdates$stableprop // com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_FollowUserUpdates$stableprop|#static{}com_github_zly2006_zhihu_navigation_FollowUserUpdates$stableprop[0]
+final val com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_FollowUserUpdates_$serializer$stableprop // com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_FollowUserUpdates_$serializer$stableprop|#static{}com_github_zly2006_zhihu_navigation_FollowUserUpdates_$serializer$stableprop[0]
 final val com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_History$stableprop // com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_History$stableprop|#static{}com_github_zly2006_zhihu_navigation_History$stableprop[0]
 final val com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_Home$stableprop // com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_Home$stableprop|#static{}com_github_zly2006_zhihu_navigation_Home$stableprop[0]
 final val com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_HotList$stableprop // com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_HotList$stableprop|#static{}com_github_zly2006_zhihu_navigation_HotList$stableprop[0]
@@ -971,11 +1036,15 @@ final fun com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigatio
 final fun com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_CollectionContent_$serializer$stableprop_getter(): kotlin/Int // com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_CollectionContent_$serializer$stableprop_getter|com_github_zly2006_zhihu_navigation_CollectionContent_$serializer$stableprop_getter(){}[0]
 final fun com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_Collections$stableprop_getter(): kotlin/Int // com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_Collections$stableprop_getter|com_github_zly2006_zhihu_navigation_Collections$stableprop_getter(){}[0]
 final fun com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_Collections_$serializer$stableprop_getter(): kotlin/Int // com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_Collections_$serializer$stableprop_getter|com_github_zly2006_zhihu_navigation_Collections_$serializer$stableprop_getter(){}[0]
+final fun com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_Column$stableprop_getter(): kotlin/Int // com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_Column$stableprop_getter|com_github_zly2006_zhihu_navigation_Column$stableprop_getter(){}[0]
+final fun com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_Column_$serializer$stableprop_getter(): kotlin/Int // com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_Column_$serializer$stableprop_getter|com_github_zly2006_zhihu_navigation_Column_$serializer$stableprop_getter(){}[0]
 final fun com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_CommentHolder$stableprop_getter(): kotlin/Int // com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_CommentHolder$stableprop_getter|com_github_zly2006_zhihu_navigation_CommentHolder$stableprop_getter(){}[0]
 final fun com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_CommentHolder_$serializer$stableprop_getter(): kotlin/Int // com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_CommentHolder_$serializer$stableprop_getter|com_github_zly2006_zhihu_navigation_CommentHolder_$serializer$stableprop_getter(){}[0]
 final fun com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_Daily$stableprop_getter(): kotlin/Int // com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_Daily$stableprop_getter|com_github_zly2006_zhihu_navigation_Daily$stableprop_getter(){}[0]
 final fun com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_EmptyDetail$stableprop_getter(): kotlin/Int // com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_EmptyDetail$stableprop_getter|com_github_zly2006_zhihu_navigation_EmptyDetail$stableprop_getter(){}[0]
 final fun com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_Follow$stableprop_getter(): kotlin/Int // com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_Follow$stableprop_getter|com_github_zly2006_zhihu_navigation_Follow$stableprop_getter(){}[0]
+final fun com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_FollowUserUpdates$stableprop_getter(): kotlin/Int // com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_FollowUserUpdates$stableprop_getter|com_github_zly2006_zhihu_navigation_FollowUserUpdates$stableprop_getter(){}[0]
+final fun com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_FollowUserUpdates_$serializer$stableprop_getter(): kotlin/Int // com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_FollowUserUpdates_$serializer$stableprop_getter|com_github_zly2006_zhihu_navigation_FollowUserUpdates_$serializer$stableprop_getter(){}[0]
 final fun com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_History$stableprop_getter(): kotlin/Int // com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_History$stableprop_getter|com_github_zly2006_zhihu_navigation_History$stableprop_getter(){}[0]
 final fun com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_Home$stableprop_getter(): kotlin/Int // com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_Home$stableprop_getter|com_github_zly2006_zhihu_navigation_Home$stableprop_getter(){}[0]
 final fun com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_HotList$stableprop_getter(): kotlin/Int // com.github.zly2006.zhihu.navigation/com_github_zly2006_zhihu_navigation_HotList$stableprop_getter|com_github_zly2006_zhihu_navigation_HotList$stableprop_getter(){}[0]

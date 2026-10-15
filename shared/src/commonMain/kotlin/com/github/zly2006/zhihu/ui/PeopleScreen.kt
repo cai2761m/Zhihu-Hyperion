@@ -74,6 +74,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.input.pointer.PointerEventPass
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.SubcomposeLayout
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.style.TextOverflow
@@ -107,7 +108,6 @@ import com.github.zly2006.zhihu.platform.SettingsStore
 import com.github.zly2006.zhihu.platform.rememberExternalUrlOpener
 import com.github.zly2006.zhihu.platform.rememberImagePreviewOpener
 import com.github.zly2006.zhihu.platform.rememberUserMessageSink
-import com.github.zly2006.zhihu.platform.rememberZhihuWebUrlOpener
 import com.github.zly2006.zhihu.reading.RegisterReadingQueueSource
 import com.github.zly2006.zhihu.ui.components.AuthorBadge
 import com.github.zly2006.zhihu.ui.components.EmptyState
@@ -146,6 +146,7 @@ import org.koin.compose.koinInject
 import kotlin.math.roundToInt
 import kotlin.reflect.typeOf
 import androidx.lifecycle.viewmodel.compose.viewModel as composeViewModel
+import com.github.zly2006.zhihu.navigation.Column as ColumnDestination
 import com.github.zly2006.zhihu.navigation.Search as SearchDestination
 
 class PeopleAnswersViewModel(
@@ -286,7 +287,7 @@ class PeopleColumnContributionsViewModel(
         get() = "https://www.zhihu.com/api/v4/members/${person.userTokenOrId}/column-contributions"
 
     override val include: String
-        get() = "data[*].articles_count,followers,author"
+        get() = "data[*].column.articles_count,followers,author,intro"
 
     override fun decodePage(
         environment: ZhihuApiEnvironment,
@@ -1411,24 +1412,37 @@ private fun ColumnListItem(
     column: DataHolder.Column,
     itemTag: String? = null,
 ) {
-    val openZhihuWebUrl = rememberZhihuWebUrlOpener()
+    val navigator = LocalNavigator.current
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .then(if (itemTag != null) Modifier.testTag(itemTag) else Modifier)
             .clickable {
-                openZhihuWebUrl(column.webUrl())
+                navigator.onNavigate(ColumnDestination(column.id, column.title))
             }.padding(vertical = 8.dp, horizontal = 4.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
+        if (column.imageUrl.isNotBlank()) {
+            AsyncImage(
+                model = column.imageUrl,
+                contentDescription = "${column.title}的专栏封面",
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .padding(end = 12.dp)
+                    .size(56.dp)
+                    .clip(MaterialTheme.shapes.small)
+                    .testTag("people_screen_column_cover_${column.id}"),
+            )
+        }
         Column(modifier = Modifier.weight(1f)) {
             Text(
                 text = column.title,
                 style = MaterialTheme.typography.titleMedium,
             )
-            if (column.description.isNotEmpty()) {
+            val introduction = column.intro.ifBlank { column.description }
+            if (introduction.isNotEmpty()) {
                 Text(
-                    text = column.description,
+                    text = remember(introduction) { Ksoup.parse(introduction).text() },
                     style = MaterialTheme.typography.bodySmall,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
@@ -1494,22 +1508,6 @@ private fun FollowedTopicListItem(topic: FollowedTopic) {
             style = MaterialTheme.typography.titleMedium,
             modifier = Modifier.weight(1f),
         )
-    }
-}
-
-private fun DataHolder.Column.webUrl(): String = when {
-    url.contains("/api/v4/columns/") -> {
-        url
-            .replace("http://", "https://")
-            .replace("/api/v4/columns/", "/column/")
-    }
-
-    url.startsWith("http") && !url.contains("/api/") -> {
-        url.replace("http://", "https://")
-    }
-
-    else -> {
-        "https://www.zhihu.com/column/$id"
     }
 }
 

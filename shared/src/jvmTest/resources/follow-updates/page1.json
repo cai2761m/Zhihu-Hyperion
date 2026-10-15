@@ -1,0 +1,2728 @@
+{
+  "data": [
+    {
+      "id": "1791514829552",
+      "type": "feed",
+      "target": {
+        "id": "2091678974917321764",
+        "type": "answer",
+        "url": "https://api.zhihu.com/answers/2091678974917321764",
+        "voteup_count": 3119,
+        "thanks_count": 435,
+        "question": {
+          "id": "469164809",
+          "title": "矩阵乘法的复杂度能达到多低？",
+          "url": "https://api.zhihu.com/questions/469164809",
+          "type": "question",
+          "question_type": "normal",
+          "created": 1625061710,
+          "answer_count": 9,
+          "comment_count": 8,
+          "follower_count": 182,
+          "detail": "<p>看了算法导论中计算矩阵乘法的 Strassen 算法，打破了 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=O%28n%5E3%29\" alt=\"O(n^3)\"/> ，确实有点出乎人的常识。书中提到后来更快的算法。</p><p>那我想问一下，我们有可能达到理论上最低的 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=O%28n%5E2%29\" alt=\"O(n^2)\"/> 吗？</p><p>如果说不能达到，那这个系数(指数)会不会有一个界限？</p>",
+          "excerpt": "看了算法导论中计算矩阵乘法的 Strassen 算法，打破了 O(n^3) ，确实有点出乎人的常…",
+          "bound_topic_ids": [
+            1093,
+            5751,
+            20691,
+            33549
+          ],
+          "relationship": {
+            "is_author": false
+          },
+          "is_following": false,
+          "author": {
+            "id": "follow-user-17",
+            "name": "用户17",
+            "headline": "",
+            "type": "people",
+            "user_type": "people",
+            "url": "https://api.zhihu.com/people/follow-user-17",
+            "url_token": "follow-user-17",
+            "avatar_url": "",
+            "gender": 0,
+            "is_following": false,
+            "is_followed": false,
+            "is_org": false,
+            "badge": [],
+            "badge_v2": {
+              "title": "",
+              "merged_badges": [],
+              "detail_badges": [],
+              "icon": "",
+              "night_icon": ""
+            },
+            "vip_info": {
+              "is_vip": false,
+              "target_url": ""
+            },
+            "kvip_info": {
+              "is_vip": false,
+              "target_url": ""
+            }
+          },
+          "reaction_instruction": null
+        },
+        "updated_time": 1791485515,
+        "created_time": 1791475129,
+        "author": {
+          "id": "follow-user-18",
+          "name": "用户18",
+          "headline": "",
+          "type": "people",
+          "user_type": "people",
+          "url": "https://api.zhihu.com/people/follow-user-18",
+          "url_token": "follow-user-18",
+          "avatar_url": "",
+          "gender": 1,
+          "is_following": false,
+          "is_followed": false,
+          "is_org": false,
+          "badge": [
+            {
+              "type": "best_answerer",
+              "description": "优秀答主",
+              "topic_names": [
+                "数学",
+                "编程",
+                "物理学"
+              ],
+              "topics": []
+            }
+          ],
+          "badge_v2": {
+            "title": "新知答主",
+            "merged_badges": [
+              {
+                "type": "best",
+                "detail_type": "best",
+                "title": "年度新知答主",
+                "description": "新知答主",
+                "url": "https://www.zhihu.com/question/510340037",
+                "sources": [],
+                "icon": "",
+                "night_icon": ""
+              }
+            ],
+            "detail_badges": [
+              {
+                "type": "reward",
+                "detail_type": "zhihu_yearly_answerer",
+                "title": "年度新知答主",
+                "description": "新知答主",
+                "url": "https://www.zhihu.com/question/510340037",
+                "sources": [
+                  {
+                    "id": "2024",
+                    "token": "",
+                    "type": "year",
+                    "url": "",
+                    "name": "",
+                    "avatar_path": "",
+                    "avatar_url": "",
+                    "description": "",
+                    "priority": 2024
+                  }
+                ],
+                "icon": "https://pica.zhimg.com/v2-4a07bc69c4bb04444721f35b32125c75_l.png?source=32738c0c",
+                "night_icon": "https://picx.zhimg.com/v2-4a07bc69c4bb04444721f35b32125c75_l.png?source=32738c0c"
+              },
+              {
+                "type": "best",
+                "detail_type": "best_answerer",
+                "title": "优秀答主",
+                "description": "数学等 3 个话题下的优秀答主",
+                "url": "https://www.zhihu.com/question/48509984",
+                "sources": [
+                  {
+                    "id": "19554091",
+                    "token": "19554091",
+                    "type": "topic",
+                    "url": "https://www.zhihu.com/topic/19554091",
+                    "name": "数学",
+                    "avatar_path": "v2-351d57389cf50b002a20606caac645cf",
+                    "avatar_url": "https://picx.zhimg.com/v2-351d57389cf50b002a20606caac645cf_720w.jpg?source=32738c0c",
+                    "description": "",
+                    "priority": 0
+                  },
+                  {
+                    "id": "19554298",
+                    "token": "19554298",
+                    "type": "topic",
+                    "url": "https://www.zhihu.com/topic/19554298",
+                    "name": "编程",
+                    "avatar_path": "v2-27b8ba1e647956fa6f1a2a8ad90138ef",
+                    "avatar_url": "https://pic1.zhimg.com/v2-27b8ba1e647956fa6f1a2a8ad90138ef_720w.jpg?source=32738c0c",
+                    "description": "",
+                    "priority": 0
+                  },
+                  {
+                    "id": "19556950",
+                    "token": "19556950",
+                    "type": "topic",
+                    "url": "https://www.zhihu.com/topic/19556950",
+                    "name": "物理学",
+                    "avatar_path": "v2-6502f931cb98470c24111581d3f19d5d",
+                    "avatar_url": "https://picx.zhimg.com/v2-6502f931cb98470c24111581d3f19d5d_720w.jpg?source=32738c0c",
+                    "description": "",
+                    "priority": 0
+                  }
+                ],
+                "icon": "https://picx.zhimg.com/v2-4a07bc69c4bb04444721f35b32125c75_l.png?source=32738c0c",
+                "night_icon": "https://pic1.zhimg.com/v2-4a07bc69c4bb04444721f35b32125c75_l.png?source=32738c0c"
+              },
+              {
+                "type": "reward",
+                "detail_type": "super_activity",
+                "title": "社区成就",
+                "description": "知势榜影响力榜科学工程领域上榜答主",
+                "url": "",
+                "sources": [
+                  {
+                    "id": "27",
+                    "token": "",
+                    "type": "content_potential_category",
+                    "url": "",
+                    "name": "知势榜8月",
+                    "avatar_path": "",
+                    "avatar_url": "",
+                    "description": "",
+                    "priority": 27
+                  }
+                ],
+                "icon": "https://picx.zhimg.com/v2-4a07bc69c4bb04444721f35b32125c75_l.png?source=32738c0c",
+                "night_icon": "https://picx.zhimg.com/v2-4a07bc69c4bb04444721f35b32125c75_l.png?source=32738c0c"
+              }
+            ],
+            "icon": "https://pic1.zhimg.com/v2-4a07bc69c4bb04444721f35b32125c75_l.png?source=32738c0c",
+            "night_icon": "https://picx.zhimg.com/v2-4a07bc69c4bb04444721f35b32125c75_l.png?source=32738c0c"
+          },
+          "vip_info": {
+            "is_vip": false,
+            "target_url": ""
+          },
+          "kvip_info": {
+            "is_vip": false,
+            "target_url": ""
+          }
+        },
+        "comment_permission": "all",
+        "is_copyable": true,
+        "comment_count": 134,
+        "can_comment": {
+          "status": false,
+          "reason": "只有作者关注的人才可以评论"
+        },
+        "content": "<p data-pid=\"vj7Dmrrb\">照例先震惊瘫坐一下，OpenAI 已将矩阵乘法的指数因子从 2.371177 优化到了 2.25。</p><p data-pid=\"B6aiyIT0\">而过去 30 年人类的纯手工突破总结一下就是从 2.3755 一路推进到了 2.371552，小数点后四位 0.0003 的提升。</p><p data-pid=\"GXt-Wn_9\">单看这个形式就能知道 AI 的方法一定非常的漂亮，反而是人类的做法丑陋无比，堪称屎山雕花。</p><hr/><h2>朴素矩阵乘法</h2><p data-pid=\"TvNMaAt5\">矩阵乘法可以说是整个计算机科学与现代应用数学的基石。</p><p data-pid=\"Xc83Pit8\">自矩阵发明以来，尽管各种特殊矩阵有很多人在优化，但人们对通用矩阵乘法的时间复杂度一直深信不疑。</p><p data-pid=\"OQtghRxe\">假设两个矩阵的规模均为 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=n+%5Ctimes+n\" alt=\"n \\times n\"/>，输出矩阵 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=C\" alt=\"C\"/> 一共有 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=n+%5Ctimes+n+%3D+n%5E2\" alt=\"n \\times n = n^2\"/> 个独立的元素。</p><p data-pid=\"aofIxhT_\">对于每一个具体的元素 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=C_%7Bik%7D\" alt=\"C_{ik}\"/>，根据展开式，它是由 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=n\" alt=\"n\"/> 对数字分别相乘后再相加得到的。</p><p data-pid=\"pF9iCH8_\">也就是说，计算单个 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=C_%7Bik%7D\" alt=\"C_{ik}\"/> 需要严格消耗 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=n\" alt=\"n\"/> 次标量乘法以及 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=n-1\" alt=\"n-1\"/> 次标量加法。</p><p data-pid=\"72OF1LxS\">将 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=n%5E2\" alt=\"n^2\"/> 个元素全部算完，算法所耗费的标量乘法总次数为：</p><p data-pid=\"fqZk-KCs\"><img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D++++M%28n%29+%3D+n%5E2+%5Ctimes+n+%3D+n%5E3++++%5Cend%7Baligned%7D\" alt=\"\\begin{aligned}    M(n) = n^2 \\times n = n^3    \\end{aligned}\"/>加法总次数为：</p><p data-pid=\"GmCC2lGY\"><img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D++++A%28n%29+%3D+n%5E2+%5Ctimes+%28n+-+1%29+%3D+n%5E3+-+n%5E2++++%5Cend%7Baligned%7D\" alt=\"\\begin{aligned}    A(n) = n^2 \\times (n - 1) = n^3 - n^2    \\end{aligned}\"/></p><p data-pid=\"Djbrp2u1\">这里面的任何一个操作看起来都是无法省去的，那矩阵乘法的复杂度可不就是 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+T%28n%29+%3D+%5Cmathcal%7BO%7D%28n%5E3%29+%5Cend%7Baligned%7D\" alt=\"\\begin{aligned} T(n) = \\mathcal{O}(n^3) \\end{aligned}\"/>吗？</p><hr/><h2>Strassen 递归</h2><p data-pid=\"jNa7zQFK\">1969 年，年轻的德国数学家 Volker Strassen 也认为矩阵乘法复杂度 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cmathcal%7BO%7D%28n%5E3%29\" alt=\"\\mathcal{O}(n^3)\"/> 是天经地义的。</p><p data-pid=\"qCgHqf7c\">但是他发现这个问题似乎太难了点，转而试图证明 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=2+%5Ctimes+2\" alt=\"2 \\times 2\"/> 的矩阵相乘至少需要 8 次乘法，从而严格证明 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=n%5E3\" alt=\"n^3\"/> 是最优下界。</p><p data-pid=\"wGQatDLV\">Strassen 采用了分块分治的思想。</p><p data-pid=\"Jpt_bVQK\">假设我们将一个巨大的 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=n+%5Ctimes+n\" alt=\"n \\times n\"/> 矩阵划分为四个均等的 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%28n%2F2%29+%5Ctimes+%28n%2F2%29\" alt=\"(n/2) \\times (n/2)\"/> 子块：</p><p data-pid=\"xwImVNJO\"><img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+%5Cbegin%7Bpmatrix%7D+C_%7B11%7D+%26+C_%7B12%7D+%5C%5C+C_%7B21%7D+%26+C_%7B22%7D+%5Cend%7Bpmatrix%7D+%3D+%5Cbegin%7Bpmatrix%7D+A_%7B11%7D+%26+A_%7B12%7D+%5C%5C+A_%7B21%7D+%26+A_%7B22%7D+%5Cend%7Bpmatrix%7D+%5Cbegin%7Bpmatrix%7D+B_%7B11%7D+%26+B_%7B12%7D+%5C%5C+B_%7B21%7D+%26+B_%7B22%7D+%5Cend%7Bpmatrix%7D+%5Cend%7Baligned%7D\" alt=\"\\begin{aligned} \\begin{pmatrix} C_{11} &amp; C_{12} \\\\ C_{21} &amp; C_{22} \\end{pmatrix} = \\begin{pmatrix} A_{11} &amp; A_{12} \\\\ A_{21} &amp; A_{22} \\end{pmatrix} \\begin{pmatrix} B_{11} &amp; B_{12} \\\\ B_{21} &amp; B_{22} \\end{pmatrix} \\end{aligned}\"/>朴素的分块展开需要计算 8 个子矩阵乘积：</p><p data-pid=\"HpCqqgWw\"><img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+C_%7B11%7D+%26%3D+A_%7B11%7DB_%7B11%7D+%2B+A_%7B12%7DB_%7B21%7D+%5C%5C+C_%7B12%7D+%26%3D+A_%7B11%7DB_%7B12%7D+%2B+A_%7B12%7DB_%7B22%7D+%5C%5C+C_%7B21%7D+%26%3D+A_%7B21%7DB_%7B11%7D+%2B+A_%7B22%7DB_%7B21%7D+%5C%5C+C_%7B22%7D+%26%3D+A_%7B21%7DB_%7B12%7D+%2B+A_%7B22%7DB_%7B22%7D+%5Cend%7Baligned%7D\" alt=\"\\begin{aligned} C_{11} &amp;= A_{11}B_{11} + A_{12}B_{21} \\\\ C_{12} &amp;= A_{11}B_{12} + A_{12}B_{22} \\\\ C_{21} &amp;= A_{21}B_{11} + A_{22}B_{21} \\\\ C_{22} &amp;= A_{21}B_{12} + A_{22}B_{22} \\end{aligned}\"/>如果据此写出递归方程，规模为 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=n\" alt=\"n\"/> 的问题将被拆解为 8 个规模为 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=n%2F2\" alt=\"n/2\"/> 的子问题以及 4 次矩阵加法：</p><p data-pid=\"5Lfs-E5r\"><img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+T%28n%29+%3D+8+T%5Cleft%28%5Cfrac%7Bn%7D%7B2%7D%5Cright%29+%2B+4%5Cmathcal%7BO%7D%28n%5E2%29+%5Cend%7Baligned%7D\" alt=\"\\begin{aligned} T(n) = 8 T\\left(\\frac{n}{2}\\right) + 4\\mathcal{O}(n^2) \\end{aligned}\"/>根据主定理解此递归方程，即得矩阵乘法的复杂度为：</p><p data-pid=\"LWSB_Df-\"><img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+T%28n%29+%3D+%5Cmathcal%7BO%7D%5Cleft%28n%5E%7B%5Clog_2+8%7D%5Cright%29+%3D+%5Cmathcal%7BO%7D%28n%5E3%29+%5Cend%7Baligned%7D\" alt=\"\\begin{aligned} T(n) = \\mathcal{O}\\left(n^{\\log_2 8}\\right) = \\mathcal{O}(n^3) \\end{aligned}\"/></p><hr/><p data-pid=\"7TyUukWg\">但是很快， Strassen 发现通过精巧的线性预混合变量技巧，居然可以省掉一次昂贵的矩阵乘法！</p><p data-pid=\"oAmDBsXp\">考虑如下 7 个中间乘积矩阵 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=M_1%2C+%5Cdots%2C+M_7\" alt=\"M_1, \\dots, M_7\"/>：</p><p data-pid=\"FvrMbTSM\"><img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+M_1+%26%3D+%28A_%7B11%7D+%2B+A_%7B22%7D%29%28B_%7B11%7D+%2B+B_%7B22%7D%29+%5C%5C+M_2+%26%3D+%28A_%7B21%7D+%2B+A_%7B22%7D%29B_%7B11%7D+%5C%5C+M_3+%26%3D+A_%7B11%7D%28B_%7B12%7D+-+B_%7B22%7D%29+%5C%5C+M_4+%26%3D+A_%7B22%7D%28B_%7B21%7D+-+B_%7B11%7D%29+%5C%5C+M_5+%26%3D+%28A_%7B11%7D+%2B+A_%7B12%7D%29B_%7B22%7D+%5C%5C+M_6+%26%3D+%28A_%7B21%7D+-+A_%7B11%7D%29%28B_%7B11%7D+%2B+B_%7B12%7D%29+%5C%5C+M_7+%26%3D+%28A_%7B12%7D+-+A_%7B22%7D%29%28B_%7B21%7D+%2B+B_%7B22%7D%29+%5Cend%7Baligned%7D\" alt=\"\\begin{aligned} M_1 &amp;= (A_{11} + A_{22})(B_{11} + B_{22}) \\\\ M_2 &amp;= (A_{21} + A_{22})B_{11} \\\\ M_3 &amp;= A_{11}(B_{12} - B_{22}) \\\\ M_4 &amp;= A_{22}(B_{21} - B_{11}) \\\\ M_5 &amp;= (A_{11} + A_{12})B_{22} \\\\ M_6 &amp;= (A_{21} - A_{11})(B_{11} + B_{12}) \\\\ M_7 &amp;= (A_{12} - A_{22})(B_{21} + B_{22}) \\end{aligned}\"/>计算这 7 个 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=M_k\" alt=\"M_k\"/> 只消耗了 7 次子矩阵乘法，其余全是廉价的子矩阵加减法。</p><p data-pid=\"oPx5PCyM\">接下来，Strassen 神奇地通过纯加减法重构出了最终的 4 个子块：</p><p data-pid=\"1_0XmVzI\"><img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+C_%7B11%7D+%26%3D+M_1+%2B+M_4+-+M_5+%2B+M_7+%5C%5C+C_%7B12%7D+%26%3D+M_3+%2B+M_5+%5C%5C+C_%7B21%7D+%26%3D+M_2+%2B+M_4+%5C%5C+C_%7B22%7D+%26%3D+M_1+-+M_2+%2B+M_3+%2B+M_6+%5Cend%7Baligned%7D\" alt=\"\\begin{aligned} C_{11} &amp;= M_1 + M_4 - M_5 + M_7 \\\\ C_{12} &amp;= M_3 + M_5 \\\\ C_{21} &amp;= M_2 + M_4 \\\\ C_{22} &amp;= M_1 - M_2 + M_3 + M_6 \\end{aligned}\"/></p><p data-pid=\"a3cP70On\">此时，分治递归方程就被改写为：</p><p data-pid=\"9My4u2VT\"><img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+T%28n%29+%3D+%7B%5Ccolor%7Bteal%7D+7%7D+T%5Cleft%28%5Cfrac%7Bn%7D%7B2%7D%5Cright%29+%2B+%5Cmathcal%7BO%7D%28n%5E2%29+%5Cend%7Baligned%7D\" alt=\"\\begin{aligned} T(n) = {\\color{teal} 7} T\\left(\\frac{n}{2}\\right) + \\mathcal{O}(n^2) \\end{aligned}\"/>再次应用主定理，复杂度的指数由 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Clog_2+8+%3D+3\" alt=\"\\log_2 8 = 3\"/> 下降到了 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+%5Comega+%3D+%5Clog_2+7+%5Capprox+2.807354922+%5Cend%7Baligned%7D\" alt=\"\\begin{aligned} \\omega = \\log_2 7 \\approx 2.807354922 \\end{aligned}\"/>。</p><p data-pid=\"y0MCVKRM\">这可是通用矩阵乘法的显著改进，这一成果轰动了整个算法界，矩阵内部竟然存在着精妙的代数代换空间！</p><p data-pid=\"U4ULKBh0\"><b>Strassen 时年 33 岁。</b></p><hr/><h2>三线性张量</h2><p data-pid=\"gWPiuZah\">在 Strassen 取得重大突破之后的 10 年里，世界各地学者立刻开始尝试各种各样的手工代数技巧。</p><p data-pid=\"dGHviLIi\">这十年里学者们从 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=3+%5Ctimes+3\" alt=\"3 \\times 3\"/> 到 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=9+%5Ctimes+9\" alt=\"9 \\times 9\"/> 分块试了个遍，但是突破为 0。</p><p data-pid=\"sJVyyNbw\">由于在草稿纸上拼凑成千上万项的符号繁琐至极，很容易算错，还闹了不少乌龙。</p><p data-pid=\"KbmiyMwh\">直到代数学家发现，其实可以将矩阵乘法升维，转化为三线性张量分解问题。</p><p data-pid=\"hDzX3g86\">矩阵相乘在代数结构上是一个双线性映射：</p><p data-pid=\"cUp1EslE\"><img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+f%3A+%5Cmathbb%7BR%7D%5E%7Bn+%5Ctimes+n%7D+%5Ctimes+%5Cmathbb%7BR%7D%5E%7Bn+%5Ctimes+n%7D+%26%5Cto+%5Cmathbb%7BR%7D%5E%7Bn+%5Ctimes+n%7D%5C%5C+%5Cquad+%28A%2C+B%29+%26%5Cmapsto+C+%3D+AB+%5Cend%7Baligned%7D\" alt=\"\\begin{aligned} f: \\mathbb{R}^{n \\times n} \\times \\mathbb{R}^{n \\times n} &amp;\\to \\mathbb{R}^{n \\times n}\\\\ \\quad (A, B) &amp;\\mapsto C = AB \\end{aligned}\"/>这种表达方式之所以对算法理论不友好，根本原因是元素地位不对称。</p><p data-pid=\"U4Qxl51R\">输入是两个矩阵，输出是另外一个矩阵，而输出矩阵又由分散在二维表格里的 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=n%5E2\" alt=\"n^2\"/> 个孤立等式构成。</p><p data-pid=\"4CN_7yjM\">为了让问题拥有完美的数学对称性，代数学家应用了对偶化技巧，引入第三个未知的测试矩阵： <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=Z+%3D+%28Z_%7Bki%7D%29+%5Cin+%5Cmathbb%7BR%7D%5E%7Bn+%5Ctimes+n%7D\" alt=\"Z = (Z_{ki}) \\in \\mathbb{R}^{n \\times n}\"/></p><p data-pid=\"UP3CFBWd\">这样一来，我们就不再只是孤立地考察输出矩阵 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=C\" alt=\"C\"/> 的各个元素，转而考察输出矩阵 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=C\" alt=\"C\"/> 与测试矩阵 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=Z\" alt=\"Z\"/> 的广义内积，即矩阵乘积的迹：</p><p data-pid=\"YAD70bhD\"><img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+%5CPhi%28A%2C+B%2C+Z%29+%3D+%5Coperatorname%7BTr%7D%28ABZ%29+%5Cend%7Baligned%7D\" alt=\"\\begin{aligned} \\Phi(A, B, Z) = \\operatorname{Tr}(ABZ) \\end{aligned}\"/>根据矩阵乘法和迹的定义，直接展开此式：</p><p data-pid=\"bDw4fhDz\"><img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+%5Coperatorname%7BTr%7D%28ABZ%29+%26%3D+%5Csum_%7Bi%3D1%7D%5En+%28ABZ%29_%7Bii%7D+%3D+%5Csum_%7Bi%3D1%7D%5En+%5Csum_%7Bk%3D1%7D%5En+C_%7Bik%7D+Z_%7Bki%7D+%5C%5C+%26%3D+%7B%5Csum_%7Bi%3D1%7D%5En+%5Csum_%7Bj%3D1%7D%5En+%5Csum_%7Bk%3D1%7D%5En+A_%7Bij%7D+B_%7Bjk%7D+Z_%7Bki%7D%7D+%5Cend%7Baligned%7D\" alt=\"\\begin{aligned} \\operatorname{Tr}(ABZ) &amp;= \\sum_{i=1}^n (ABZ)_{ii} = \\sum_{i=1}^n \\sum_{k=1}^n C_{ik} Z_{ki} \\\\ &amp;= {\\sum_{i=1}^n \\sum_{j=1}^n \\sum_{k=1}^n A_{ij} B_{jk} Z_{ki}} \\end{aligned}\"/></p><p data-pid=\"2UYUxCP9\">在这个多项式中，<img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=Z_%7Bki%7D\" alt=\"Z_{ki}\"/> 是一组符号占位符，只要我们计算出了多项式 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5CPhi%28A%2C+B%2C+Z%29\" alt=\"\\Phi(A, B, Z)\"/> 的完整代数表达式，那么对于任意固定的下标对 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%28i%2C+k%29\" alt=\"(i, k)\"/>，占位符 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=Z_%7Bki%7D\" alt=\"Z_{ki}\"/> 前面的多项式系数在定义上就严格等于 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=C_%7Bik%7D\" alt=\"C_{ik}\"/>。</p><p data-pid=\"1AG60i__\">换言之，只要能够计算出这个大多项式，就一对一的算出矩阵乘法的所有元素。</p><p data-pid=\"E1jon14H\">与此同时，矩阵迹具有循环不变性：</p><p data-pid=\"ZGRkLb5w\"><img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D++++%5Coperatorname%7BTr%7D%28ABZ%29+%3D+%5Coperatorname%7BTr%7D%28BZA%29+%3D+%5Coperatorname%7BTr%7D%28ZAB%29++++%5Cend%7Baligned%7D\" alt=\"\\begin{aligned}    \\operatorname{Tr}(ABZ) = \\operatorname{Tr}(BZA) = \\operatorname{Tr}(ZAB)    \\end{aligned}\"/>这样一来，原本处于输出从属地位的矩阵 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=C\" alt=\"C\"/>，在对偶化为 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=Z\" alt=\"Z\"/> 之后，与输入矩阵 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=A\" alt=\"A\"/> 和 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=B\" alt=\"B\"/> 获得了平等的代数地位。</p><p data-pid=\"m-5HNkJh\">多项式的每一项 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=A_%7Bij%7D+B_%7Bjk%7D+Z_%7Bki%7D\" alt=\"A_{ij} B_{jk} Z_{ki}\"/>，都是由分别来自三个集合的一个变量相乘构成的。</p><p data-pid=\"vN0TdXFB\">它对 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=A\" alt=\"A\"/> 是线性的，对 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=B\" alt=\"B\"/> 是线性的，对 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=Z\" alt=\"Z\"/> 也是线性的。</p><hr/><p data-pid=\"zQmn6Q9h\">为了用空间几何来描述这个三线性形式，代数学家引入了三阶张量。</p><p data-pid=\"g4LzbGIp\">设向量空间 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=U%2C+V%2C+W\" alt=\"U, V, W\"/> 的基底分别为 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5C%7Bx_%7Bij%7D%5C%7D%2C+%5C%7By_%7Bjk%7D%5C%7D%2C+%5C%7Bz_%7Bki%7D%5C%7D\" alt=\"\\{x_{ij}\\}, \\{y_{jk}\\}, \\{z_{ki}\\}\"/>，矩阵乘法所对应的三阶张量记为 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Clangle+n%2C+n%2C+n+%5Crangle\" alt=\"\\langle n, n, n \\rangle\"/>。</p><p data-pid=\"fNlQrTba\">特别的，若矩阵形状为 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=n+%5Ctimes+m\" alt=\"n \\times m\"/> 与 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=m+%5Ctimes+p\" alt=\"m \\times p\"/>，则记为 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Clangle+n%2C+m%2C+p+%5Crangle\" alt=\"\\langle n, m, p \\rangle\"/>。</p><p data-pid=\"N3K_0Z8t\">它在形式上被定义为三线性张量积的求和：</p><p data-pid=\"2yqnsq6e\"><img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+%5Clangle+n%2C+n%2C+n+%5Crangle+%3D+%5Csum_%7Bi%3D1%7D%5En+%5Csum_%7Bj%3D1%7D%5En+%5Csum_%7Bk%3D1%7D%5En+x_%7Bij%7D+%5Cotimes+y_%7Bjk%7D+%5Cotimes+z_%7Bki%7D+%5Cend%7Baligned%7D\" alt=\"\\begin{aligned} \\langle n, n, n \\rangle = \\sum_{i=1}^n \\sum_{j=1}^n \\sum_{k=1}^n x_{ij} \\otimes y_{jk} \\otimes z_{ki} \\end{aligned}\"/> </p><p data-pid=\"SxTOu1rg\">如果把这个张量看作一个 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=n%5E2+%5Ctimes+n%5E2+%5Ctimes+n%5E2\" alt=\"n^2 \\times n^2 \\times n^2\"/> 大小的三维立体网格。</p><p data-pid=\"Z9uXFWdL\">只有当三个坐标的下标能够首尾相接、拼成闭合环路时，该立体格子里的数值为 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=1\" alt=\"1\"/>。</p><p data-pid=\"0dqu7Fkd\">此时 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=A\" alt=\"A\"/> 的列对齐 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=B\" alt=\"B\"/> 的行，<img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=B\" alt=\"B\"/> 的列对齐 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=Z\" alt=\"Z\"/> 的行，<img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=Z\" alt=\"Z\"/> 的列对齐 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=A\" alt=\"A\"/> 的行。</p><p data-pid=\"jU63Vgwp\">其他所有乱序组合的格子里数值全为 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=0\" alt=\"0\"/>。</p><p data-pid=\"U-Dc0QlI\">这个满足结构对称性的 0-1 立方就被称为矩阵乘法张量。</p><hr/><p data-pid=\"yMx4N1j5\">那么问题来了，我们怎么从这样几何魔方中看出算法需要几次乘法呢？</p><p data-pid=\"hWsxVyxx\">定义秩为 1 的三阶张量为外积项 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+T_%7B%5Ctext%7Brank-1%7D%7D+%3D+u+%5Cotimes+v+%5Cotimes+w+%5Cend%7Baligned%7D\" alt=\"\\begin{aligned} T_{\\text{rank-1}} = u \\otimes v \\otimes w \\end{aligned}\"/> ，其中 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=u%2C+v%2C+w\" alt=\"u, v, w\"/> 分别是三个空间中的某个向量。</p><p data-pid=\"IG52prJJ\">在多项式求值中，对应的计算形如：</p><p data-pid=\"9IiSyJO5\"><img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+%5Cleft%28+%5Csum_%7Bi%2Cj%7D+%5Calpha_%7Bij%7D+A_%7Bij%7D+%5Cright%29+%5Ctimes+%5Cleft%28+%5Csum_%7Bj%2Ck%7D+%5Cbeta_%7Bjk%7D+B_%7Bjk%7D+%5Cright%29+%5Ctimes+%5Cleft%28+%5Csum_%7Bk%2Ci%7D+%5Cgamma_%7Bki%7D+Z_%7Bki%7D+%5Cright%29+%5Cend%7Baligned%7D\" alt=\"\\begin{aligned} \\left( \\sum_{i,j} \\alpha_{ij} A_{ij} \\right) \\times \\left( \\sum_{j,k} \\beta_{jk} B_{jk} \\right) \\times \\left( \\sum_{k,i} \\gamma_{ki} Z_{ki} \\right) \\end{aligned}\"/>这个计算左边是一个求和（加法），中间是一个求和（加法），右边是一个求和（加法）。 </p><p data-pid=\"6zX1pg8J\">所以说，在计算机中，计算这样的一整项，只需要消耗 1 次标量乘法！</p><p data-pid=\"uC4QsMCl\">对于任意张量 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=T\" alt=\"T\"/>，其张量秩 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=R%28T%29\" alt=\"R(T)\"/> 定义为将 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=T\" alt=\"T\"/> 分解为若干个秩-1 张量之和时，所需的最少项数：</p><p data-pid=\"mNm701cc\"><img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+R%28T%29+%3D+%5Cmin+%5Cleft%5C%7B+R+%5C%3B%5Cmiddle%7C%5C%3B+T+%3D+%5Csum_%7Br%3D1%7D%5ER+u%5E%7B%28r%29%7D+%5Cotimes+v%5E%7B%28r%29%7D+%5Cotimes+w%5E%7B%28r%29%7D+%5Cright%5C%7D+%5Cend%7Baligned%7D\" alt=\"\\begin{aligned} R(T) = \\min \\left\\{ R \\;\\middle|\\; T = \\sum_{r=1}^R u^{(r)} \\otimes v^{(r)} \\otimes w^{(r)} \\right\\} \\end{aligned}\"/></p><p data-pid=\"iaXmd4MS\">所以说，寻找一个只需要 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=R\" alt=\"R\"/> 次乘法的矩阵乘法算法，只需证明矩阵乘法张量的秩<img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=R%28%5Clangle+n%2C+n%2C+n+%5Crangle%29+%5Cleqslant+R\" alt=\"R(\\langle n, n, n \\rangle) \\leqslant R\"/>。</p><hr/><p data-pid=\"BcVjBcGY\">用新的语言改写前面的成果：</p><p data-pid=\"6rY7UzeB\">朴素竖式算法直接拆出了 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=n%5E3\" alt=\"n^3\"/> 个基底项，证明了 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=R%28%5Clangle+n%2C+n%2C+n+%5Crangle%29+%5Cleqslant+n%5E3\" alt=\"R(\\langle n, n, n \\rangle) \\leqslant n^3\"/>。</p><p data-pid=\"Q_aiO8-s\">Strassen 算法将 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Clangle+2%2C+2%2C+2+%5Crangle\" alt=\"\\langle 2, 2, 2 \\rangle\"/> 分解成了 7 个秩-1 项，这就证明了 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=R%28%5Clangle+2%2C+2%2C+2+%5Crangle%29+%5Cleqslant+7\" alt=\"R(\\langle 2, 2, 2 \\rangle) \\leqslant 7\"/>。</p><p data-pid=\"frYz-eaU\">有了合适的凑配语言，指数因子很快就卷到了 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Comega+%5Cleqslant+%5Clog_%7B70%7D%28143640%29+%5Capprox+2.79512+\" alt=\"\\omega \\leqslant \\log_{70}(143640) \\approx 2.79512 \"/> </p><p data-pid=\"2IJTjZT3\">这可是 70 阶矩阵，如果不引入张量语言凑到猴年马月都凑不完。</p><hr/><h2>Strassen 渐进求和定理</h2><p data-pid=\"tj8_O4PE\">1979 年，Dario Bini 等人提出了边界秩（Border Rank）。</p><p data-pid=\"tQL319wv\">在几何上，低秩矩阵构成的集合是闭集，但在三阶及以上的高阶张量中，低秩张量构成的代数簇在拓扑学上并非闭集！</p><p data-pid=\"bD79kSHW\">这意味着某些张量本身的秩可能很大，但它却可以被一组秩很小的张量在代数极限下任意逼近。</p><p data-pid=\"3vlluXDn\">如果存在一个微扰参数 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cvarepsilon\" alt=\"\\varepsilon\"/>，使得我们能找到一个带有参数 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cvarepsilon\" alt=\"\\varepsilon\"/> 的秩为 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=R\" alt=\"R\"/> 的张量分解，其展开式在极限意义下满足： <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+%5Csum_%7Br%3D1%7D%5ER+u%5E%7B%28r%29%7D%28%5Cvarepsilon%29+%5Cotimes+v%5E%7B%28r%29%7D%28%5Cvarepsilon%29+%5Cotimes+w%5E%7B%28r%29%7D%28%5Cvarepsilon%29+%3D+T+%2B+%5Cvarepsilon+%5Ccdot+E_1+%2B+%5Cvarepsilon%5E2+%5Ccdot+E_2+%2B+%5Cdots+%5Cend%7Baligned%7D\" alt=\"\\begin{aligned} \\sum_{r=1}^R u^{(r)}(\\varepsilon) \\otimes v^{(r)}(\\varepsilon) \\otimes w^{(r)}(\\varepsilon) = T + \\varepsilon \\cdot E_1 + \\varepsilon^2 \\cdot E_2 + \\dots \\end{aligned}\"/>此时最高阶项还原了张量 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=T\" alt=\"T\"/>，而所有不要的垃圾项全部挂在 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cvarepsilon\" alt=\"\\varepsilon\"/> 的高次幂上。</p><p data-pid=\"o9VOPmLs\">那么，我们就称张量 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=T\" alt=\"T\"/> 的边界秩至多为 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=R\" alt=\"R\"/>，记作 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cunderline%7BR%7D%28T%29+%5Cleqslant+R\" alt=\"\\underline{R}(T) \\leqslant R\"/>。</p><hr/><p data-pid=\"8AKo-CsO\">同年，Bini 定理指出，在分析渐进复杂度时，边界秩和精确秩拥有完全相同的威力。</p><p data-pid=\"AuPyt441\">即使分解式中带有误差项 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cvarepsilon\" alt=\"\\varepsilon\"/>，通过对高阶张量积进行多项式插值消元，所增加的额外开销在渐进对数意义下也趋近于零：</p><p data-pid=\"YThZi09Y\"><img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+%5Comega+%3D+%5Cinf+%5C%7B+%5Ctau+%5Cmid+R%28%5Clangle+n%2C+n%2C+n+%5Crangle%29+%3D+%5Cmathcal%7BO%7D%28n%5E%5Ctau%29+%5C%7D+%3D+%5Cinf+%5C%7B+%5Ctau+%5Cmid+%5Cunderline%7BR%7D%28%5Clangle+n%2C+n%2C+n+%5Crangle%29+%3D+%5Cmathcal%7BO%7D%28n%5E%5Ctau%29+%5C%7D+%5Cend%7Baligned%7D\" alt=\"\\begin{aligned} \\omega = \\inf \\{ \\tau \\mid R(\\langle n, n, n \\rangle) = \\mathcal{O}(n^\\tau) \\} = \\inf \\{ \\tau \\mid \\underline{R}(\\langle n, n, n \\rangle) = \\mathcal{O}(n^\\tau) \\} \\end{aligned}\"/></p><hr/><p data-pid=\"ki09UZTU\">到了 1986 年，已经是功成名就的 Volker Strassen 给出了矩阵乘法理论中最重要的桥梁。</p><p data-pid=\"-9kWln-d\">Strassen 渐进定理指出，即便你手头的张量并不是一个规整的方阵乘法，只是一堆不同尺寸独立矩阵乘法的直和，形如： <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+T+%3D+%5Cbigoplus_%7Bi%3D1%7D%5EN+%5Clangle+k_i%2C+m_i%2C+p_i+%5Crangle+%5Cend%7Baligned%7D\" alt=\"\\begin{aligned} T = \\bigoplus_{i=1}^N \\langle k_i, m_i, p_i \\rangle \\end{aligned}\"/> 。</p><p data-pid=\"bFTh_TPV\">只要你能证明这个直和张量的边界秩满足 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cunderline%7BR%7D%28T%29+%5Cleqslant+R\" alt=\"\\underline{R}(T) \\leqslant R\"/>，那么矩阵乘法常数 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Comega\" alt=\"\\omega\"/> 必然受制于特征方程的实根 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Ctau\" alt=\"\\tau\"/>，Strassen 渐进求和不等式： <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Ccolor%7Bteal%7D%7B+%5Csum_%7Bi%3D1%7D%5EN+%28k_i+m_i+p_i%29%5E%7B%5Ctau+%2F+3%7D+%5Cleqslant+%5Cunderline%7BR%7D%28T%29+%5Cimplies+%5Comega+%5Cleqslant+%5Ctau+%7D\" alt=\"\\color{teal}{ \\sum_{i=1}^N (k_i m_i p_i)^{\\tau / 3} \\leqslant \\underline{R}(T) \\implies \\omega \\leqslant \\tau }\"/></p><p data-pid=\"jvpzoHon\">所以说，我们根本不需要一步到位去构造巨大的方阵乘法，我们只需要去构造一个边界秩极小的小零件张量，然后从中批量生产小矩阵乘法即可！</p><p data-pid=\"kANexTZa\"><b>Strassen 时年 50 岁。</b></p><hr/><h2>CW 激光法</h2><p data-pid=\"kuAFdFIM\">1990 年，Don Coppersmith 与 Shmuel Winograd 构造出了一个精妙绝伦的小型张量：<img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+T_%7BCW%2C+q%7D+%3D+x_0+y_0+z_%7Bq%2B1%7D+%2B+x_%7Bq%2B1%7D+y_0+z_0+%2B+x_0+y_%7Bq%2B1%7D+z_0+%2B+%5Csum_%7Bi%3D1%7D%5Eq+%5Cleft%28+x_0+y_i+z_i+%2B+x_i+y_0+z_i+%2B+x_i+y_i+z_0+%5Cright%29+%5Cend%7Baligned%7D\" alt=\"\\begin{aligned} T_{CW, q} = x_0 y_0 z_{q+1} + x_{q+1} y_0 z_0 + x_0 y_{q+1} z_0 + \\sum_{i=1}^q \\left( x_0 y_i z_i + x_i y_0 z_i + x_i y_i z_0 \\right) \\end{aligned}\"/></p><p data-pid=\"xio5Ruzh\">其中参数 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=q+%5Cgeqslant+1\" alt=\"q \\geqslant 1\"/> 定义在一个由 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=q%2B2\" alt=\"q+2\"/> 维空间构成的三线性形式上。</p><p data-pid=\"3keG6A6-\">这个张量的精妙之处在于它的边界秩极小。</p><p data-pid=\"KwlilgK_\">直接计算它的精确秩，可能需要很多项，但 CW 发现，如果引入摄动参数 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cvarepsilon\" alt=\"\\varepsilon\"/>，我们可以写出如下边界秩代数消去恒等式： <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=T_%7BCW%7D+%3D+%5Clim_%7B%5Cvarepsilon+%5Cto+0%7D+%5Cfrac%7B1%7D%7B%5Cvarepsilon%5E4%7D+%5Cleft%5B+%5Csum_%7Bi%3D1%7D%5Eq+A_i+-+A_0+-+A_%7B%5Cinfty%7D+%5Cright%5D+\" alt=\"T_{CW} = \\lim_{\\varepsilon \\to 0} \\frac{1}{\\varepsilon^4} \\left[ \\sum_{i=1}^q A_i - A_0 - A_{\\infty} \\right] \"/>通过巧妙的代数对消，所有分母上的 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=1%2F%5Cvarepsilon%5E2\" alt=\"1/\\varepsilon^2\"/> 和 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=1%2F%5Cvarepsilon\" alt=\"1/\\varepsilon\"/> 都会被完全相消，常数项分毫不差地还原出 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=T_%7BCW%2C+q%7D\" alt=\"T_{CW, q}\"/>，而多余的交叉项则全都被压制在 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cmathcal%7BO%7D%28%5Cvarepsilon%29\" alt=\"\\mathcal{O}(\\varepsilon)\"/> 的高阶项中。</p><p data-pid=\"7NL2fVC1\">所以有 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+%5Cunderline%7BR%7D%28T_%7BCW%2C+q%7D%29+%3D+q+%2B+2+%5Cend%7Baligned%7D\" alt=\"\\begin{aligned} \\underline{R}(T_{CW, q}) = q + 2 \\end{aligned}\"/> 。</p><p data-pid=\"I55FSvxc\">一个 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=3q\" alt=\"3q\"/> 个三元变量交互的张量它的边界秩居然仅仅只有 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=q%2B2\" alt=\"q+2\"/>！？？</p><p data-pid=\"GC92crP3\">CW 基底张量乍一看潜力无穷，很快就引起了一大批学者的注意力，成功带歪了整个算法界。</p><hr/><p data-pid=\"abwB1OZ-\">这里有个问题，张量 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=T_%7BCW%2C+q%7D\" alt=\"T_{CW, q}\"/> 本身长得并不像矩阵乘法，它里面零零碎碎地散落着各种下标。</p><p data-pid=\"l179rYbC\">怎么才能把它变成标准的矩阵乘法呢？</p><p data-pid=\"hC_eiUmh\">让我们考察张量的 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=N\" alt=\"N\"/> 次方幂 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=T%5E%7B%5Cotimes+N%7D\" alt=\"T^{\\otimes N}\"/>，其中 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=N\" alt=\"N\"/> 是一个极其庞大的整数。</p><p data-pid=\"Duf5Pjzm\">根据张量积的多项式展开法则，这相当于把 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=N\" alt=\"N\"/> 个独立的 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=T_%7BCW%2C+q%7D\" alt=\"T_{CW, q}\"/> 乘在一起。</p><p data-pid=\"pp1BneBa\">展开之后，整个张量会化为一个巨大的单项式，变量的下标被组织成了 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=N\" alt=\"N\"/> 维坐标序列。</p><p data-pid=\"r_3eCeII\">此时，根据大数定律，当 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=N+%5Cto+%5Cinfty\" alt=\"N \\to \\infty\"/> 时，展开式中绝大多数项的坐标结构会自然聚集为某种满足特定统计分布的结构块。</p><p data-pid=\"9ATrKJTm\">CW 发现，在这些结构块内部，变量的咬合关系同构于一系列独立的子矩阵乘法，但是却又会出交叉干扰项问题。</p><hr/><p data-pid=\"HlZDGVki\">在直和分解 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cbigoplus+%5Clangle+k_i%2C+m_i%2C+p_i+%5Crangle\" alt=\"\\bigoplus \\langle k_i, m_i, p_i \\rangle\"/> 中，每个矩阵乘法必须是完全独立的。</p><p data-pid=\"wGSBDP-t\">但在 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=T%5E%7B%5Cotimes+N%7D\" alt=\"T^{\\otimes N}\"/> 的自然展开中，属于矩阵 1的 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=X\" alt=\"X\"/> 变量，可能会与属于矩阵 2的 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=Y\" alt=\"Y\"/> 变量以及属于矩阵 3的 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=Z\" alt=\"Z\"/> 变量，在某些未被预料的交叉项中乘在一起。</p><p data-pid=\"nO862Lqa\">展开后的百亿个项中只要有 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=1\" alt=\"1\"/> 个交叉项，整个多项式在数学意义上就不能严格退化为矩阵乘法直和。</p><p data-pid=\"6yAxF5EO\">那么，怎么从数以亿计的项中剔除所有交叉项呢？</p><p data-pid=\"8a8sJyDU\">只要把这些特殊项变量置零即可，所有包含这个变量的单项式就会直接蒸发。</p><p data-pid=\"Yv7OLoJd\">1990 年，借助这一发现，Coppersmith 和 Winograd 得到了 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+%5Comega+%3C+2.375477+%5Cend%7Baligned%7D\" alt=\"\\begin{aligned} \\omega &lt; 2.375477 \\end{aligned}\"/>的成果。</p><p data-pid=\"EurkJhxr\">这下抠抠空间有了，随后的三十余年里，整个 TCS 学者全都在 CW 空间里抠常数。</p><ul><li data-pid=\"C87yER6d\">2010 年，Andrew Stothers 考察 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=T_%7BCW%7D%5E%7B%5Cotimes+2%7D\" alt=\"T_{CW}^{\\otimes 2}\"/>，得出 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Comega+%3C+2.3737\" alt=\"\\omega &lt; 2.3737\"/></li><li data-pid=\"W8cBVXvm\">2012 年，Virginia Vassilevska Williams 考察 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=T_%7BCW%7D%5E%7B%5Cotimes+4%7D\" alt=\"T_{CW}^{\\otimes 4}\"/> 并设计非对称散列，得出 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Comega+%3C+2.3728642\" alt=\"\\omega &lt; 2.3728642\"/></li><li data-pid=\"vLskFJlg\">2014 年，François Le Gall 考察 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=T_%7BCW%7D%5E%7B%5Cotimes+8%7D\" alt=\"T_{CW}^{\\otimes 8}\"/> 并引入高维凸优化，得出 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Comega+%3C+2.3728596\" alt=\"\\omega &lt; 2.3728596\"/></li><li data-pid=\"aCfB5O3Q\">2020 年，Josh Alman 引入精细的分布微调，得出 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Comega+%3C+2.3728596\" alt=\"\\omega &lt; 2.3728596\"/></li><li data-pid=\"TabHAoNP\">2023 年，周仁飞通过局部图着色式的提取技巧，得出 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Comega+%3C+2.37155\" alt=\"\\omega &lt; 2.37155\"/></li></ul><p data-pid=\"Eso0Ri7f\">力竭了，一滴也没有了。</p><p data-pid=\"q1pXr2PQ\">学者们耗费了整整三十年，无数篇顶会论文累加起来，仅仅将小数点后第三位推进了区区 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=0.004\" alt=\"0.004\"/>。</p><p data-pid=\"RquCpz7-\">2026年，又是 Alman 和 Vassilevska Williams 带头，加上 AI，借助 Google DeepMind 的 AlphaEvolve 等 AI 工具，刷到了 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%CF%89+%3C+2.371177\" alt=\"ω &lt; 2.371177\"/> 。</p><hr/><h2>CW 止步定理</h2><p data-pid=\"erL9uBvT\">全人类三十年的智力堆砌，居然只能在小数点后第四位蠕动，这给 TCS 人看哈气了。</p><p data-pid=\"cxEvGTp9\">2014 年，Andris Ambainis、Yuval Filmus 与 François Le Gall 发现，激光法在单个 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=T_%7BCW%7D\" alt=\"T_{CW}\"/> 张量上的提取过程可以被抽象为一个泛函凸优化问题。</p><p data-pid=\"3RXur5fb\">在激光法中，能提取出的矩阵规模受制于给各个分块赋予的概率分布 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=p\" alt=\"p\"/> 的香农熵<img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=H%28p%29\" alt=\"H(p)\"/>。 </p><p data-pid=\"0lbZ7ksM\">Ambainis 等人证明，在单重 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=T_%7BCW%7D\" alt=\"T_{CW}\"/> 的对称群约束下，这个香农熵函数存在凹性理论极大值。</p><p data-pid=\"L4yzAY86\">无论未来的数学家和 AI 发明出了多么不可思议的多项式技巧，解出的 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Comega\" alt=\"\\omega\"/> 下限也只有 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+%5Comega+%5Cgeqslant+2.3725+%5Cend%7Baligned%7D\" alt=\"\\begin{aligned} \\omega \\geqslant 2.3725 \\end{aligned}\"/>。</p><p data-pid=\"QwQRLhE2\">所以说，其实人类已经压榨出了 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=T_%7BCW%7D\" alt=\"T_{CW}\"/> 单张量极限的 99.99% 了。</p><p data-pid=\"Gf8IfW5w\">你注意力再怎么强大，再怎么继续在单张量上做微调，最多也只能再前进 0.0003 ，绝无可能突破 2.3725。</p><hr/><p data-pid=\"ipI7bsaP\">单张量撞墙后，学者们把全部希望寄托在无限高阶张量积上。</p><p data-pid=\"VLa75P1A\">既然单张量有极限，那如果我算到 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=T_%7BCW%7D%5E%7B%5Cotimes+114%7D\" alt=\"T_{CW}^{\\otimes 114}\"/> 甚至 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=T_%7BCW%7D%5E%7B%5Cotimes+514%7D\" alt=\"T_{CW}^{\\otimes 514}\"/> 呢？</p><p data-pid=\"X8nhdh-t\">在无限维极限下，大数定律会抹平一切波动，香农熵也会趋近于全容量，是不是就能一举冲向 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Comega+%3D+2\" alt=\"\\omega = 2\"/>？</p><p data-pid=\"5XOmXbFI\">想法很美好，但 2018 年，Josh Alman 与 Virginia Vassilevska Williams 在 FOCS 2018 上彻底粉碎了 CW 路线。</p><p data-pid=\"10DQpcvn\">Alman 和 Williams 动用了代数复杂性理论中非常深奥的切片秩理论。</p><p data-pid=\"btsh_VPZ\">在这一视角下，CW 激光法的本质是通过置零操作把大张量退化为一个子矩阵直和张量。</p><p data-pid=\"kxQcSHWy\">此时交叉项的增长速度在组合爆炸的意义下永远以更快的指数级碾压好项的增长速度。</p><p data-pid=\"eF7G8y1s\">为了在 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=T_%7BCW%7D%5E%7B%5Cotimes+k%7D\" alt=\"T_{CW}^{\\otimes k}\"/> 中消灭所有交叉项，随着次方数 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=k\" alt=\"k\"/> 的增加，你被迫错杀的非交叉项比例也会大幅度增加。</p><p data-pid=\"c8Co1ioM\">这种因大规模放弃变量而导致的代数容量惩罚被称为组合熵损失。</p><p data-pid=\"z_w5Cprt\">最终，根据一些信息论推导，Alman 和 Williams 证明了即便张量积阶数 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=k+%5Cto+%5Cinfty\" alt=\"k \\to \\infty\"/>，且允许使用任何形式的广义激光方法、任何复杂的零化多项式，其计算出的渐进复杂度仍然受制于下界： <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%7B+%5Clim_%7Bk+%5Cto+%5Cinfty%7D+%5Comega%5Cleft%28T_%7BCW%7D%5E%7B%5Cotimes+k%7D%5Cright%29+%5Cgeqslant+2.3078%7D\" alt=\"{ \\lim_{k \\to \\infty} \\omega\\left(T_{CW}^{\\otimes k}\\right) \\geqslant 2.3078}\"/></p><p data-pid=\"oGPYQMCc\">所以不要再对 CW 再抱有任何幻想了！</p><p data-pid=\"a8lv2WYt\">即便外星人把 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=T_%7BCW%7D%5E%7B%5Cotimes+114514%7D\" alt=\"T_{CW}^{\\otimes 114514}\"/> 维空间穷举搜索完毕，最终也绝不可能突破 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=2.30\" alt=\"2.30\"/>。</p><p data-pid=\"XLVnk2YJ\">当然谷歌头铁不听，都 2026 年了还在玩抠抠空间，自以为重大突破，还搞了个大新闻，招笑。</p><p data-pid=\"0p7dnCTE\">现在 OpenAI 确确实实突破了这一极限，那么 AI 发现了新方法吗？</p><p data-pid=\"2jzgswci\">并没有，AI 只是沿着那个男人的思路继续推进了一大步罢了。</p><hr/><h2>Strassen 渐进谱</h2><p data-pid=\"QjKg7Jlh\">那个男人当然又双叒叕是Volker Strassen。</p><p data-pid=\"AHH8yrew\">1986 至 1988 年期间，已经是祖师爷的 Strassen 构想出了一套恢弘的纯数学理论来统一矩阵乘法理论。</p><p data-pid=\"BFC9LUb5\">他厌倦了在离散世界里像原始人挑豆子一样的算法分析，他开始深入思考，试图将张量理论全面拓扑化。</p><p data-pid=\"nlcb0U8J\">在此期间，Strassen 证明了所有三线性张量的等价类构成了一个具有偏序结构的半环。</p><p data-pid=\"mAuCrFjz\">通过对偶紧化，存在一个紧致的豪斯多夫拓扑空间 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5CDelta\" alt=\"\\Delta\"/>，被称为张量渐进谱空间。</p><p data-pid=\"KnnzwXGY\">空间中的每一个点 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cphi+%5Cin+%5CDelta\" alt=\"\\phi \\in \\Delta\"/> 都能将任意张量 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=T\" alt=\"T\"/> 映射为一个正实数 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cphi%28T%29\" alt=\"\\phi(T)\"/>，并且保持代数运算的同态性质： <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+%5Cphi%28S+%5Coplus+T%29+%26%3D+%5Cphi%28S%29+%2B+%5Cphi%28T%29+%26%26%28%5Ctext%7B%E7%9B%B4%E5%92%8C%E6%98%A0%E5%B0%84%E4%B8%BA%E5%8A%A0%E6%B3%95%7D%29+%5C%5C+%5Cphi%28S+%5Cotimes+T%29+%26%3D+%5Cphi%28S%29+%5Ccdot+%5Cphi%28T%29+%26%26%28%5Ctext%7B%E5%BC%A0%E9%87%8F%E7%A7%AF%E6%98%A0%E5%B0%84%E4%B8%BA%E4%B9%98%E6%B3%95%7D%29+%5Cend%7Baligned%7D\" alt=\"\\begin{aligned} \\phi(S \\oplus T) &amp;= \\phi(S) + \\phi(T) &amp;&amp;(\\text{直和映射为加法}) \\\\ \\phi(S \\otimes T) &amp;= \\phi(S) \\cdot \\phi(T) &amp;&amp;(\\text{张量积映射为乘法}) \\end{aligned}\"/>在这个谱空间中，张量之间的渐进退化关系被连续化了，张量 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=S\" alt=\"S\"/> 能以高阶渐进方式转化为张量 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=T\" alt=\"T\"/>，当且仅当对于谱空间中的每一个点 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cphi+%5Cin+%5CDelta\" alt=\"\\phi \\in \\Delta\"/>，都有 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cphi%28S%29+%5Cgeqslant+%5Cphi%28T%29\" alt=\"\\phi(S) \\geqslant \\phi(T)\"/>。</p><hr/><p data-pid=\"y5tw8hGo\">随后，Strassen 证明了，矩阵乘法常数 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Comega\" alt=\"\\omega\"/> 在谱理论中，无需进行任何哈希提取，它直接等价于谱空间上极值泛函的最大值： <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+%5Comega+%3D+%5Cmax_%7B%5Cphi+%5Cin+%5CDelta%7D+%5Cfrac%7B%5Clog+%5Cphi%28%5Clangle+n%2C+n%2C+n+%5Crangle%29%7D%7B%5Clog+n%7D+%5Cend%7Baligned%7D\" alt=\"\\begin{aligned} \\omega = \\max_{\\phi \\in \\Delta} \\frac{\\log \\phi(\\langle n, n, n \\rangle)}{\\log n} \\end{aligned}\"/></p><p data-pid=\"Je6Q5dCn\">在渐进谱的视角下，所有张量都被当作连续函数来处理，完全不需要变量置零，没有丢弃任何信息，不存在组合熵税。</p><p data-pid=\"ofhEgF1i\">但是这套理论实在是太难了，即便 Volker Strassen 自己面对自己的怪物理论也是力不从心。</p><p data-pid=\"BpDg6R5u\">直到 AI 把这条路走通。</p><hr/><p data-pid=\"ulJ-C5sw\">Strassen 的理论很完美，但是现实复杂得多。</p><p data-pid=\"iClnMbRB\">在谱空间中，计算复合张量面临的核心障碍是指标纠缠。</p><p data-pid=\"QjRHHw0x\">在张量网络中，矩阵乘法就像是三脚触手怪：</p><ul><li data-pid=\"b6nce8Y6\">矩阵 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=A\" alt=\"A\"/> 的指标为 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%28i%2C+j%29\" alt=\"(i, j)\"/></li><li data-pid=\"vCKhxVDx\">矩阵 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=B\" alt=\"B\"/> 的指标为 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%28j%2C+k%29\" alt=\"(j, k)\"/></li><li data-pid=\"r1lLt5BN\">矩阵 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=Z\" alt=\"Z\"/> 的指标为 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%28k%2C+i%29\" alt=\"(k, i)\"/>，指标 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=j\" alt=\"j\"/> 被 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=A\" alt=\"A\"/> 和 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=B\" alt=\"B\"/> 共同握在手里，这个情况被称为共享支腿（Sharing One Leg）</li></ul><p data-pid=\"DEl1O4Fe\">在此视角下，过去三十年来，学者们都只是在用激光法试图强行拆解共享支腿上缠绕着的触手，没法拆解就用 Behrend 筛把触手强行砍断。</p><p data-pid=\"D2ujQ98A\">而这次 OpenAI 做出的突破就在绕开了这条死路，提出了共享单腿分离不等式。</p><hr/><p data-pid=\"7QOh5llp\">设有两个张量 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=S\" alt=\"S\"/> 与 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=T\" alt=\"T\"/>，它们沿着某一个独立的向量空间维度收缩耦合在一起，记为复合张量 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=S+%5Codot+T\" alt=\"S \\odot T\"/>。</p><p data-pid=\"U1D3HmSD\">定理表明，在复数域 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cmathbb%7BC%7D\" alt=\"\\mathbb{C}\"/> 的渐进谱上，这个复合张量的谱测定值，可以被它们各自独立时的谱测定值与一维多项式乘法紧密地上界卡死，记为： <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+%7B%5Ccolor%7Bteal%7D%7B+%5Cphi%28S+%5Codot+T%29+%5Cleqslant+%5Cphi%28S%29+%5Ccdot+%5Cphi%28T%29+%5Ccdot+%5Coperatorname%7BCost%7D%28%5Ctext%7BPolynomial+Multiplication%7D%29%7D%7D+%5Cend%7Baligned%7D\" alt=\"\\begin{aligned} {\\color{teal}{ \\phi(S \\odot T) \\leqslant \\phi(S) \\cdot \\phi(T) \\cdot \\operatorname{Cost}(\\text{Polynomial Multiplication})}} \\end{aligned}\"/></p><p data-pid=\"K5eg8c2m\">接着应用分离不等式，逐个切开这些共享单腿，每一次切开都不丢弃任何变量，仅新增一份由复数域上一维多项式乘法所锁定的微弱的代数因子。</p><p data-pid=\"LDm5lnvv\">借助 FFT ，多项式乘法在复数域上可以做到极致的高效，所以每一环解耦所支付的代价极其低廉。</p><p data-pid=\"sXCkC2qw\">最后，当所有共享单腿全部被无损解开后，将所有因子重新代入 Strassen 的渐进谱特征极值方程中。</p><p data-pid=\"fB2VyB-L\">原本在激光法中因为概率分布凹凸不平而无法解析求解的复杂极值在此刻高度对称的代数结构下塌缩成了有理数极限： <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D++++%7B%5Ccolor%7Bblue%7D+%7B%5Comega+%5Cleqslant+%5Cfrac%7B9%7D%7B4%7D+%3D+2.25%7D%7D++++%5Cend%7Baligned%7D\" alt=\"\\begin{aligned}    {\\color{blue} {\\omega \\leqslant \\frac{9}{4} = 2.25}}    \\end{aligned}\"/></p><p data-pid=\"CVxWdLtm\">还有非常多的细节需要看原始 Lean 代码，但是大体思路如此。</p><p data-pid=\"N8yy52af\">Volker Strassen 时年 90 整，好在老爷子健在，可以亲眼看着 AI 将自己的理论发扬光大。</p><p data-pid=\"QTWr_etB\">你大爷终究还是你大爷。</p>",
+        "excerpt": "照例先震惊瘫坐一下，OpenAI 已将矩阵乘法的指数因子从 2.371177 优化到了 2.25。 而过去 30 年人类的纯手工突破总结一下就是从 2.3755 一路推进到了 2.371552，小数点后四位 0.0003 的提升。 单看这个形式就能知道 AI 的方法一定非常的漂亮，反而是人类的做法丑陋无比，堪称屎山雕花。 朴素矩阵乘法矩阵乘法可以说是整个计算机科学与现代应用数学的基石。 自矩阵发明以来，尽管各种特殊矩阵有很多人在优化，但人们对通用矩阵乘…",
+        "excerpt_new": "照例先震惊瘫坐一下，OpenAI 已将矩阵乘法的指数因子从 2.371177 优化到了 2.25。 而过去 30 年人类的纯手工突破总结一下就是从 2.3755 一路推进到了 2.371552，小数点后四位 0.0003 的提升。 单看这个形式就能知道 AI 的方法一定非常的漂亮，反而是人类的做法丑陋无比，堪称屎山雕花。 朴素矩阵乘法矩阵乘法可以说是整个计算机科学与现代应用数学的基石。 自矩阵发明以来，尽管各种特殊矩阵有很多人在优化，但人们对通用矩阵乘…",
+        "preview_type": "default",
+        "preview_text": "",
+        "relationship": {
+          "voting": 0,
+          "is_thanked": false,
+          "is_nothelp": false,
+          "upvoted_followee_ids": null
+        },
+        "reaction_instruction": {},
+        "relevant_info": {
+          "relevant_type": "",
+          "is_relevant": false,
+          "relevant_text": ""
+        },
+        "reshipment_settings": "allowed",
+        "answer_type": "normal",
+        "paid_info": {
+          "type": "",
+          "content": "",
+          "has_purchased": false
+        },
+        "attachment": null,
+        "is_navigator": false,
+        "navigator_vote": false,
+        "vote_next_step": "vote",
+        "mark_infos": [],
+        "content_need_truncated": false,
+        "force_login_when_click_read_more": false,
+        "segment_infos": [
+          {
+            "pid": "B6aiyIT0",
+            "text": "而过去 30 年人类的纯手工突破总结一下就是从 2.3755 一路推进到了 2.371552，小数点后四位 0.0003 的提升。",
+            "marks": [
+              {
+                "start_index": 47,
+                "end_index": 64,
+                "seg_info": {
+                  "seg_ids": [
+                    "2091845601050747716"
+                  ],
+                  "is_like": false,
+                  "like_count": 13,
+                  "comment_count": 3,
+                  "my_comment_count": 0,
+                  "is_span": false
+                }
+              }
+            ]
+          },
+          {
+            "pid": "GXt-Wn_9",
+            "text": "单看这个形式就能知道 AI 的方法一定非常的漂亮，反而是人类的做法丑陋无比，堪称屎山雕花。",
+            "marks": [
+              {
+                "start_index": 28,
+                "end_index": 45,
+                "seg_info": {
+                  "seg_ids": [
+                    "2091817698120438295"
+                  ],
+                  "is_like": false,
+                  "like_count": 35,
+                  "comment_count": 3,
+                  "my_comment_count": 0,
+                  "is_span": false
+                }
+              }
+            ]
+          },
+          {
+            "pid": "7TyUukWg",
+            "text": "但是很快， Strassen 发现通过精巧的线性预混合变量技巧，居然可以省掉一次昂贵的矩阵乘法！",
+            "marks": [
+              {
+                "start_index": 5,
+                "end_index": 31,
+                "seg_info": {
+                  "seg_ids": [
+                    "2092165258286838156"
+                  ],
+                  "is_like": false,
+                  "like_count": 0,
+                  "comment_count": 3,
+                  "my_comment_count": 0,
+                  "is_span": false
+                }
+              }
+            ]
+          },
+          {
+            "pid": "U4ULKBh0",
+            "text": "Strassen 时年 33 岁。",
+            "marks": [
+              {
+                "start_index": 0,
+                "end_index": 17,
+                "seg_info": {
+                  "seg_ids": [
+                    "2092191150157387144"
+                  ],
+                  "is_like": false,
+                  "like_count": 51,
+                  "comment_count": 1,
+                  "my_comment_count": 0,
+                  "is_span": false
+                }
+              }
+            ]
+          },
+          {
+            "pid": "gWPiuZah",
+            "text": "在 Strassen 取得重大突破之后的 10 年里，世界各地学者立刻开始尝试各种各样的手工代数技巧。",
+            "marks": [
+              {
+                "start_index": 0,
+                "end_index": 26,
+                "seg_info": {
+                  "seg_ids": [
+                    "2091876915942635207"
+                  ],
+                  "is_like": false,
+                  "like_count": 0,
+                  "comment_count": 1,
+                  "my_comment_count": 0,
+                  "is_span": false
+                }
+              }
+            ]
+          },
+          {
+            "pid": "kANexTZa",
+            "text": "Strassen 时年 50 岁。",
+            "marks": [
+              {
+                "start_index": 0,
+                "end_index": 17,
+                "seg_info": {
+                  "seg_ids": [
+                    "2092191150157387144"
+                  ],
+                  "is_like": false,
+                  "like_count": 2,
+                  "comment_count": 0,
+                  "my_comment_count": 0,
+                  "is_span": false
+                }
+              }
+            ]
+          },
+          {
+            "pid": "GC92crP3",
+            "text": "CW 基底张量乍一看潜力无穷，很快就引起了一大批学者的注意力，成功带歪了整个算法界。",
+            "marks": [
+              {
+                "start_index": 31,
+                "end_index": 42,
+                "seg_info": {
+                  "seg_ids": [
+                    "2091902131364164860"
+                  ],
+                  "is_like": false,
+                  "like_count": 5,
+                  "comment_count": 1,
+                  "my_comment_count": 0,
+                  "is_span": false
+                }
+              }
+            ]
+          },
+          {
+            "pid": "8a8sJyDU",
+            "text": "只要把这些特殊项变量置零即可，所有包含这个变量的单项式就会直接蒸发。",
+            "marks": [
+              {
+                "start_index": 17,
+                "end_index": 34,
+                "seg_info": {
+                  "seg_ids": [
+                    "2091985569333228695"
+                  ],
+                  "is_like": false,
+                  "like_count": 4,
+                  "comment_count": 0,
+                  "my_comment_count": 0,
+                  "is_span": false
+                }
+              }
+            ]
+          },
+          {
+            "pid": "EurkJhxr",
+            "text": "这下抠抠空间有了，随后的三十余年里，整个 TCS 学者全都在 CW 空间里抠常数。",
+            "marks": [
+              {
+                "start_index": 2,
+                "end_index": 9,
+                "seg_info": {
+                  "seg_ids": [
+                    "2091854997604647754"
+                  ],
+                  "is_like": false,
+                  "like_count": 36,
+                  "comment_count": 0,
+                  "my_comment_count": 0,
+                  "is_span": false
+                }
+              }
+            ]
+          },
+          {
+            "pid": "Eso0Ri7f",
+            "text": "力竭了，一滴也没有了。",
+            "marks": [
+              {
+                "start_index": 0,
+                "end_index": 10,
+                "seg_info": {
+                  "seg_ids": [
+                    "2092084736147600045"
+                  ],
+                  "is_like": false,
+                  "like_count": 24,
+                  "comment_count": 2,
+                  "my_comment_count": 0,
+                  "is_span": false
+                }
+              }
+            ]
+          },
+          {
+            "pid": "erL9uBvT",
+            "text": "全人类三十年的智力堆砌，居然只能在小数点后第四位蠕动，这给 TCS 人看哈气了。",
+            "marks": [
+              {
+                "start_index": 0,
+                "end_index": 40,
+                "seg_info": {
+                  "seg_ids": [
+                    "2092063877236257395"
+                  ],
+                  "is_like": false,
+                  "like_count": 21,
+                  "comment_count": 0,
+                  "my_comment_count": 0,
+                  "is_span": false
+                }
+              }
+            ]
+          },
+          {
+            "pid": "Gf8IfW5w",
+            "text": "你注意力再怎么强大，再怎么继续在单张量上做微调，最多也只能再前进 0.0003 ，绝无可能突破 2.3725。",
+            "marks": [
+              {
+                "start_index": 0,
+                "end_index": 9,
+                "seg_info": {
+                  "seg_ids": [
+                    "2091935584101085456"
+                  ],
+                  "is_like": false,
+                  "like_count": 9,
+                  "comment_count": 0,
+                  "my_comment_count": 0,
+                  "is_span": false
+                }
+              },
+              {
+                "start_index": 41,
+                "end_index": 54,
+                "seg_info": {
+                  "seg_ids": [
+                    "2091906112698184252"
+                  ],
+                  "is_like": false,
+                  "like_count": 2,
+                  "comment_count": 4,
+                  "my_comment_count": 0,
+                  "is_span": false
+                }
+              }
+            ]
+          },
+          {
+            "pid": "VLa75P1A",
+            "text": "既然单张量有极限，那如果我算到 [公式] 甚至 [公式] 呢？",
+            "marks": [
+              {
+                "start_index": 9,
+                "end_index": 15,
+                "seg_info": {
+                  "seg_ids": [
+                    "2091902449149801259"
+                  ],
+                  "is_like": false,
+                  "like_count": 0,
+                  "comment_count": 2,
+                  "my_comment_count": 0,
+                  "is_span": false
+                }
+              }
+            ]
+          },
+          {
+            "pid": "XLVnk2YJ",
+            "text": "当然谷歌头铁不听，都 2026 年了还在玩抠抠空间，自以为重大突破，还搞了个大新闻，招笑。",
+            "marks": [
+              {
+                "start_index": 0,
+                "end_index": 45,
+                "seg_info": {
+                  "seg_ids": [
+                    "2092050392200889123"
+                  ],
+                  "is_like": false,
+                  "like_count": 15,
+                  "comment_count": 1,
+                  "my_comment_count": 0,
+                  "is_span": false
+                }
+              }
+            ]
+          },
+          {
+            "pid": "BFC9LUb5",
+            "text": "他厌倦了在离散世界里像原始人挑豆子一样的算法分析，他开始深入思考，试图将张量理论全面拓扑化。",
+            "marks": [
+              {
+                "start_index": 0,
+                "end_index": 46,
+                "seg_info": {
+                  "seg_ids": [
+                    "2091841441190491414"
+                  ],
+                  "is_like": false,
+                  "like_count": 21,
+                  "comment_count": 0,
+                  "my_comment_count": 0,
+                  "is_span": false
+                }
+              }
+            ]
+          },
+          {
+            "pid": "D2ujQ98A",
+            "text": "而这次 OpenAI 做出的突破就在绕开了这条死路，提出了共享单腿分离不等式。",
+            "marks": [
+              {
+                "start_index": 29,
+                "end_index": 38,
+                "seg_info": {
+                  "seg_ids": [
+                    "2092085253309571417"
+                  ],
+                  "is_like": false,
+                  "like_count": 7,
+                  "comment_count": 3,
+                  "my_comment_count": 0,
+                  "is_span": false
+                }
+              }
+            ]
+          },
+          {
+            "pid": "N8yy52af",
+            "text": "Volker Strassen 时年 90 整，好在老爷子健在，可以亲眼看着 AI 将自己的理论发扬光大。",
+            "marks": [
+              {
+                "start_index": 0,
+                "end_index": 53,
+                "seg_info": {
+                  "seg_ids": [
+                    "2091841584757323754"
+                  ],
+                  "is_like": false,
+                  "like_count": 109,
+                  "comment_count": 0,
+                  "my_comment_count": 0,
+                  "is_span": false
+                }
+              }
+            ]
+          }
+        ],
+        "allow_segment_interaction": 1,
+        "endorsements": [
+          {
+            "elements": [
+              {
+                "type": "IMAGE",
+                "image_key": "zhicon_icon_24_flag",
+                "image_color": {
+                  "alpha": 1,
+                  "group": "MapHighlight"
+                },
+                "width": 16,
+                "height": 16
+              },
+              {
+                "type": "TEXT",
+                "content": "一起参与科学 · 科学季 2026",
+                "font_size": 13,
+                "font_color": {
+                  "alpha": 1,
+                  "group": "MapHighlight"
+                },
+                "is_bold": true,
+                "max_line": 1
+              },
+              {
+                "type": "TEXT",
+                "content": "",
+                "font_size": 13,
+                "font_color": {
+                  "alpha": 1,
+                  "group": "MapHighlight"
+                },
+                "is_bold": false,
+                "max_line": 1
+              },
+              {
+                "type": "IMAGE",
+                "image_key": "zhicon_icon_16_arrow_right",
+                "image_color": {
+                  "alpha": 1,
+                  "group": "MapHighlight"
+                },
+                "width": 12,
+                "height": 12
+              }
+            ],
+            "sub_elements": [],
+            "sub_elements_type": "DESCRIPTION",
+            "background_color": {
+              "alpha": 0.08,
+              "group": "MapHighlight"
+            },
+            "action_url": " https://www.zhihu.com/parker/campaign/2081789902673426369?zh_hide_nav_bar=true",
+            "za": {
+              "block_text": "YellowActivity",
+              "type": "text",
+              "text": "一起参与科学 · 科学季 2026"
+            }
+          },
+          {
+            "elements": [
+              {
+                "type": "TEXT",
+                "content": "创作声明: 内容包含剧透",
+                "font_size": 13,
+                "font_color": {
+                  "alpha": 1,
+                  "group": "GBL07A"
+                },
+                "is_bold": true,
+                "max_line": 1
+              },
+              {
+                "type": "IMAGE",
+                "image_key": "zhicon_icon_16_arrow_down",
+                "selected_image_key": "zhicon_icon_16_arrow_up",
+                "image_color": {
+                  "alpha": 1,
+                  "group": "GBL07A"
+                },
+                "width": 12,
+                "height": 12
+              }
+            ],
+            "sub_elements": [
+              {
+                "elements": [
+                  {
+                    "type": "TEXT",
+                    "content": "创作声明: 内容包含剧透",
+                    "font_size": 13,
+                    "font_color": {
+                      "alpha": 1,
+                      "group": "GBL07A"
+                    },
+                    "is_bold": true,
+                    "max_line": 1
+                  }
+                ]
+              },
+              {
+                "elements": [
+                  {
+                    "type": "TEXT",
+                    "content": "继续阅读可能影响观影体验",
+                    "font_size": 13,
+                    "font_color": {
+                      "alpha": 1,
+                      "group": "GBL07A"
+                    },
+                    "is_bold": false,
+                    "max_line": 1
+                  }
+                ]
+              }
+            ],
+            "sub_elements_type": "DESCRIPTION",
+            "background_color": {
+              "alpha": 0.1,
+              "group": "GBL01A"
+            },
+            "za": {
+              "block_text": "DisclaimerLabel",
+              "type": "text",
+              "text": ""
+            }
+          }
+        ]
+      },
+      "verb": "MEMBER_VOTEUP_ANSWER",
+      "created_time": 1791514829,
+      "interaction": {
+        "can_show_sticker": true
+      },
+      "actor": {
+        "id": "follow-user-1",
+        "name": "用户1",
+        "headline": "",
+        "type": "people",
+        "user_type": "people",
+        "url": "https://api.zhihu.com/people/follow-user-1",
+        "url_token": "follow-user-1",
+        "avatar_url": "",
+        "gender": 0,
+        "is_following": true,
+        "is_followed": false,
+        "is_org": false,
+        "badge": [
+          {
+            "type": "identity",
+            "description": "信息技术行业 算法工程师",
+            "topic_names": [],
+            "topics": []
+          }
+        ],
+        "badge_v2": {
+          "title": "知势榜影响力榜教育校园领域上榜答主",
+          "merged_badges": [
+            {
+              "type": "best",
+              "detail_type": "best",
+              "title": "社区成就",
+              "description": "知势榜影响力榜教育校园领域上榜答主",
+              "url": "",
+              "sources": [],
+              "icon": "",
+              "night_icon": ""
+            },
+            {
+              "type": "identity",
+              "detail_type": "identity_people",
+              "title": "认证",
+              "description": "信息技术行业 算法工程师",
+              "url": "https://zhuanlan.zhihu.com/p/96956163",
+              "sources": [],
+              "icon": "",
+              "night_icon": ""
+            }
+          ],
+          "detail_badges": [
+            {
+              "type": "reward",
+              "detail_type": "super_activity",
+              "title": "社区成就",
+              "description": "知势榜影响力榜教育校园领域上榜答主",
+              "url": "",
+              "sources": [
+                {
+                  "id": "27",
+                  "token": "",
+                  "type": "content_potential_category",
+                  "url": "",
+                  "name": "知势榜8月",
+                  "avatar_path": "",
+                  "avatar_url": "",
+                  "description": "",
+                  "priority": 27
+                }
+              ],
+              "icon": "https://pic1.zhimg.com/v2-4a07bc69c4bb04444721f35b32125c75_l.png?source=32738c0c",
+              "night_icon": "https://picx.zhimg.com/v2-4a07bc69c4bb04444721f35b32125c75_l.png?source=32738c0c"
+            },
+            {
+              "type": "identity",
+              "detail_type": "identity_people",
+              "title": "已认证的个人",
+              "description": "信息技术行业 算法工程师",
+              "url": "https://zhuanlan.zhihu.com/p/96956163",
+              "sources": [],
+              "icon": "https://picx.zhimg.com/v2-2ddc5cc683982648f6f123616fb4ec09_l.png?source=32738c0c",
+              "night_icon": "https://picx.zhimg.com/v2-2ddc5cc683982648f6f123616fb4ec09_l.png?source=32738c0c"
+            }
+          ],
+          "icon": "https://picx.zhimg.com/v2-27bfcba90e66db79ce8768ab807e017e_l.png?source=32738c0c",
+          "night_icon": "https://pic1.zhimg.com/v2-27bfcba90e66db79ce8768ab807e017e_l.png?source=32738c0c"
+        },
+        "vip_info": {
+          "is_vip": false,
+          "widget": {
+            "url": "https://picx.zhimg.com/v2-b88b290ca44322b80f8dc57e6caed616_r.jpg?source=5a24d060",
+            "night_mode_url": "https://pica.zhimg.com/v2-b88b290ca44322b80f8dc57e6caed616_r.jpg?source=5a24d060",
+            "id": 40103
+          },
+          "target_url": ""
+        },
+        "kvip_info": {
+          "is_vip": false,
+          "target_url": ""
+        }
+      },
+      "action_text": "赞同了回答",
+      "is_sticky": false
+    },
+    {
+      "id": "1791509686914",
+      "type": "feed",
+      "target": {
+        "id": "2091264468940484814",
+        "type": "answer",
+        "url": "https://api.zhihu.com/answers/2091264468940484814",
+        "voteup_count": 488,
+        "thanks_count": 14,
+        "question": {
+          "id": "11749749913",
+          "title": "学历贬值这么严重为何还有这么多家长在鸡娃？",
+          "url": "https://api.zhihu.com/questions/11749749913",
+          "type": "question",
+          "question_type": "normal",
+          "created": 1739105347,
+          "answer_count": 3365,
+          "comment_count": 75,
+          "follower_count": 7854,
+          "detail": "<p>本科、硕士毕业生找工作非常困难，即使有工作有难以避免35岁失业（体制除外）。反而部分中专大专生找到合适的工作。为何还有这么多家长即使经济条件有限仍希望孩子们上大学？是观念还未来得及转变吗？</p>",
+          "excerpt": "本科、硕士毕业生找工作非常困难，即使有工作有难以避免35岁失业（体制除外）。反而…",
+          "bound_topic_ids": [
+            13095,
+            13306,
+            580260,
+            2029560,
+            2627504
+          ],
+          "relationship": {
+            "is_author": false
+          },
+          "is_following": false,
+          "author": {
+            "id": "follow-user-19",
+            "name": "用户19",
+            "headline": "",
+            "type": "people",
+            "user_type": "people",
+            "url": "https://api.zhihu.com/people/follow-user-19",
+            "url_token": "follow-user-19",
+            "avatar_url": "",
+            "gender": 1,
+            "is_following": false,
+            "is_followed": false,
+            "is_org": false,
+            "badge": [],
+            "badge_v2": {
+              "title": "",
+              "merged_badges": [],
+              "detail_badges": [],
+              "icon": "",
+              "night_icon": ""
+            },
+            "vip_info": {
+              "is_vip": false,
+              "target_url": ""
+            },
+            "kvip_info": {
+              "is_vip": false,
+              "target_url": ""
+            }
+          },
+          "reaction_instruction": null
+        },
+        "updated_time": 1791378430,
+        "created_time": 1791376303,
+        "author": {
+          "id": "follow-user-20",
+          "name": "用户20",
+          "headline": "",
+          "type": "people",
+          "user_type": "people",
+          "url": "https://api.zhihu.com/people/follow-user-20",
+          "url_token": "follow-user-20",
+          "avatar_url": "",
+          "gender": 1,
+          "is_following": false,
+          "is_followed": false,
+          "is_org": false,
+          "badge": [],
+          "badge_v2": {
+            "title": "",
+            "merged_badges": [],
+            "detail_badges": [],
+            "icon": "",
+            "night_icon": ""
+          },
+          "vip_info": {
+            "is_vip": false,
+            "target_url": ""
+          },
+          "kvip_info": {
+            "is_vip": false,
+            "target_url": ""
+          }
+        },
+        "comment_permission": "all",
+        "is_copyable": true,
+        "comment_count": 22,
+        "can_comment": {
+          "status": false,
+          "reason": "只有作者关注的人才可以评论"
+        },
+        "content": "<p data-pid=\"PnSUGa_N\">因为中国的教育系统现在其实是个超大型全民网游。</p><p data-pid=\"M0foeQ93\">我看了半天，大多数答主可能因为身在局中看不清楚，没有理解不同阶段的具体原因。</p><p data-pid=\"kC06rmdr\">如果20年前，你可以说东大家长鸡娃的原因和韩国新加坡这些其他东亚地区都是差不多的，然后问出题目里这个问题。</p><p data-pid=\"Ob7GjBAD\">但是今天东大教育国情完全不同，最大特色是把家长们全面引入了K12教育体系里，这个是任何其他国家都不存在的DLC，属于放眼古今中外都是独树一帜的服务器版本。</p><p data-pid=\"Xa5wRlry\">所以如果你把中国的K12看成一个所有k12家长们必须参加，每天有强制日常任务的免费网游，再记住这么一句话：</p><p data-pid=\"SsyVA1EQ\">免费玩家是氪金玩家的付费体验。</p><p data-pid=\"O_kCBZOE\">就理解为什么在中国家长里会有这么多氪金玩家、肝帝、以及肝氪玩家的出现了。</p>",
+        "excerpt": "因为中国的教育系统现在其实是个超大型全民网游。 我看了半天，大多数答主可能因为身在局中看不清楚，没有理解不同阶段的具体原因。 如果20年前，你可以说东大家长鸡娃的原因和韩国新加坡这些其他东亚地区都是差不多的，然后问出题目里这个问题。 但是今天东大教育国情完全不同，最大特色是把家长们全面引入了K12教育体系里，这个是任何其他国家都不存在的DLC，属于放眼古今中外都是独树一帜的服务器版本。 所以如果你把中国的K1…",
+        "excerpt_new": "因为中国的教育系统现在其实是个超大型全民网游。 我看了半天，大多数答主可能因为身在局中看不清楚，没有理解不同阶段的具体原因。 如果20年前，你可以说东大家长鸡娃的原因和韩国新加坡这些其他东亚地区都是差不多的，然后问出题目里这个问题。 但是今天东大教育国情完全不同，最大特色是把家长们全面引入了K12教育体系里，这个是任何其他国家都不存在的DLC，属于放眼古今中外都是独树一帜的服务器版本。 所以如果你把中国的K1…",
+        "preview_type": "expand",
+        "preview_text": "<p data-pid=\"PnSUGa_N\">因为中国的教育系统现在其实是个超大型全民网游。</p><p data-pid=\"M0foeQ93\">我看了半天，大多数答主可能因为身在局中看不清楚，没有理解不同阶段的具体原因。</p><p data-pid=\"kC06rmdr\">如果20年前，你可以说东大家长鸡娃的原因和韩国新加坡这些其他东亚地区都是差不多的，然后问出题目里这个问题。</p><p data-pid=\"Ob7GjBAD\">但是今天东大教育国情完全不同，最大特色是把家长们全面引入了K12教育体系里，这个是任何其他国家都不存在的DLC，属于放眼古今中外都是独树一帜的服务器版本。</p><p data-pid=\"Xa5wRlry\">所以如果你把中国的K12看成一个所有k12家长们必须参加，每天有强制日常任务的免费网游，再记住这么一句话：</p><p data-pid=\"SsyVA1EQ\">免费玩家是氪金玩家的付费体验。</p><p data-pid=\"O_kCBZOE\">就理解为什么在中国家长里会有这么多氪金玩家、肝帝、以及肝氪玩家的出现了。</p>",
+        "relationship": {
+          "voting": 0,
+          "is_thanked": false,
+          "is_nothelp": false,
+          "upvoted_followee_ids": null
+        },
+        "reaction_instruction": {},
+        "relevant_info": {
+          "relevant_type": "",
+          "is_relevant": false,
+          "relevant_text": ""
+        },
+        "reshipment_settings": "allowed",
+        "answer_type": "normal",
+        "paid_info": {
+          "type": "",
+          "content": "",
+          "has_purchased": false
+        },
+        "attachment": null,
+        "is_navigator": false,
+        "navigator_vote": false,
+        "vote_next_step": "vote",
+        "mark_infos": [],
+        "content_need_truncated": false,
+        "force_login_when_click_read_more": false,
+        "segment_infos": [
+          {
+            "pid": "Xa5wRlry",
+            "text": "所以如果你把中国的K12看成一个所有k12家长们必须参加，每天有强制日常任务的免费网游，再记住这么一句话：",
+            "marks": [
+              {
+                "start_index": 0,
+                "end_index": 53,
+                "seg_info": {
+                  "seg_ids": [
+                    "2091369235243184304"
+                  ],
+                  "is_like": false,
+                  "like_count": 8,
+                  "comment_count": 1,
+                  "my_comment_count": 0,
+                  "is_span": false
+                }
+              }
+            ]
+          }
+        ],
+        "allow_segment_interaction": 1
+      },
+      "verb": "MEMBER_VOTEUP_ANSWER",
+      "created_time": 1791509686,
+      "interaction": {
+        "can_show_sticker": true
+      },
+      "actor": {
+        "id": "follow-user-1",
+        "name": "用户1",
+        "headline": "",
+        "type": "people",
+        "user_type": "people",
+        "url": "https://api.zhihu.com/people/follow-user-1",
+        "url_token": "follow-user-1",
+        "avatar_url": "",
+        "gender": 0,
+        "is_following": true,
+        "is_followed": false,
+        "is_org": false,
+        "badge": [
+          {
+            "type": "identity",
+            "description": "信息技术行业 算法工程师",
+            "topic_names": [],
+            "topics": []
+          }
+        ],
+        "badge_v2": {
+          "title": "知势榜影响力榜教育校园领域上榜答主",
+          "merged_badges": [
+            {
+              "type": "best",
+              "detail_type": "best",
+              "title": "社区成就",
+              "description": "知势榜影响力榜教育校园领域上榜答主",
+              "url": "",
+              "sources": [],
+              "icon": "",
+              "night_icon": ""
+            },
+            {
+              "type": "identity",
+              "detail_type": "identity_people",
+              "title": "认证",
+              "description": "信息技术行业 算法工程师",
+              "url": "https://zhuanlan.zhihu.com/p/96956163",
+              "sources": [],
+              "icon": "",
+              "night_icon": ""
+            }
+          ],
+          "detail_badges": [
+            {
+              "type": "reward",
+              "detail_type": "super_activity",
+              "title": "社区成就",
+              "description": "知势榜影响力榜教育校园领域上榜答主",
+              "url": "",
+              "sources": [
+                {
+                  "id": "27",
+                  "token": "",
+                  "type": "content_potential_category",
+                  "url": "",
+                  "name": "知势榜8月",
+                  "avatar_path": "",
+                  "avatar_url": "",
+                  "description": "",
+                  "priority": 27
+                }
+              ],
+              "icon": "https://pic1.zhimg.com/v2-4a07bc69c4bb04444721f35b32125c75_l.png?source=32738c0c",
+              "night_icon": "https://picx.zhimg.com/v2-4a07bc69c4bb04444721f35b32125c75_l.png?source=32738c0c"
+            },
+            {
+              "type": "identity",
+              "detail_type": "identity_people",
+              "title": "已认证的个人",
+              "description": "信息技术行业 算法工程师",
+              "url": "https://zhuanlan.zhihu.com/p/96956163",
+              "sources": [],
+              "icon": "https://picx.zhimg.com/v2-2ddc5cc683982648f6f123616fb4ec09_l.png?source=32738c0c",
+              "night_icon": "https://picx.zhimg.com/v2-2ddc5cc683982648f6f123616fb4ec09_l.png?source=32738c0c"
+            }
+          ],
+          "icon": "https://picx.zhimg.com/v2-27bfcba90e66db79ce8768ab807e017e_l.png?source=32738c0c",
+          "night_icon": "https://pic1.zhimg.com/v2-27bfcba90e66db79ce8768ab807e017e_l.png?source=32738c0c"
+        },
+        "vip_info": {
+          "is_vip": false,
+          "widget": {
+            "url": "https://picx.zhimg.com/v2-b88b290ca44322b80f8dc57e6caed616_r.jpg?source=5a24d060",
+            "night_mode_url": "https://picx.zhimg.com/v2-b88b290ca44322b80f8dc57e6caed616_r.jpg?source=5a24d060",
+            "id": 40103
+          },
+          "target_url": ""
+        },
+        "kvip_info": {
+          "is_vip": false,
+          "target_url": ""
+        }
+      },
+      "action_text": "赞同了回答",
+      "is_sticky": false
+    },
+    {
+      "id": "1791475591756",
+      "type": "feed",
+      "target": {
+        "id": "2089815601426519229",
+        "type": "article",
+        "author": {
+          "id": "follow-user-5",
+          "name": "用户5",
+          "headline": "",
+          "type": "people",
+          "user_type": "people",
+          "url": "https://api.zhihu.com/people/follow-user-5",
+          "url_token": "follow-user-5",
+          "avatar_url": "",
+          "gender": 1,
+          "is_following": true,
+          "is_followed": false,
+          "is_org": false,
+          "badge": [
+            {
+              "type": "identity",
+              "description": "威斯康星大学麦迪逊分校 经济学硕士",
+              "topic_names": [],
+              "topics": []
+            }
+          ],
+          "badge_v2": {
+            "title": "威斯康星大学麦迪逊分校 经济学硕士",
+            "merged_badges": [
+              {
+                "type": "identity",
+                "detail_type": "identity_people",
+                "title": "认证",
+                "description": "威斯康星大学麦迪逊分校 经济学硕士",
+                "url": "https://zhuanlan.zhihu.com/p/96956163",
+                "sources": [],
+                "icon": "",
+                "night_icon": ""
+              }
+            ],
+            "detail_badges": [
+              {
+                "type": "identity",
+                "detail_type": "identity_people",
+                "title": "已认证的个人",
+                "description": "威斯康星大学麦迪逊分校 经济学硕士",
+                "url": "https://zhuanlan.zhihu.com/p/96956163",
+                "sources": [],
+                "icon": "https://pica.zhimg.com/v2-2ddc5cc683982648f6f123616fb4ec09_l.png?source=32738c0c",
+                "night_icon": "https://picx.zhimg.com/v2-2ddc5cc683982648f6f123616fb4ec09_l.png?source=32738c0c"
+              }
+            ],
+            "icon": "https://picx.zhimg.com/v2-2ddc5cc683982648f6f123616fb4ec09_l.png?source=32738c0c",
+            "night_icon": "https://pic1.zhimg.com/v2-2ddc5cc683982648f6f123616fb4ec09_l.png?source=32738c0c"
+          },
+          "vip_info": {
+            "is_vip": false,
+            "target_url": ""
+          },
+          "kvip_info": {
+            "is_vip": false,
+            "target_url": ""
+          }
+        },
+        "created": 1791031005,
+        "updated": 1791064246,
+        "title": "自由如何塑造它的对立面：一个关于自由与对自由的支持的研究课题",
+        "excerpt_title": "",
+        "content": "<p data-pid=\"JPajkymh\">本文并不是一个完整的介绍某一个研究结果或者想法的文章，本文是一个关于研究的初始想法和倡议，当然，在英文版里，也包含了一些我个人的初始想法，如果对于这些细节构建有兴趣，希望用来进行个人研究的话，可以联系我要英文版。</p><h2>一、现象观察：三种限制自由的主张，同一种心理结构</h2><p data-pid=\"detbTYGt\">今天，许多国家内部都有一大群人主张限制言论自由或其他个人自由，而且这群人似乎在增加。按光谱划分，他们的主张大致有三种。</p><p data-pid=\"lHlYVDEd\"><b>极左翼</b>认为：资本主义提供了太多“替代符号”作为商品，用来替代人与人之间的真实社交。长此以往，人类会失去真实社交的能力。所以要限制人们用符号简化社交（限制言论），也要限制人们脱离真实社交、沉浸于符号（限制其他个人自由）。</p><p data-pid=\"V4p4MCt-\"><b>极右翼</b>认为：亚文化小圈子摧毁了人们与更大社会的沟通。长此以往，社会将不复存在。所以要限制人们接触这些小圈子的文化（限制言论），也要限制人们因此脱离原有社区的义务（限制其他个人自由）。</p><p data-pid=\"73tTwIHk\"><b>中道</b>认为：新媒体带来大量极端信息，一部分年轻人全盘接受，另一部分人因厌恶而走向相反的极端。长此以往，社会将越来越极化。所以要限制年轻人接触新媒体。</p><p data-pid=\"Qmlu4lH6\">三种主张的内容截然不同，但它们共享一个结构：<b>我不愿意承认，世界上存在价值观“本来就”和我不一样、却同样具备完整资格的正常社会成员。他们“一定是被洗脑了”，我要“让他们恢复正常”，而限制他们的自由就是手段之一。</b></p><p data-pid=\"p7n__lBz\">更有意思的是这种心理从何而来。正是一个人人享有言论自由与个人自由的环境，让人们有可能长期只与价值观相近的人相处：有言论自由，人们会公开表达自己的立场；有个人自由，人们会据此筛选同类。久而久之，“价值观不同的人也可能是正常人”这件事，就变得越来越难以想象。</p><p data-pid=\"w4_9q3nf\">也就是说，<b>自由可能在塑造它自己的对立面</b>。反过来，对自由的限制一旦实施，也有可能让更多人重新珍视自由。</p><p data-pid=\"yaQhDUKK\">需要强调的是，这并不是一个必然发生的过程。身处同质环境的人，只有一部分会形成“对方被洗脑了”的信念；收紧自由的政治过程，也只有一部分会让人们对自由的支持回升。这个反馈环何时出现、何时不出现，正是本课题要研究的问题。</p><h2>二、核心问题</h2><p data-pid=\"kant9v4y\">本课题希望回答三个层层递进的问题。</p><ol><li data-pid=\"t9smIy-V\"><b>这个反馈环什么时候会出现？</b> 在哪些条件下，自由会催生排斥异己的信念，而对自由的限制又会让人们重新支持自由？</li><li data-pid=\"aU6lZcqm\"><b>如果它出现了，怎样让它走向稳定？</b> 一个延迟的负反馈过程，既可能平稳地收敛到某个状态，也可能在“放开”与“收紧”之间来回摆动。有没有办法让它稳定下来？其中一种可能是：让足够多的同质群体，在保持同质的同时，也能承认价值观不同者是正常的社会成员。</li><li data-pid=\"ogNY4K3T\"><b>如果存在多个稳定状态，哪一个更“好”？</b> 这里的“好”有三种不同的标准：短期社会福利最大、长期社会福利最大、自由程度最大。三者未必指向同一个答案。</li></ol><p data-pid=\"8NUXFj5U\">本文是一份研究计划，而非研究结论。它的目的是把现象、直觉和问题整理清楚，为将来建立经济学的数学模型提供起点。</p><h2>三、基本设定：把人放进一个正方形里</h2><p data-pid=\"HR5AXid_\">借鉴产业组织学中“把消费者放在一条线段上”的做法，本课题把每个人的价值观表示为一个正方形 [0,1]×[0,1] 中的一个点。两个人在正方形中离得越远，价值观差异就越大。</p><p data-pid=\"8TVkUxWs\">两个维度中，至少一个保持完全抽象，只代表“价值立场”。另一个维度可以由研究者选择赋予含义，例如权威服从度、从众心理、风险厌恶或损失厌恶，也可以同样保持抽象。</p><p data-pid=\"ZoXDa3sw\">这个设定的好处是：<b>群体不需要事先规定，而可以自然形成</b>。人们根据与他人交往的得失来选择交往对象，原本连续分布的人群，可能逐渐聚集成若干个彼此分离的“团块”，这些团块就是群体。</p><p data-pid=\"Y4g5bzA2\">在此基础上，本课题关注五个核心变量：</p><ul><li data-pid=\"cPZqTDAU\"><b>表达自由</b>：人们能否公开表达自己的价值观而不受惩罚。</li><li data-pid=\"fcSCsU-4\"><b>结社与退出自由</b>：人们能否自主选择与谁交往、能否离开原有社区。</li><li data-pid=\"eBIxjCmJ\"><b>同质化程度</b>：一个人的交往对象中，价值观相近者占多大比例。</li><li data-pid=\"1PwYwojC\"><b>排异</b>：本课题把排异首先定义为一种行为：面对某类交往对象时，选择“切蛋糕”（争夺资源）而不是“做蛋糕”（合作创造）。“对方被洗脑了”的信念是它的伴随现象，可以理解为“预期对方会切蛋糕、无法与之交流”。测量上以信任博弈、合作实验等行为测量为主，以去人性化、情感极化等态度量表为辅。</li><li data-pid=\"UoUQqkb8\"><b>对自由的支持</b>：是否愿意让自由同样适用于自己反对的人。几乎所有人都抽象地支持言论自由，真正重要的是这种“应用层面”的支持。</li></ul><p data-pid=\"SNZdT5mz\">相应地，本课题所说的“限制自由”分为两种：<b>限制人们公开表达自己的价值观</b>（降低表达自由），以及<b>限制人们选择与价值观接近的人交往</b>（降低结社与退出自由）。对照开头的三派主张：极左翼与极右翼同时主张这两种限制，例如限制符号化表达与限制沉浸其中、限制接触小圈子文化与限制脱离社区义务；中道主张的“限制年轻人接触新媒体”，则主要属于第二种，即限制人们选择交往与接触的对象。</p><p data-pid=\"qB2-80YV\">其中，区分“同质化”与“排异”是本课题的关键：同质化本身未必是问题，生活在同温层里的人，并不一定会否认圈外人的正常性。</p><h2>四、交往与福利：交往本身有价值，排异会让它变成负数</h2><p data-pid=\"U8C7jNIM\">本课题对福利的设想，借用了自由贸易的直觉。</p><p data-pid=\"X4ma6jHb\"><b>交往本来就产生福利。</b> 就像不同国家之间因为禀赋不同而能从贸易中获益，价值观不同的人之间也能互通有无：交换信息、视角、技能和人脉。差异越大，潜在的互补收益可能越大，尽管沟通成本也随之上升。</p><p data-pid=\"872KvSkr\"><b>但与不同的人交往，成本也更高。</b> 这就是交易成本：价值观差异越大，找到合适的交往对象、彼此理解、建立信任的成本往往越高。这些成本可以被通用的制度降低，例如法律、市场、共同语言和公共机构；也会随着与异质者反复交往的经验而下降。交易成本给“人们为什么选择与价值观接近的人交往”提供了一个更基础的、不依赖排异的原因：即使没有任何敌意，人们也可能因为与同类交往更省力而聚在一起。</p><p data-pid=\"KTiLi-oM\"><b>交往中的两种策略：做蛋糕与切蛋糕。</b> 每一次交往，个人都可以选择做蛋糕（与对方合作，共同创造收益），或者切蛋糕（与对方争夺已有的资源）。以“不交往”作为零点，结果有四种：</p><table data-draft-node=\"block\" data-draft-type=\"table\" data-size=\"normal\" data-row-style=\"normal\"><tbody><tr><th>我 \\ 对方</th><th>做蛋糕</th><th>切蛋糕</th></tr><tr><td>做蛋糕</td><td>双方共享合作收益（已扣除交易成本）</td><td>我获利不变，合作收益被对方夺走</td></tr><tr><td>切蛋糕</td><td>我获得单方面争夺所得</td><td>双方争夺：结果取决于获胜机会、资源价值与冲突代价，可好可坏</td></tr></tbody></table><p data-pid=\"BFMHLISJ\">这样，排异不需要任何心理假设：它只是在比较两种策略的预期收益之后做出的选择。切蛋糕的动机是争夺资源，而不是从对方受损中获得满足；从社会角度看，它是一种转移，再加上冲突造成的净损失。</p><p data-pid=\"aRaz-_hC\">这带来一个耐人寻味的结果：在没有排异时，与不同的人交往比与相同的人交往更有价值；而一旦出现排异，与不同的人交往可能比与相同的人交往更糟。</p><p data-pid=\"mH3Fw9uO\">除了交往福利，表达自由还有两种独立的价值：</p><ul><li data-pid=\"vhUVYF4c\"><b>真实表达的满足。</b> 人们喜欢真实地表达自己的态度，而不喜欢忍耐和伪装。经济学家库兰把公开表态与真实态度不一致的现象称为“偏好伪装”，伪装本身是一种成本。值得注意的是，伪装不仅来自法律限制，也来自周围人的排异：即使法律允许，人们也可能因为害怕被排斥而自我审查。</li><li data-pid=\"33kkPOs1\"><b>应对冲击的能力。</b> 当社会遭遇新技术、疫情、经济危机等外部冲击时，表达自由让更多不同的应对方案被提出来，就像新技术的公开使用能加速进步。但好的方案还需要能跨越群体边界传播：如果一个主意来自“被认为洗过脑的人”，它就很难被采纳。</li></ul><h2>五、动态机制：反馈环可能呈现的几种状态</h2><p data-pid=\"DTofCNeu\"><b>同质化可能是理性选择的结果。</b> 如果人们预期与某些人交往会得不偿失，在拥有结社与退出自由时，他们会理性地回避这些人，转而与同类相处。自由越大，越容易回避，同质化程度也就可能越高。</p><p data-pid=\"qkQZE4fT\"><b>但这里可能存在“外部性”。</b> 每个人的回避在个人层面合情合理，但所有人的回避加在一起，提高了整个社会的同质化程度；同质化又可能加强排异信念，让更多跨群体交往变成负值，进而引发更多回避。每个人在做选择时，都没有把自己对他人的这种影响考虑进去。这与关税战的逻辑相似：每个国家单方面设关税都像是合理的防御，结局却可能是大家都更穷。</p><p data-pid=\"ClPgqqcJ\"><b>分选因此有两种来源。</b> 一种由交易成本驱动：人们选择同类，只是因为跨群体交往确实更费力，这种分选可能只是对真实成本的合理反应，未必过度。另一种由排异驱动，上述外部性主要存在于这一种之中。二者还可能相互强化：长期只与同类交往，会让人逐渐失去与异质者打交道的能力，跨群体交易成本随之上升，进而引发更多分选。</p><p data-pid=\"7loaazQx\"><b>排异的多少，由交往的博弈结构决定。</b> 由于我的收益取决于对方做还是切，切蛋糕者在社会中占多大比例，是一个博弈的均衡结果。根据“合作是否比单方面争夺更划算”和“双方互相争夺时是否仍然有利可图”，可以设想四种结构：</p><table data-draft-node=\"block\" data-draft-type=\"table\" data-size=\"normal\" data-row-style=\"normal\"><tbody><tr><th></th><th>互相争夺代价高</th><th>互相争夺仍然有利可图</th></tr><tr><td>合作比单方面争夺更划算</td><td>人人做蛋糕，没有排异</td><td>猎鹿博弈：大家都做或大家都切都可能稳定，取决于彼此的预期</td></tr><tr><td>单方面争夺比合作更划算</td><td>鹰鸽博弈：一部分人切，一部分人让步，切蛋糕者占一个稳定比例</td><td>囚徒困境：人人切蛋糕，普遍排异</td></tr></tbody></table><p data-pid=\"gIuREOMY\">在猎鹿博弈中，“对方被洗脑了”的信念扮演着协调的角色：认定对方不可交流，就是预期对方会切蛋糕，于是我也切；对方看到我切，又确认了他的预期。信念不是排异的起点，而是让社会落入某一种均衡的装置。</p><p data-pid=\"VdaiZ0mc\">交易成本会推动社会在这张表中移动：价值观差异越大、跨群体交往经验越少，合作的收益越低，社会就越可能从上排走向下排。至于“互相争夺是否仍然有利可图”，本课题不预设答案，它取决于获胜机会、资源价值与冲突代价，研究者可以根据研究对象自行选择或估计。</p><p data-pid=\"pDuuxwMT\">由于反馈环中的每一环都只以一定概率发生，它不一定是同一种形态。研究者可以关注两个关键概率：同质环境转化为排异信念的概率，以及收紧自由转化为支持回升的概率。根据二者的大小，可以设想四种状态：</p><table data-draft-node=\"block\" data-draft-type=\"table\" data-size=\"normal\" data-row-style=\"normal\"><tbody><tr><th>状态</th><th>同质化是否催生排异</th><th>收紧自由是否带来反弹</th><th>可能的走向</th></tr><tr><td>无环</td><td>很少</td><td>不重要</td><td>高自由可以自我维持</td></tr><tr><td>负反馈环</td><td>会</td><td>会</td><td>在自由与限制之间调整，可能收敛，也可能来回摆动</td></tr><tr><td>走向限制的棘轮</td><td>会</td><td>不会</td><td>自由单向递减并被锁定</td></tr><tr><td>走向自由的棘轮</td><td>自由反而减少排异</td><td>不重要</td><td>自由单向递增</td></tr></tbody></table><p data-pid=\"OfOpfgYJ\">这四种状态是设想，而非结论。哪些社会条件决定一个社会处在哪种状态，正是需要研究的问题。可能相关的条件包括：群体对身份威胁的感知、群体内领袖的话语、群体内是否存在“可以合理地不同意”的规范、限制的代价是否人人可见，以及被迫接触异质者时的接触质量等。</p><p data-pid=\"eQW6zWA1\">上表的“四种状态”描述的是整个反馈环的走向，前文的“四种博弈结构”描述的是单次交往中排异如何产生。两组分类之间如何对应，本身是有待研究的问题，本课题不做硬性对应。</p><h2>六、均衡与三种“好”的标准</h2><p data-pid=\"aahShQWB\">如果反馈环最终停在某个状态，自由程度和人们对自由的支持都不再变化，这就是一个均衡。可能的均衡未必只有一个，比较它们需要标准。本课题提出三种：</p><ul><li data-pid=\"CH8aofiJ\"><b>短期社会福利最大</b>：在这个状态下，每一期的交往福利与表达满足，扣除排异冲突与伪装的成本，加起来最大。</li><li data-pid=\"xI5LO8Yf\"><b>长期社会福利最大</b>：不仅看停在那里时的福利，还要算上走到那里的过程代价，以及社会面对外部冲击时的适应能力。</li><li data-pid=\"o4YA-Krt\"><b>自由程度最大</b>：在所有能够稳定维持的状态中，自由程度最高的那一个。</li></ul><p data-pid=\"0tjUhKlw\">三种标准可能给出不同的答案。举一个值得研究的例子：设想一个各群体内部自由、彼此隔绝、互不承认的社会，荷兰历史上的“柱化社会”可作参照。由于群体之间很少接触，冲突成本可能不高，短期福利也许不低；但好的主意难以跨越群体边界，一旦遇到需要共同应对的冲击，它的长期表现可能较差。这只是一个猜想，有待模型与证据检验。</p><p data-pid=\"ocTehYKv\">此外，福利成本的计算方式本身也值得注意：成本发生在“价值观不同、且至少一方排异”的交往之中。同质化越高，跨群体交往越少，成本的发生机会越少；但同质化又可能加强排异，让每次跨群体交往的代价更高。两股力量方向相反，所以同质化与社会福利之间，很可能不是简单的单调关系。</p><h2>七、政策问题</h2><p data-pid=\"_H2J5LeN\">本课题不预设政策答案，而是提出以下有待研究的问题：</p><ul><li data-pid=\"-2xmZU6E\">三派主张都试图通过直接限制自由来减少同质化或极化。这种做法在什么条件下有效？在什么条件下适得其反，例如反而让被限制的群体更加抱团？</li><li data-pid=\"h3UZVc5E\">是否存在不降低自由、却能降低“同质化转化为排异”的制度安排？例如跨群体的公共机构、选举制度设计、信息平台的推荐方式等。如果存在，它们在三种“好”的标准下表现是否一致？</li><li data-pid=\"lou0NIf2\">宪政层面的刚性（例如修改言论自由需要超级多数）能否让反馈环更稳定？它是否也会把社会锁定在一个并不理想的状态？</li><li data-pid=\"-85tZRo1\">当限制由某一个群体施加于另一个群体时，上述答案会如何改变？</li><li data-pid=\"K3MEuKfe\">能否通过降低跨群体交易成本的制度，在不限制自由的前提下减少过度分选？</li></ul><h2>八、待证命题与开放问题</h2><p data-pid=\"dWPk0Jx-\">以下猜想都可能被证实，也可能被推翻。</p><p data-pid=\"5T341JkM\"><b>待证的猜想</b></p><ol><li data-pid=\"yis3-DFY\">在自由的环境中，个人回避“得不偿失”的交往是理性的；但只有超出交易成本所能解释的那部分同质化，才可能高于社会最优水平。</li><li data-pid=\"pBXVoAiv\">降低排异，可能同时改善短期福利、长期福利和可维持的自由程度。</li><li data-pid=\"BhsMYAiJ\">当同质环境转化为排异的概率足够低时，三种“好”的均衡可能趋于重合；这个概率越高，三者可能分离得越远。</li><li data-pid=\"WbdEhVOo\">群体彼此隔绝的社会，可能在短期福利上表现尚可，在长期福利上表现较差。</li><li data-pid=\"9AsndjjX\">处在价值观空间边缘的人，周围可交往的人更少，可能更容易形成封闭的小圈子和排异。这为“极端立场为何更容易封闭”提供了一种不依赖心理特质的结构性解释。</li><li data-pid=\"_2mt8HvR\">反馈环的时滞越长、政治过程对民意反应越快，系统越可能在自由与限制之间反复摆动。</li><li data-pid=\"kSpQtm1N\">分选会降低人们与异质者交往的能力，推高跨群体交易成本，从而形成自我强化的分选。</li><li data-pid=\"M8tsd_BT\">在猎鹿博弈的情形下，同样的客观条件可能对应“普遍合作”与“普遍排异”两种稳定状态，社会落入哪一种，取决于人们彼此的预期。</li><li data-pid=\"oAczPkVY\">如果在两种策略之间切换需要成本，社会一旦进入普遍排异的状态，即使条件改善，也不会立刻恢复，即存在滞后效应。</li></ol><p data-pid=\"98Gz1m51\"><b>开放问题</b></p><ul><li data-pid=\"pY8sVXF_\">社会福利能否加总，还是只能做序数比较？</li><li data-pid=\"n_ohi6dp\">第二个维度应当被当作另一种“差异”，还是当作影响人们行为方式的心理特质？</li><li data-pid=\"Lt8ZTe1L\">心理特质与价值立场是否相关？这会如何影响不同群体对限制的反应？</li><li data-pid=\"KDIBYMe9\">自然形成的群体有多少个？本文开头观察到的“三派”格局，是否是某些条件下的自然结果？</li><li data-pid=\"S8gUF1pm\">双方互相争夺时是否仍然有利可图？这取决于获胜机会、资源价值与冲突代价，而获胜机会又由什么决定？研究者可以选择四种博弈结构中的任何一种作为研究对象，也可以研究社会如何在它们之间转换。</li></ul><h2>九、可能的研究路径</h2><p data-pid=\"BV0gijI2\">这是一个庞大的研究项目，不可能一步完成。可以设想三条互相补充的路径：</p><ul><li data-pid=\"_57VksMk\"><b>理论推导</b>：从最简单的设定出发（例如只有一个维度、只有两个群体），推导均衡与稳定条件，再逐步放宽假设。</li><li data-pid=\"twV7ispY\"><b>计算机模拟</b>：在正方形中放入大量虚拟个体，让他们按规则选择交往对象、形成或放弃排异信念，观察群体如何自然形成、反馈环处于哪种状态。这和社会学家谢林的经典隔离模型属于同一类方法。</li><li data-pid=\"aJpwp74a\"><b>实证检验</b>：利用已有的数据测量各个变量，例如各国的自由程度指数、社交网络中的同质化程度、心理学中关于去人性化和政治宽容的测量，检验上述猜想。</li></ul><p data-pid=\"swpWNUQc\">欢迎对这个课题感兴趣的读者与研究者，在此基础上提出质疑、修正或扩展。</p>",
+        "excerpt": "本文并不是一个完整的介绍某一个研究结果或者想法的文章，本文是一个关于研究的初始想法和倡议，当然，在英文版里，也包含了一些我个人的初始想法，如果对于这些细节构建有兴趣，希望用来进行个人研究的话，可以联系我要英文版。 一、现象观察：三种限制自由的主张，同一种心理结构今天，许多国家内部都有一大群人主张限制言论自由或其他个人自由，而且这群人似乎在增加。按光谱划分，他们的主张大致有三种。 <b>极左翼</b>认为：资本主…",
+        "excerpt_new": "本文并不是一个完整的介绍某一个研究结果或者想法的文章，本文是一个关于研究的初始想法和倡议，当然，在英文版里，也包含了一些我个人的初始想法，如果对于这些细节构建有兴趣，希望用来进行个人研究的话，可以联系我要英文版。 一、现象观察：三种限制自由的主张，同一种心理结构今天，许多国家内部都有一大群人主张限制言论自由或其他个人自由，而且这群人似乎在增加。按光谱划分，他们的主张大致有三种。 <b>极左翼</b>认为：资本主…",
+        "preview_type": "default",
+        "preview_text": "",
+        "url": "https://zhuanlan.zhihu.com/p/2089815601426519229",
+        "comment_permission": "all",
+        "voteup_count": 18,
+        "comment_count": 7,
+        "image_url": "",
+        "linkbox": {
+          "url": "",
+          "category": "",
+          "pic": "",
+          "title": ""
+        },
+        "reaction_instruction": {},
+        "upvoted_followees": [],
+        "voting": 0,
+        "content_need_truncated": false,
+        "force_login_when_click_read_more": false,
+        "is_navigator": false,
+        "navigator_vote": false,
+        "vote_next_step": "vote",
+        "allow_segment_interaction": 1
+      },
+      "verb": "MEMBER_VOTEUP_ARTICLE",
+      "created_time": 1791475591,
+      "interaction": {
+        "can_show_sticker": true
+      },
+      "actor": {
+        "id": "follow-user-1",
+        "name": "用户1",
+        "headline": "",
+        "type": "people",
+        "user_type": "people",
+        "url": "https://api.zhihu.com/people/follow-user-1",
+        "url_token": "follow-user-1",
+        "avatar_url": "",
+        "gender": 0,
+        "is_following": true,
+        "is_followed": false,
+        "is_org": false,
+        "badge": [
+          {
+            "type": "identity",
+            "description": "信息技术行业 算法工程师",
+            "topic_names": [],
+            "topics": []
+          }
+        ],
+        "badge_v2": {
+          "title": "知势榜影响力榜教育校园领域上榜答主",
+          "merged_badges": [
+            {
+              "type": "best",
+              "detail_type": "best",
+              "title": "社区成就",
+              "description": "知势榜影响力榜教育校园领域上榜答主",
+              "url": "",
+              "sources": [],
+              "icon": "",
+              "night_icon": ""
+            },
+            {
+              "type": "identity",
+              "detail_type": "identity_people",
+              "title": "认证",
+              "description": "信息技术行业 算法工程师",
+              "url": "https://zhuanlan.zhihu.com/p/96956163",
+              "sources": [],
+              "icon": "",
+              "night_icon": ""
+            }
+          ],
+          "detail_badges": [
+            {
+              "type": "reward",
+              "detail_type": "super_activity",
+              "title": "社区成就",
+              "description": "知势榜影响力榜教育校园领域上榜答主",
+              "url": "",
+              "sources": [
+                {
+                  "id": "27",
+                  "token": "",
+                  "type": "content_potential_category",
+                  "url": "",
+                  "name": "知势榜8月",
+                  "avatar_path": "",
+                  "avatar_url": "",
+                  "description": "",
+                  "priority": 27
+                }
+              ],
+              "icon": "https://pic1.zhimg.com/v2-4a07bc69c4bb04444721f35b32125c75_l.png?source=32738c0c",
+              "night_icon": "https://picx.zhimg.com/v2-4a07bc69c4bb04444721f35b32125c75_l.png?source=32738c0c"
+            },
+            {
+              "type": "identity",
+              "detail_type": "identity_people",
+              "title": "已认证的个人",
+              "description": "信息技术行业 算法工程师",
+              "url": "https://zhuanlan.zhihu.com/p/96956163",
+              "sources": [],
+              "icon": "https://picx.zhimg.com/v2-2ddc5cc683982648f6f123616fb4ec09_l.png?source=32738c0c",
+              "night_icon": "https://picx.zhimg.com/v2-2ddc5cc683982648f6f123616fb4ec09_l.png?source=32738c0c"
+            }
+          ],
+          "icon": "https://picx.zhimg.com/v2-27bfcba90e66db79ce8768ab807e017e_l.png?source=32738c0c",
+          "night_icon": "https://pic1.zhimg.com/v2-27bfcba90e66db79ce8768ab807e017e_l.png?source=32738c0c"
+        },
+        "vip_info": {
+          "is_vip": false,
+          "widget": {
+            "url": "https://pica.zhimg.com/v2-b88b290ca44322b80f8dc57e6caed616_r.jpg?source=5a24d060",
+            "night_mode_url": "https://picx.zhimg.com/v2-b88b290ca44322b80f8dc57e6caed616_r.jpg?source=5a24d060",
+            "id": 40103
+          },
+          "target_url": ""
+        },
+        "kvip_info": {
+          "is_vip": false,
+          "target_url": ""
+        }
+      },
+      "action_text": "赞同了文章",
+      "is_sticky": false
+    },
+    {
+      "id": "1791475141057",
+      "type": "feed",
+      "target": {
+        "ab_config": {
+          "md_interact_unify": "1"
+        },
+        "admin_closed_comment": false,
+        "author": {
+          "avatar_url": "",
+          "badge_v2": {
+            "detail_badges": [],
+            "icon": "",
+            "merged_badges": [],
+            "night_icon": "",
+            "title": "噫～我是萌弟"
+          },
+          "exposed_medal": {
+            "avatar_url": "https://picx.zhimg.com/v2-9251b676c9f4283fdc5e04261a7e534f_720w.jpg?source=8a6f5038&needBackground=1",
+            "description": "「向科学要答案 2022」活动期间，首次为相关领域下的优质黄标内容送出赞同",
+            "medal_avatar_frame": "",
+            "medal_id": "1502699219463389184",
+            "medal_name": "点赞科学 2022",
+            "mini_avatar_url": "https://picx.zhimg.com/v2-9251b676c9f4283fdc5e04261a7e534f_720w.jpg?source=8a6f5038&needBackground=1"
+          },
+          "follower_count": 42730,
+          "gender": 1,
+          "headline": "",
+          "id": "follow-user-21",
+          "is_advertiser": false,
+          "is_blocked": false,
+          "is_blocking": false,
+          "is_followed": false,
+          "is_following": false,
+          "is_org": false,
+          "is_special_follow": false,
+          "kvip_info": {
+            "is_vip": false,
+            "target_url": ""
+          },
+          "name": "用户21",
+          "reaction_count": 0,
+          "type": "people",
+          "url": "https://api.zhihu.com/people/follow-user-21",
+          "url_token": "follow-user-21",
+          "user_type": "people",
+          "vip_info": {
+            "is_vip": false,
+            "widget": {
+              "id": 40113,
+              "night_mode_url": "https://pic1.zhimg.com/v2-6f4737155ee04ad4946a0759fa2e4b4b.jpg?source=88ceefae",
+              "url": "https://picx.zhimg.com/v2-529f85822aaa5f2d45c08df32f6827c4.jpg?source=88ceefae"
+            }
+          }
+        },
+        "can_top": false,
+        "comment_count": 259,
+        "comment_permission": "all",
+        "comments": [],
+        "content": [
+          {
+            "content": "绷不住了，考公高中化",
+            "fold_type": "raw",
+            "own_text": "绷不住了，考公高中化",
+            "text_link_type": "internal",
+            "title": "",
+            "type": "text"
+          },
+          {
+            "height": 2400,
+            "is_gif": false,
+            "is_long": false,
+            "is_watermark": true,
+            "original_url": "https://picx.zhimg.com/v2-8b47d4dcc5ee8a3862cc33e9fd8adf1f.jpg?source=e3d01f54",
+            "thumbnail": "",
+            "type": "image",
+            "url": "https://pic1.zhimg.com/100/v2-f60b5d2818a72313265af1ce03de4a32_720w.jpg",
+            "watermark_url": "https://pic1.zhimg.com/v2-f60b5d2818a72313265af1ce03de4a32_720w.jpg?source=e3d01f54",
+            "width": 1080
+          }
+        ],
+        "content_html": "<div>绷不住了，考公高中化</div><img src=\"https://pic1.zhimg.com/50/v2-f60b5d2818a72313265af1ce03de4a32_b.jpg\" data-rawwidth=\"1080\" data-rawheight=\"2400\" class=\"origin_image zh-lightbox-thumb\" width=\"1080\" data-original=\"https://picx.zhimg.com/v2-8b47d4dcc5ee8a3862cc33e9fd8adf1f.jpg?source=e3d01f54\" data-original-src=\"https://picx.zhimg.com/v2-8b47d4dcc5ee8a3862cc33e9fd8adf1f.jpg?source=e3d01f54\">",
+        "created": 1791374269,
+        "creation_disclaimer": "",
+        "current_user_is_navigator": false,
+        "excerpt_title": "绷不住了，考公高中化",
+        "favlists_count": 373,
+        "favorite_count": 373,
+        "id": "2091255836756676799",
+        "is_admin_close_repin": false,
+        "is_contain_ai_content": false,
+        "is_deleted": false,
+        "is_guide_app": false,
+        "is_navigator_vote": false,
+        "is_paid_video": false,
+        "is_top": false,
+        "like_count": 1350,
+        "likers": [
+          {
+            "avatar_url": "",
+            "badge": [
+              {
+                "description": "信息技术行业 算法工程师",
+                "type": "identity"
+              }
+            ],
+            "badge_v2": {
+              "detail_badges": [
+                {
+                  "badge_status": "passed",
+                  "description": "知势榜影响力榜教育校园领域上榜答主",
+                  "detail_type": "super_activity",
+                  "icon": "https://picx.zhimg.com/v2-4a07bc69c4bb04444721f35b32125c75_l.png?source=32738c0c",
+                  "night_icon": "https://picx.zhimg.com/v2-4a07bc69c4bb04444721f35b32125c75_l.png?source=32738c0c",
+                  "sources": [
+                    {
+                      "avatar_path": "",
+                      "avatar_url": "",
+                      "description": "",
+                      "id": "27",
+                      "name": "知势榜8月",
+                      "priority": 27,
+                      "token": "",
+                      "type": "content_potential_category",
+                      "url": ""
+                    }
+                  ],
+                  "title": "社区成就",
+                  "type": "reward",
+                  "url": ""
+                },
+                {
+                  "badge_status": "passed",
+                  "description": "信息技术行业 算法工程师",
+                  "detail_type": "identity_people",
+                  "icon": "https://pica.zhimg.com/v2-2ddc5cc683982648f6f123616fb4ec09_l.png?source=32738c0c",
+                  "night_icon": "https://picx.zhimg.com/v2-2ddc5cc683982648f6f123616fb4ec09_l.png?source=32738c0c",
+                  "sources": [],
+                  "title": "已认证的个人",
+                  "type": "identity",
+                  "url": "https://zhuanlan.zhihu.com/p/96956163"
+                }
+              ],
+              "icon": "https://pica.zhimg.com/v2-27bfcba90e66db79ce8768ab807e017e_l.png?source=32738c0c",
+              "merged_badges": [
+                {
+                  "badge_status": "passed",
+                  "description": "知势榜影响力榜教育校园领域上榜答主",
+                  "detail_type": "best",
+                  "icon": "",
+                  "night_icon": "",
+                  "sources": [],
+                  "title": "社区成就",
+                  "type": "best",
+                  "url": ""
+                },
+                {
+                  "badge_status": "passed",
+                  "description": "信息技术行业 算法工程师",
+                  "detail_type": "identity_people",
+                  "icon": "",
+                  "night_icon": "",
+                  "sources": [],
+                  "title": "认证",
+                  "type": "identity",
+                  "url": "https://zhuanlan.zhihu.com/p/96956163"
+                }
+              ],
+              "night_icon": "https://picx.zhimg.com/v2-27bfcba90e66db79ce8768ab807e017e_l.png?source=32738c0c",
+              "title": "知势榜影响力榜教育校园领域上榜答主"
+            },
+            "exposed_medal": {
+              "avatar_url": "",
+              "description": "",
+              "medal_avatar_frame": "",
+              "medal_id": "0",
+              "medal_name": "",
+              "mini_avatar_url": ""
+            },
+            "follower_count": 149306,
+            "gender": 1,
+            "headline": "",
+            "id": "follow-user-1",
+            "is_advertiser": false,
+            "is_blocked": false,
+            "is_blocking": false,
+            "is_followed": false,
+            "is_following": true,
+            "is_org": false,
+            "is_special_follow": false,
+            "kvip_info": {
+              "is_vip": false,
+              "target_url": ""
+            },
+            "name": "用户1",
+            "reaction_count": 0,
+            "type": "people",
+            "url": "https://api.zhihu.com/people/follow-user-1",
+            "url_token": "follow-user-1",
+            "user_type": "people",
+            "vip_info": {
+              "is_vip": false,
+              "widget": {
+                "id": 40103,
+                "night_mode_url": "https://picx.zhimg.com/v2-b88b290ca44322b80f8dc57e6caed616.jpg?source=88ceefae",
+                "url": "https://picx.zhimg.com/v2-b88b290ca44322b80f8dc57e6caed616.jpg?source=88ceefae"
+              }
+            }
+          },
+          {
+            "avatar_url": "",
+            "badge_v2": {
+              "detail_badges": [],
+              "icon": "",
+              "merged_badges": [],
+              "night_icon": "",
+              "title": ""
+            },
+            "exposed_medal": {
+              "avatar_url": "",
+              "description": "",
+              "medal_avatar_frame": "",
+              "medal_id": "0",
+              "medal_name": "",
+              "mini_avatar_url": ""
+            },
+            "follower_count": 10,
+            "gender": 1,
+            "headline": "",
+            "id": "follow-user-22",
+            "is_advertiser": false,
+            "is_blocked": false,
+            "is_blocking": false,
+            "is_followed": false,
+            "is_following": false,
+            "is_org": false,
+            "is_special_follow": false,
+            "kvip_info": {
+              "is_vip": false,
+              "target_url": ""
+            },
+            "name": "用户22",
+            "reaction_count": 0,
+            "type": "people",
+            "url": "https://api.zhihu.com/people/follow-user-22",
+            "url_token": "follow-user-22",
+            "user_type": "people",
+            "vip_info": {
+              "is_vip": true,
+              "vip_icon": {
+                "night_mode_url": "https://pic1.zhimg.com/v2-aa8a1823abfc46f14136f01d55224925.jpg?source=88ceefae",
+                "url": "https://pic1.zhimg.com/v2-aa8a1823abfc46f14136f01d55224925.jpg?source=88ceefae"
+              },
+              "widget": {
+                "id": 13024,
+                "night_mode_url": "https://pica.zhimg.com/v2-62d4f613b2a9f47697af991c9139232f.jpg?source=88ceefae",
+                "url": "https://picx.zhimg.com/v2-cc828cd41dee0115424faf5c33f57411.jpg?source=88ceefae"
+              }
+            }
+          },
+          {
+            "avatar_url": "",
+            "badge_v2": {
+              "detail_badges": [],
+              "icon": "",
+              "merged_badges": [],
+              "night_icon": "",
+              "title": ""
+            },
+            "exposed_medal": {
+              "avatar_url": "",
+              "description": "",
+              "medal_avatar_frame": "",
+              "medal_id": "0",
+              "medal_name": "",
+              "mini_avatar_url": ""
+            },
+            "follower_count": 138,
+            "gender": 1,
+            "headline": "",
+            "id": "follow-user-23",
+            "is_advertiser": false,
+            "is_blocked": false,
+            "is_blocking": false,
+            "is_followed": false,
+            "is_following": false,
+            "is_org": false,
+            "is_special_follow": false,
+            "kvip_info": {
+              "is_vip": false,
+              "target_url": ""
+            },
+            "name": "用户23",
+            "reaction_count": 0,
+            "type": "people",
+            "url": "https://api.zhihu.com/people/follow-user-23",
+            "url_token": "follow-user-23",
+            "user_type": "people",
+            "vip_info": {
+              "is_vip": false
+            }
+          },
+          {
+            "avatar_url": "",
+            "badge_v2": {
+              "detail_badges": [],
+              "icon": "",
+              "merged_badges": [],
+              "night_icon": "",
+              "title": ""
+            },
+            "exposed_medal": {
+              "avatar_url": "https://picx.zhimg.com/v2-19e523c65c7aa4074fb5430daaad295d_720w.jpg?source=8a6f5038&needBackground=1",
+              "description": "完成 20 个众裁",
+              "medal_avatar_frame": "",
+              "medal_id": "1104437667143585792",
+              "medal_name": "众裁官",
+              "mini_avatar_url": "https://pica.zhimg.com/v2-19e523c65c7aa4074fb5430daaad295d_720w.jpg?source=8a6f5038&needBackground=1"
+            },
+            "follower_count": 64,
+            "gender": 0,
+            "headline": "",
+            "id": "follow-user-24",
+            "is_advertiser": false,
+            "is_blocked": false,
+            "is_blocking": false,
+            "is_followed": false,
+            "is_following": false,
+            "is_org": false,
+            "is_special_follow": false,
+            "kvip_info": {
+              "is_vip": false,
+              "target_url": ""
+            },
+            "name": "用户24",
+            "reaction_count": 0,
+            "type": "people",
+            "url": "https://api.zhihu.com/people/follow-user-24",
+            "url_token": "follow-user-24",
+            "user_type": "people",
+            "vip_info": {
+              "is_vip": true,
+              "vip_icon": {
+                "night_mode_url": "https://picx.zhimg.com/v2-c9686ff064ea3579730756ac6c289978.jpg?source=88ceefae",
+                "url": "https://picx.zhimg.com/v2-4812630bc27d642f7cafcd6cdeca3d7a.jpg?source=88ceefae"
+              },
+              "widget": {
+                "id": 40137,
+                "night_mode_url": "https://pic1.zhimg.com/v2-eaaa8dcaa282ce1d8af720b574f0a055.jpg?source=88ceefae",
+                "url": "https://picx.zhimg.com/v2-262be75d1ba67017d56d505cb2bdd759.jpg?source=88ceefae"
+              }
+            }
+          },
+          {
+            "avatar_url": "",
+            "badge_v2": {
+              "detail_badges": [],
+              "icon": "",
+              "merged_badges": [],
+              "night_icon": "",
+              "title": ""
+            },
+            "exposed_medal": {
+              "avatar_url": "https://picx.zhimg.com/v2-c7e07b4d834217e9562ab38135351a19_720w.jpg?source=8a6f5038&needBackground=1",
+              "description": "关注 50 个人",
+              "medal_avatar_frame": "",
+              "medal_id": "972464154808860672",
+              "medal_name": "社交达人",
+              "mini_avatar_url": "https://pic1.zhimg.com/v2-c7e07b4d834217e9562ab38135351a19_720w.jpg?source=8a6f5038&needBackground=1"
+            },
+            "follower_count": 14,
+            "gender": 1,
+            "headline": "",
+            "id": "follow-user-25",
+            "is_advertiser": false,
+            "is_blocked": false,
+            "is_blocking": false,
+            "is_followed": false,
+            "is_following": false,
+            "is_org": false,
+            "is_special_follow": false,
+            "kvip_info": {
+              "is_vip": false,
+              "target_url": ""
+            },
+            "name": "用户25",
+            "reaction_count": 0,
+            "type": "people",
+            "url": "https://api.zhihu.com/people/follow-user-25",
+            "url_token": "follow-user-25",
+            "user_type": "people",
+            "vip_info": {
+              "is_vip": false,
+              "widget": {
+                "id": 40137,
+                "night_mode_url": "https://picx.zhimg.com/v2-eaaa8dcaa282ce1d8af720b574f0a055.jpg?source=88ceefae",
+                "url": "https://picx.zhimg.com/v2-262be75d1ba67017d56d505cb2bdd759.jpg?source=88ceefae"
+              }
+            }
+          },
+          {
+            "avatar_url": "",
+            "badge_v2": {
+              "detail_badges": [],
+              "icon": "",
+              "merged_badges": [],
+              "night_icon": "",
+              "title": ""
+            },
+            "exposed_medal": {
+              "avatar_url": "https://pica.zhimg.com/v2-f4864bad4cfb24d7eb77e8f425c85834_720w.jpg?source=8a6f5038&needBackground=1",
+              "description": "关注 500 个人",
+              "medal_avatar_frame": "",
+              "medal_id": "972464154808860672",
+              "medal_name": "社交达人",
+              "mini_avatar_url": "https://picx.zhimg.com/v2-f4864bad4cfb24d7eb77e8f425c85834_720w.jpg?source=8a6f5038&needBackground=1"
+            },
+            "follower_count": 38,
+            "gender": 1,
+            "headline": "",
+            "id": "follow-user-26",
+            "is_advertiser": false,
+            "is_blocked": false,
+            "is_blocking": false,
+            "is_followed": false,
+            "is_following": false,
+            "is_org": false,
+            "is_special_follow": false,
+            "kvip_info": {
+              "is_vip": false,
+              "target_url": ""
+            },
+            "name": "用户26",
+            "reaction_count": 0,
+            "type": "people",
+            "url": "https://api.zhihu.com/people/follow-user-26",
+            "url_token": "follow-user-26",
+            "user_type": "people",
+            "vip_info": {
+              "is_vip": false
+            }
+          }
+        ],
+        "long_threshold": [
+          {
+            "height": 3,
+            "width": 1
+          },
+          {
+            "height": 1,
+            "width": 3
+          }
+        ],
+        "meet_reaction_guide_conditions": false,
+        "page_view_count": null,
+        "pin_type": "normal",
+        "questions": null,
+        "reaction": {
+          "image_reactions": {
+            "v2-8b47d4dcc5ee8a3862cc33e9fd8adf1f": {
+              "is_liked": false,
+              "like_count": 0
+            }
+          },
+          "relation": {
+            "current_user_is_navigator": false,
+            "faved": false,
+            "following": false,
+            "img_liked": {
+              "v2-8b47d4dcc5ee8a3862cc33e9fd8adf1f": false
+            },
+            "is_author": false,
+            "is_navigator_vote": false,
+            "liked": false,
+            "subcribed": false,
+            "vote": "Neutral",
+            "vote_next_step": ""
+          },
+          "special_reaction_style": {
+            "is_hit": false
+          },
+          "statistics": {
+            "applaud_count": 1350,
+            "bullet_count": 0,
+            "comment_count": 259,
+            "down_vote_count": 0,
+            "favorites": 373,
+            "img_like_count": {
+              "v2-8b47d4dcc5ee8a3862cc33e9fd8adf1f": 0
+            },
+            "interest_play_count": 0,
+            "like_count": 9,
+            "plaincontent_like_count": 0,
+            "plaincontent_vote_up_count": 0,
+            "play_count": 0,
+            "pv_count": 0,
+            "question_answer_count": 0,
+            "question_follower_count": 0,
+            "republishers": [],
+            "share_count": 0,
+            "subscribe_count": 0,
+            "up_vote_count": 1350
+          }
+        },
+        "reaction_count": 1350,
+        "reaction_instruction": {},
+        "reaction_relation": {
+          "like": 9,
+          "vote": 1350
+        },
+        "regulate_info": {
+          "is_regulating": false
+        },
+        "repin_count": 1,
+        "ring_info": null,
+        "self_create": false,
+        "source_pin_id": 0,
+        "state": "normal",
+        "tag_specials": {},
+        "tags": [],
+        "top_reactions": {
+          "like": 1350
+        },
+        "topics": null,
+        "type": "pin",
+        "updated": 1791374269,
+        "url": "https://www.zhihu.com/pin/2091255836756676799?native=0",
+        "view_permission": "all",
+        "virtuals": {
+          "is_favorited": false,
+          "is_liked": false
+        },
+        "vote_next_step": ""
+      },
+      "verb": "MEMBER_VOTE_PIN",
+      "created_time": 1791475141,
+      "interaction": {
+        "can_show_sticker": true
+      },
+      "actor": {
+        "id": "follow-user-1",
+        "name": "用户1",
+        "headline": "",
+        "type": "people",
+        "user_type": "people",
+        "url": "https://api.zhihu.com/people/follow-user-1",
+        "url_token": "follow-user-1",
+        "avatar_url": "",
+        "gender": 0,
+        "is_following": true,
+        "is_followed": false,
+        "is_org": false,
+        "badge": [
+          {
+            "type": "identity",
+            "description": "信息技术行业 算法工程师",
+            "topic_names": [],
+            "topics": []
+          }
+        ],
+        "badge_v2": {
+          "title": "知势榜影响力榜教育校园领域上榜答主",
+          "merged_badges": [
+            {
+              "type": "best",
+              "detail_type": "best",
+              "title": "社区成就",
+              "description": "知势榜影响力榜教育校园领域上榜答主",
+              "url": "",
+              "sources": [],
+              "icon": "",
+              "night_icon": ""
+            },
+            {
+              "type": "identity",
+              "detail_type": "identity_people",
+              "title": "认证",
+              "description": "信息技术行业 算法工程师",
+              "url": "https://zhuanlan.zhihu.com/p/96956163",
+              "sources": [],
+              "icon": "",
+              "night_icon": ""
+            }
+          ],
+          "detail_badges": [
+            {
+              "type": "reward",
+              "detail_type": "super_activity",
+              "title": "社区成就",
+              "description": "知势榜影响力榜教育校园领域上榜答主",
+              "url": "",
+              "sources": [
+                {
+                  "id": "27",
+                  "token": "",
+                  "type": "content_potential_category",
+                  "url": "",
+                  "name": "知势榜8月",
+                  "avatar_path": "",
+                  "avatar_url": "",
+                  "description": "",
+                  "priority": 27
+                }
+              ],
+              "icon": "https://pic1.zhimg.com/v2-4a07bc69c4bb04444721f35b32125c75_l.png?source=32738c0c",
+              "night_icon": "https://picx.zhimg.com/v2-4a07bc69c4bb04444721f35b32125c75_l.png?source=32738c0c"
+            },
+            {
+              "type": "identity",
+              "detail_type": "identity_people",
+              "title": "已认证的个人",
+              "description": "信息技术行业 算法工程师",
+              "url": "https://zhuanlan.zhihu.com/p/96956163",
+              "sources": [],
+              "icon": "https://picx.zhimg.com/v2-2ddc5cc683982648f6f123616fb4ec09_l.png?source=32738c0c",
+              "night_icon": "https://picx.zhimg.com/v2-2ddc5cc683982648f6f123616fb4ec09_l.png?source=32738c0c"
+            }
+          ],
+          "icon": "https://picx.zhimg.com/v2-27bfcba90e66db79ce8768ab807e017e_l.png?source=32738c0c",
+          "night_icon": "https://pic1.zhimg.com/v2-27bfcba90e66db79ce8768ab807e017e_l.png?source=32738c0c"
+        },
+        "vip_info": {
+          "is_vip": false,
+          "widget": {
+            "url": "https://picx.zhimg.com/v2-b88b290ca44322b80f8dc57e6caed616_r.jpg?source=5a24d060",
+            "night_mode_url": "https://picx.zhimg.com/v2-b88b290ca44322b80f8dc57e6caed616_r.jpg?source=5a24d060",
+            "id": 40103
+          },
+          "target_url": ""
+        },
+        "kvip_info": {
+          "is_vip": false,
+          "target_url": ""
+        }
+      },
+      "action_text": "赞同了想法",
+      "is_sticky": false
+    },
+    {
+      "id": "1791466630727",
+      "type": "feed",
+      "target": {
+        "id": "2091624927849981436",
+        "type": "answer",
+        "url": "https://api.zhihu.com/answers/2091624927849981436",
+        "voteup_count": 68,
+        "thanks_count": 3,
+        "question": {
+          "id": "2091201254722639210",
+          "title": "如果以后不需要这么多人搞科研了，你会去做什么？",
+          "url": "https://api.zhihu.com/questions/2091201254722639210",
+          "type": "question",
+          "question_type": "normal",
+          "created": 1791361231,
+          "answer_count": 74,
+          "comment_count": 2,
+          "follower_count": 162,
+          "detail": "",
+          "excerpt": "",
+          "bound_topic_ids": [
+            2232,
+            1417422,
+            5189179
+          ],
+          "relationship": {
+            "is_author": false
+          },
+          "is_following": false,
+          "author": {
+            "id": "follow-user-27",
+            "name": "用户27",
+            "headline": "",
+            "type": "people",
+            "user_type": "people",
+            "url": "https://api.zhihu.com/people/follow-user-27",
+            "url_token": "follow-user-27",
+            "avatar_url": "",
+            "gender": 1,
+            "is_following": false,
+            "is_followed": false,
+            "is_org": false,
+            "badge": [],
+            "badge_v2": {
+              "title": "",
+              "merged_badges": [],
+              "detail_badges": [],
+              "icon": "",
+              "night_icon": ""
+            },
+            "vip_info": {
+              "is_vip": false,
+              "widget": {
+                "url": "https://pica.zhimg.com/v2-b706fbc7db1177304158e8641c2435d5_r.jpg?source=5a24d060",
+                "night_mode_url": "https://pica.zhimg.com/v2-2da82ac6b6847804d96aba275e783ae4_r.jpg?source=5a24d060",
+                "id": 40139
+              },
+              "target_url": ""
+            },
+            "kvip_info": {
+              "is_vip": false,
+              "target_url": ""
+            }
+          },
+          "reaction_instruction": null
+        },
+        "updated_time": 1791462243,
+        "created_time": 1791462243,
+        "author": {
+          "id": "follow-user-28",
+          "name": "用户28",
+          "headline": "",
+          "type": "people",
+          "user_type": "people",
+          "url": "https://api.zhihu.com/people/follow-user-28",
+          "url_token": "follow-user-28",
+          "avatar_url": "",
+          "gender": 0,
+          "is_following": false,
+          "is_followed": false,
+          "is_org": false,
+          "badge": [],
+          "badge_v2": {
+            "title": "",
+            "merged_badges": [],
+            "detail_badges": [],
+            "icon": "",
+            "night_icon": ""
+          },
+          "vip_info": {
+            "is_vip": false,
+            "target_url": ""
+          },
+          "kvip_info": {
+            "is_vip": false,
+            "target_url": ""
+          }
+        },
+        "comment_permission": "all",
+        "is_copyable": true,
+        "comment_count": 12,
+        "can_comment": {
+          "status": false,
+          "reason": "只有作者关注的人才可以评论"
+        },
+        "content": "<p data-pid=\"M94NHDUq\">永远会有新的边疆。</p><p data-pid=\"zZSVoE18\">如果要探索新边疆，当然会需要更多人搞科研了。</p><p data-pid=\"15UbRhXN\">去月球、去火星的飞行器造出来了吗？</p><p data-pid=\"2-HavmYg\">月球、火星上的生态弄清楚了吗？</p><p data-pid=\"gS3q2PYq\">还有我以前说过的，土木工程，想要 great  again. 唯一的可能性就是要去火星月球上建房子了。</p><p data-pid=\"N-wjZ3A1\">在月球、火星上土木工程建造房子的方案出来了吗？研究清楚了吗？</p><p data-pid=\"4bct2yU4\">随便想想就知道这个世界还有很多的边疆，还有很多的未知需要研究。</p><p data-pid=\"EBuYR2FX\">只不过沿着这个思路想，你很快就会遇到类似明朝禁海的问题。片板不得入海。</p><p data-pid=\"PTaHgBPR\">私人购买火箭推进器燃料，在我国基本都是明令禁止的。</p><p></p>",
+        "excerpt": "永远会有新的边疆。 如果要探索新边疆，当然会需要更多人搞科研了。 去月球、去火星的飞行器造出来了吗？ 月球、火星上的生态弄清楚了吗？ 还有我以前说过的，土木工程，想要 great again. 唯一的可能性就是要去火星月球上建房子了。 在月球、火星上土木工程建造房子的方案出来了吗？研究清楚了吗？ 随便想想就知道这个世界还有很多的边疆，还有很多的未知需要研究。 只不过沿着这个思路想，你很快就会遇到类似明朝禁海的问题。…",
+        "excerpt_new": "永远会有新的边疆。 如果要探索新边疆，当然会需要更多人搞科研了。 去月球、去火星的飞行器造出来了吗？ 月球、火星上的生态弄清楚了吗？ 还有我以前说过的，土木工程，想要 great again. 唯一的可能性就是要去火星月球上建房子了。 在月球、火星上土木工程建造房子的方案出来了吗？研究清楚了吗？ 随便想想就知道这个世界还有很多的边疆，还有很多的未知需要研究。 只不过沿着这个思路想，你很快就会遇到类似明朝禁海的问题。…",
+        "preview_type": "expand",
+        "preview_text": "<p data-pid=\"M94NHDUq\">永远会有新的边疆。</p><p data-pid=\"zZSVoE18\">如果要探索新边疆，当然会需要更多人搞科研了。</p><p data-pid=\"15UbRhXN\">去月球、去火星的飞行器造出来了吗？</p><p data-pid=\"2-HavmYg\">月球、火星上的生态弄清楚了吗？</p><p data-pid=\"gS3q2PYq\">还有我以前说过的，土木工程，想要 great  again. 唯一的可能性就是要去火星月球上建房子了。</p><p data-pid=\"N-wjZ3A1\">在月球、火星上土木工程建造房子的方案出来了吗？研究清楚了吗？</p><p data-pid=\"4bct2yU4\">随便想想就知道这个世界还有很多的边疆，还有很多的未知需要研究。</p><p data-pid=\"EBuYR2FX\">只不过沿着这个思路想，你很快就会遇到类似明朝禁海的问题。片板不得入海。</p><p data-pid=\"PTaHgBPR\">私人购买火箭推进器燃料，在我国基本都是明令禁止的。</p><p></p>",
+        "relationship": {
+          "voting": 0,
+          "is_thanked": false,
+          "is_nothelp": false,
+          "upvoted_followee_ids": null
+        },
+        "reaction_instruction": {},
+        "relevant_info": {
+          "relevant_type": "",
+          "is_relevant": false,
+          "relevant_text": ""
+        },
+        "reshipment_settings": "allowed",
+        "answer_type": "normal",
+        "paid_info": {
+          "type": "",
+          "content": "",
+          "has_purchased": false
+        },
+        "attachment": null,
+        "is_navigator": false,
+        "navigator_vote": false,
+        "vote_next_step": "vote",
+        "mark_infos": [],
+        "content_need_truncated": false,
+        "force_login_when_click_read_more": false,
+        "allow_segment_interaction": 1
+      },
+      "verb": "MEMBER_VOTEUP_ANSWER",
+      "created_time": 1791466630,
+      "interaction": {
+        "can_show_sticker": true
+      },
+      "actor": {
+        "id": "follow-user-1",
+        "name": "用户1",
+        "headline": "",
+        "type": "people",
+        "user_type": "people",
+        "url": "https://api.zhihu.com/people/follow-user-1",
+        "url_token": "follow-user-1",
+        "avatar_url": "",
+        "gender": 0,
+        "is_following": true,
+        "is_followed": false,
+        "is_org": false,
+        "badge": [
+          {
+            "type": "identity",
+            "description": "信息技术行业 算法工程师",
+            "topic_names": [],
+            "topics": []
+          }
+        ],
+        "badge_v2": {
+          "title": "知势榜影响力榜教育校园领域上榜答主",
+          "merged_badges": [
+            {
+              "type": "best",
+              "detail_type": "best",
+              "title": "社区成就",
+              "description": "知势榜影响力榜教育校园领域上榜答主",
+              "url": "",
+              "sources": [],
+              "icon": "",
+              "night_icon": ""
+            },
+            {
+              "type": "identity",
+              "detail_type": "identity_people",
+              "title": "认证",
+              "description": "信息技术行业 算法工程师",
+              "url": "https://zhuanlan.zhihu.com/p/96956163",
+              "sources": [],
+              "icon": "",
+              "night_icon": ""
+            }
+          ],
+          "detail_badges": [
+            {
+              "type": "reward",
+              "detail_type": "super_activity",
+              "title": "社区成就",
+              "description": "知势榜影响力榜教育校园领域上榜答主",
+              "url": "",
+              "sources": [
+                {
+                  "id": "27",
+                  "token": "",
+                  "type": "content_potential_category",
+                  "url": "",
+                  "name": "知势榜8月",
+                  "avatar_path": "",
+                  "avatar_url": "",
+                  "description": "",
+                  "priority": 27
+                }
+              ],
+              "icon": "https://pic1.zhimg.com/v2-4a07bc69c4bb04444721f35b32125c75_l.png?source=32738c0c",
+              "night_icon": "https://picx.zhimg.com/v2-4a07bc69c4bb04444721f35b32125c75_l.png?source=32738c0c"
+            },
+            {
+              "type": "identity",
+              "detail_type": "identity_people",
+              "title": "已认证的个人",
+              "description": "信息技术行业 算法工程师",
+              "url": "https://zhuanlan.zhihu.com/p/96956163",
+              "sources": [],
+              "icon": "https://picx.zhimg.com/v2-2ddc5cc683982648f6f123616fb4ec09_l.png?source=32738c0c",
+              "night_icon": "https://picx.zhimg.com/v2-2ddc5cc683982648f6f123616fb4ec09_l.png?source=32738c0c"
+            }
+          ],
+          "icon": "https://picx.zhimg.com/v2-27bfcba90e66db79ce8768ab807e017e_l.png?source=32738c0c",
+          "night_icon": "https://pic1.zhimg.com/v2-27bfcba90e66db79ce8768ab807e017e_l.png?source=32738c0c"
+        },
+        "vip_info": {
+          "is_vip": false,
+          "widget": {
+            "url": "https://picx.zhimg.com/v2-b88b290ca44322b80f8dc57e6caed616_r.jpg?source=5a24d060",
+            "night_mode_url": "https://picx.zhimg.com/v2-b88b290ca44322b80f8dc57e6caed616_r.jpg?source=5a24d060",
+            "id": 40103
+          },
+          "target_url": ""
+        },
+        "kvip_info": {
+          "is_vip": false,
+          "target_url": ""
+        }
+      },
+      "action_text": "赞同了回答",
+      "is_sticky": false
+    },
+    {
+      "id": "1791464125515",
+      "type": "feed",
+      "target": {
+        "id": "2090451912030274599",
+        "type": "article",
+        "author": {
+          "id": "follow-user-29",
+          "name": "用户29",
+          "headline": "",
+          "type": "people",
+          "user_type": "people",
+          "url": "https://api.zhihu.com/people/follow-user-29",
+          "url_token": "follow-user-29",
+          "avatar_url": "",
+          "gender": 0,
+          "is_following": false,
+          "is_followed": false,
+          "is_org": false,
+          "badge": [],
+          "badge_v2": {
+            "title": "",
+            "merged_badges": [],
+            "detail_badges": [],
+            "icon": "",
+            "night_icon": ""
+          },
+          "vip_info": {
+            "is_vip": true,
+            "vip_icon": {
+              "url": "https://pica.zhimg.com/v2-4812630bc27d642f7cafcd6cdeca3d7a_r.jpg?source=5a24d060",
+              "night_mode_url": "https://picx.zhimg.com/v2-c9686ff064ea3579730756ac6c289978_r.jpg?source=5a24d060"
+            },
+            "target_url": ""
+          },
+          "kvip_info": {
+            "is_vip": true,
+            "vip_icon": {
+              "url": "https://picx.zhimg.com/v2-57fe7feb4813331d5eca02ef731e12c9_r.jpg?source=5a24d060",
+              "night_mode_url": "https://pic1.zhimg.com/v2-57fe7feb4813331d5eca02ef731e12c9_r.jpg?source=5a24d060"
+            },
+            "target_url": "https://www.zhihu.com/kvip/purchase"
+          }
+        },
+        "created": 1791381221,
+        "updated": 1791381221,
+        "title": "目前在工具上采取的学习策略分享",
+        "excerpt_title": "",
+        "content": "<p data-pid=\"XcJ57sam\">在水课可以干三件事：i. 在obsidian中整理和输出笔记内容 ii.在<a href=\"https://link.zhihu.com/?target=https%3A//www.mathacademy.com/\" data-icon-name=\"zhicon_icon_24_link\" class=\" wrap external\" target=\"_blank\" rel=\"nofollow noreferrer\">math academy</a>中做题 iii.远程连接dsh/codex进行vibe coding或交互式学习，通过<a href=\"https://www.zhihu.com/pin/2090748994741917446?native=1&amp;scene=share&amp;share_code=GMGHd2wWH478&amp;utm_psn=2090833485346911139\" data-icon-name=\"zhicon_icon_24_paper_plain_text\" class=\"internal\">微信clawbot接口</a>直连增加易用性。</p><p data-pid=\"H7aB25gn\">慕课和一些形式主义课程全部用dsh+<a href=\"https://link.zhihu.com/?target=https%3A//github.com/ardeyouxipianyi/workbuddy2api-hub\" data-icon-name=\"zhicon_icon_24_link\" class=\" wrap external\" target=\"_blank\" rel=\"nofollow noreferrer\">workbuddy反代</a>完成，workbuddy每天送的100积分用ds4.1几乎用不完。</p><p data-pid=\"qMaJsq8o\">交互式学习场景用到的工具是codex连接anki，obsidian及<a href=\"https://link.zhihu.com/?target=https%3A//github.com/mizorewww/course2md\" data-icon-name=\"zhicon_icon_24_link\" class=\" wrap external\" target=\"_blank\" rel=\"nofollow noreferrer\">course2md</a>。这是我给它的prompt摘要，之前好像有评论要过：</p><ul><li data-pid=\"8RTS-k6P\">（对于国外开源课程）通过[网址]下载官方slide，captions，课程源码，作业源码等</li><li data-pid=\"h9u8KZPE\">（对于b站课程，如江协stm32）这是[课程网址]，用这台电脑上的course2md将视频图片与字幕一一对应，之后根据生成内容授课。</li><li data-pid=\"GI6crk6U\">在第一节课开始前，生成项目文档，完整记录整个课程结构，最终验收标准，标准授课流程，并在每节课结束后更新学习状态。</li><li data-pid=\"66-D7535\">电脑中的obsidian仓库位于[位置]，在授课过程中，将学习内容转化成简洁清晰的笔记，去除课程中的引导而专注于结论，应当包含细节性内容和易错点，不要做成课程交互记录的流水账。</li><li data-pid=\"q3uz2fAK\">使用anki connect连接anki以制作抽认卡。制卡需要满足以下原则：每张卡只考一个明确、无隐含上下文、通常能在 10–30 秒内回答的问题。背面只保留回答所需的一个关键事实，不附带例子、例外、延伸解释或第二考点；代码只保留理解所需的最小片段。只为以下内容制卡：真实答错、混淆或调试较久的知识；需要快速提取的前提、不变量、边界，可用小输入追踪的代码行为；容易混淆的内容。不为整段讲义、完整题解、大段代码、低频查表细节或可现场轻易推导的信息制卡。</li><li data-pid=\"4vLYjNCy\">每次开课前先读前几节 Obsidian 周笔记，确认已掌握内容、真实卡点和未学边界。正常主课不重新教授已掌握的基础；讲解知识时，明确区分“复用的已学内容”和“首次出现的新概念”，篇幅集中在后者。</li><li data-pid=\"OHdRLh1y\">在一个概念闭环后暂停：1. 给出学习目标及 slide、caption 时间点。 2.先完整解释新概念与必要英文术语。3. 可以用预测题检查已经讲过、或可由所给完整代码直接推出的行为。4.可以综合已学知识或将学习内容应用于新情境，标为“提高题”或“迁移题”。5.  提问时不得把上文已经给出的答案原样再问一次，也不得要求学习者先发明尚未教授的概念。</li><li data-pid=\"TMCtKhul\">在学习过程中，不断更新对学习者能力与程度的了解，从而提出与学习者能力相适配的问题。</li></ul><p data-pid=\"ZHk9Nh8Q\">另外我还vibe了一个personal dashboard，连接上了<a href=\"https://link.zhihu.com/?target=https%3A//activitywatch.net/\" data-icon-name=\"zhicon_icon_24_link\" class=\" wrap external\" target=\"_blank\" rel=\"nofollow noreferrer\">activitywatch</a>记录使用时间，以及有一个token统计功能，统合了<a href=\"https://link.zhihu.com/?target=https%3A//github.com/ccusage/ccusage\" data-icon-name=\"zhicon_icon_24_link\" class=\" wrap external\" target=\"_blank\" rel=\"nofollow noreferrer\">ccusage</a>，workbuddy反代方，和ds官方api。</p><figure data-size=\"normal\"><img src=\"https://pic2.zhimg.com/v2-2645b006bb30eb67f22222db7a554421_1440w.jpg\" data-rawwidth=\"885\" data-rawheight=\"1515\" data-size=\"normal\" class=\"origin_image zh-lightbox-thumb\" width=\"885\" data-original=\"https://pic2.zhimg.com/v2-2645b006bb30eb67f22222db7a554421_r.jpg\" data-original-token=\"v2-7d0089ce20f7df31a19ae9957a72f764\"/></figure><p class=\"ztext-empty-paragraph\"><br/></p><figure data-size=\"normal\"><img src=\"https://pic4.zhimg.com/v2-00590a482f330ee7e82570c1673c2ac3_1440w.jpg\" data-rawwidth=\"870\" data-rawheight=\"1509\" data-size=\"normal\" class=\"origin_image zh-lightbox-thumb\" width=\"870\" data-original=\"https://pic4.zhimg.com/v2-00590a482f330ee7e82570c1673c2ac3_r.jpg\" data-original-token=\"v2-65ae14cbb307abaafa3fe04f8e271540\"/></figure><p data-pid=\"NTdeL5s0\">在设备上用的是一台高性能笔记本加已经在用的平板，为平板配置了键盘，并可通过蓝牙鼠标/uu远程 连接笔记本来获得接近于电脑的生产效率。</p><p data-pid=\"x9pLz9tc\">通过阿里云白嫖了一个2核4g服务器转发由<a href=\"https://link.zhihu.com/?target=https%3A//github.com/Wei-Shaw/sub2api\" data-icon-name=\"zhicon_icon_24_link\" class=\" wrap external\" target=\"_blank\" rel=\"nofollow noreferrer\">sub2api</a>转的codex订阅从而免除科学上网，并可以运行一些长期定时任务（虽然这内存根本干不了重活）。</p><p data-pid=\"ZvTV_c4L\">当然，工具的提效作用往往要在本身时间投入足够多，学习内容也足够对齐的情况下才能发挥出最好的作用，接下来可能会分享在这些方向上的思考。</p><figure data-size=\"normal\"><img src=\"https://pic2.zhimg.com/v2-ef781366e75c3c00fb7465f01db8ed71_1440w.jpg\" data-rawwidth=\"1254\" data-rawheight=\"1254\" data-size=\"normal\" class=\"origin_image zh-lightbox-thumb\" width=\"1254\" data-original=\"https://pic2.zhimg.com/v2-ef781366e75c3c00fb7465f01db8ed71_r.jpg\" data-original-token=\"v2-10e0b3effd3464421cd28b48d8a0d52e\"/></figure><p data-pid=\"DXJFe2eU\">（小彩蛋，最近很火的grok bot icon提示词改的我的头像，可爱喵）</p>",
+        "excerpt": "在水课可以干三件事：i. 在obsidian中整理和输出笔记内容 ii.在 <a href=\"https://link.zhihu.com/?target=https%3A//www.mathacademy.com/\" class=\" wrap external\" target=\"_blank\" rel=\"nofollow noreferrer\">math academy</a>中做题 iii.远程连接dsh/codex进行vibe coding或交互式学习，通过<a href=\"https://www.zhihu.com/pin/2090748994741917446?native=1&amp;scene=share&amp;share_code=GMGHd2wWH478&amp;utm_psn=2090833485346911139\" class=\"internal\">微信clawbot接口</a>直连增加易用性。慕课和一些形式主义课程全部用dsh+ <a href=\"https://link.zhihu.com/?target=https%3A//github.com/ardeyouxipianyi/workbuddy2api-hub\" class=\" wrap external\" target=\"_blank\" rel=\"nofollow noreferrer\">workbuddy反代</a>完成，workbuddy每天送的100积分用ds4.1几乎用不完。交互式学习场景用到的工具是codex连接anki，obsidian及 <a href=\"https://link.zhihu.com/?target=https%3A//github.com/mizorewww/course2md\" class=\" wrap external\" target=\"_blank\" rel=\"nofollow noreferrer\">course2md</a>。这是我给它的prompt摘要，之前好像有评论要过：（对于国外开源课程）通过[网址]下…",
+        "excerpt_new": "在水课可以干三件事：i. 在obsidian中整理和输出笔记内容 ii.在 <a href=\"https://link.zhihu.com/?target=https%3A//www.mathacademy.com/\" class=\" wrap external\" target=\"_blank\" rel=\"nofollow noreferrer\">math academy</a>中做题 iii.远程连接dsh/codex进行vibe coding或交互式学习，通过<a href=\"https://www.zhihu.com/pin/2090748994741917446?native=1&amp;scene=share&amp;share_code=GMGHd2wWH478&amp;utm_psn=2090833485346911139\" class=\"internal\">微信clawbot接口</a>直连增加易用性。慕课和一些形式主义课程全部用dsh+ <a href=\"https://link.zhihu.com/?target=https%3A//github.com/ardeyouxipianyi/workbuddy2api-hub\" class=\" wrap external\" target=\"_blank\" rel=\"nofollow noreferrer\">workbuddy反代</a>完成，workbuddy每天送的100积分用ds4.1几乎用不完。交互式学习场景用到的工具是codex连接anki，obsidian及 <a href=\"https://link.zhihu.com/?target=https%3A//github.com/mizorewww/course2md\" class=\" wrap external\" target=\"_blank\" rel=\"nofollow noreferrer\">course2md</a>。这是我给它的prompt摘要，之前好像有评论要过：（对于国外开源课程）通过[网址]下…",
+        "preview_type": "default",
+        "preview_text": "",
+        "url": "https://zhuanlan.zhihu.com/p/2090451912030274599",
+        "comment_permission": "all",
+        "voteup_count": 234,
+        "comment_count": 9,
+        "image_url": "",
+        "linkbox": {
+          "url": "",
+          "category": "",
+          "pic": "",
+          "title": ""
+        },
+        "reaction_instruction": {},
+        "upvoted_followees": [],
+        "voting": 0,
+        "content_need_truncated": false,
+        "force_login_when_click_read_more": false,
+        "is_navigator": false,
+        "navigator_vote": false,
+        "vote_next_step": "vote",
+        "segment_infos": [
+          {
+            "pid": "H7aB25gn",
+            "text": "慕课和一些形式主义课程全部用dsh+ workbuddy反代完成，workbuddy每天送的100积分用ds4.1几乎用不完。",
+            "marks": [
+              {
+                "start_index": 0,
+                "end_index": 62,
+                "seg_info": {
+                  "seg_ids": [
+                    "2091966068780749993"
+                  ],
+                  "is_like": false,
+                  "like_count": 0,
+                  "comment_count": 1,
+                  "my_comment_count": 0,
+                  "is_span": false
+                }
+              }
+            ]
+          }
+        ],
+        "allow_segment_interaction": 1
+      },
+      "verb": "MEMBER_VOTEUP_ARTICLE",
+      "created_time": 1791464125,
+      "interaction": {
+        "can_show_sticker": true
+      },
+      "actor": {
+        "id": "follow-user-1",
+        "name": "用户1",
+        "headline": "",
+        "type": "people",
+        "user_type": "people",
+        "url": "https://api.zhihu.com/people/follow-user-1",
+        "url_token": "follow-user-1",
+        "avatar_url": "",
+        "gender": 0,
+        "is_following": true,
+        "is_followed": false,
+        "is_org": false,
+        "badge": [
+          {
+            "type": "identity",
+            "description": "信息技术行业 算法工程师",
+            "topic_names": [],
+            "topics": []
+          }
+        ],
+        "badge_v2": {
+          "title": "知势榜影响力榜教育校园领域上榜答主",
+          "merged_badges": [
+            {
+              "type": "best",
+              "detail_type": "best",
+              "title": "社区成就",
+              "description": "知势榜影响力榜教育校园领域上榜答主",
+              "url": "",
+              "sources": [],
+              "icon": "",
+              "night_icon": ""
+            },
+            {
+              "type": "identity",
+              "detail_type": "identity_people",
+              "title": "认证",
+              "description": "信息技术行业 算法工程师",
+              "url": "https://zhuanlan.zhihu.com/p/96956163",
+              "sources": [],
+              "icon": "",
+              "night_icon": ""
+            }
+          ],
+          "detail_badges": [
+            {
+              "type": "reward",
+              "detail_type": "super_activity",
+              "title": "社区成就",
+              "description": "知势榜影响力榜教育校园领域上榜答主",
+              "url": "",
+              "sources": [
+                {
+                  "id": "27",
+                  "token": "",
+                  "type": "content_potential_category",
+                  "url": "",
+                  "name": "知势榜8月",
+                  "avatar_path": "",
+                  "avatar_url": "",
+                  "description": "",
+                  "priority": 27
+                }
+              ],
+              "icon": "https://pic1.zhimg.com/v2-4a07bc69c4bb04444721f35b32125c75_l.png?source=32738c0c",
+              "night_icon": "https://picx.zhimg.com/v2-4a07bc69c4bb04444721f35b32125c75_l.png?source=32738c0c"
+            },
+            {
+              "type": "identity",
+              "detail_type": "identity_people",
+              "title": "已认证的个人",
+              "description": "信息技术行业 算法工程师",
+              "url": "https://zhuanlan.zhihu.com/p/96956163",
+              "sources": [],
+              "icon": "https://picx.zhimg.com/v2-2ddc5cc683982648f6f123616fb4ec09_l.png?source=32738c0c",
+              "night_icon": "https://picx.zhimg.com/v2-2ddc5cc683982648f6f123616fb4ec09_l.png?source=32738c0c"
+            }
+          ],
+          "icon": "https://picx.zhimg.com/v2-27bfcba90e66db79ce8768ab807e017e_l.png?source=32738c0c",
+          "night_icon": "https://pic1.zhimg.com/v2-27bfcba90e66db79ce8768ab807e017e_l.png?source=32738c0c"
+        },
+        "vip_info": {
+          "is_vip": false,
+          "widget": {
+            "url": "https://picx.zhimg.com/v2-b88b290ca44322b80f8dc57e6caed616_r.jpg?source=5a24d060",
+            "night_mode_url": "https://picx.zhimg.com/v2-b88b290ca44322b80f8dc57e6caed616_r.jpg?source=5a24d060",
+            "id": 40103
+          },
+          "target_url": ""
+        },
+        "kvip_info": {
+          "is_vip": false,
+          "target_url": ""
+        }
+      },
+      "action_text": "赞同了文章",
+      "is_sticky": false
+    },
+    {
+      "id": "1791454124626",
+      "type": "feed",
+      "target": {
+        "id": "2091473271388747005",
+        "type": "article",
+        "author": {
+          "id": "follow-user-1",
+          "name": "用户1",
+          "headline": "",
+          "type": "people",
+          "user_type": "people",
+          "url": "https://api.zhihu.com/people/follow-user-1",
+          "url_token": "follow-user-1",
+          "avatar_url": "",
+          "gender": 0,
+          "is_following": true,
+          "is_followed": false,
+          "is_org": false,
+          "badge": [
+            {
+              "type": "identity",
+              "description": "信息技术行业 算法工程师",
+              "topic_names": [],
+              "topics": []
+            }
+          ],
+          "badge_v2": {
+            "title": "知势榜影响力榜教育校园领域上榜答主",
+            "merged_badges": [
+              {
+                "type": "best",
+                "detail_type": "best",
+                "title": "社区成就",
+                "description": "知势榜影响力榜教育校园领域上榜答主",
+                "url": "",
+                "sources": [],
+                "icon": "",
+                "night_icon": ""
+              },
+              {
+                "type": "identity",
+                "detail_type": "identity_people",
+                "title": "认证",
+                "description": "信息技术行业 算法工程师",
+                "url": "https://zhuanlan.zhihu.com/p/96956163",
+                "sources": [],
+                "icon": "",
+                "night_icon": ""
+              }
+            ],
+            "detail_badges": [
+              {
+                "type": "reward",
+                "detail_type": "super_activity",
+                "title": "社区成就",
+                "description": "知势榜影响力榜教育校园领域上榜答主",
+                "url": "",
+                "sources": [
+                  {
+                    "id": "27",
+                    "token": "",
+                    "type": "content_potential_category",
+                    "url": "",
+                    "name": "知势榜8月",
+                    "avatar_path": "",
+                    "avatar_url": "",
+                    "description": "",
+                    "priority": 27
+                  }
+                ],
+                "icon": "https://pic1.zhimg.com/v2-4a07bc69c4bb04444721f35b32125c75_l.png?source=32738c0c",
+                "night_icon": "https://picx.zhimg.com/v2-4a07bc69c4bb04444721f35b32125c75_l.png?source=32738c0c"
+              },
+              {
+                "type": "identity",
+                "detail_type": "identity_people",
+                "title": "已认证的个人",
+                "description": "信息技术行业 算法工程师",
+                "url": "https://zhuanlan.zhihu.com/p/96956163",
+                "sources": [],
+                "icon": "https://picx.zhimg.com/v2-2ddc5cc683982648f6f123616fb4ec09_l.png?source=32738c0c",
+                "night_icon": "https://picx.zhimg.com/v2-2ddc5cc683982648f6f123616fb4ec09_l.png?source=32738c0c"
+              }
+            ],
+            "icon": "https://picx.zhimg.com/v2-27bfcba90e66db79ce8768ab807e017e_l.png?source=32738c0c",
+            "night_icon": "https://pic1.zhimg.com/v2-27bfcba90e66db79ce8768ab807e017e_l.png?source=32738c0c"
+          },
+          "vip_info": {
+            "is_vip": false,
+            "widget": {
+              "url": "https://picx.zhimg.com/v2-b88b290ca44322b80f8dc57e6caed616_r.jpg?source=5a24d060",
+              "night_mode_url": "https://picx.zhimg.com/v2-b88b290ca44322b80f8dc57e6caed616_r.jpg?source=5a24d060",
+              "id": 40103
+            },
+            "target_url": ""
+          },
+          "kvip_info": {
+            "is_vip": false,
+            "target_url": ""
+          }
+        },
+        "created": 1791454124,
+        "updated": 1791519168,
+        "title": "僵尸评论的回应",
+        "excerpt_title": "",
+        "content": "<p data-pid=\"mXOUFp-A\">我今天有点累，因为昨天为了写那篇超过 6,000 字的关于<a href=\"https://link.zhihu.com/?target=https%3A//www.readthesequences.com/ZombiesZombies\" data-draft-type=\"text-link\" class=\" wrap external\" target=\"_blank\" rel=\"nofollow noreferrer\">僵尸</a><sup data-text=\"僵尸！僵尸？\" data-url=\"https://zhuanlan.zhihu.com/p/2087674441681594268\" data-draft-node=\"inline\" data-draft-type=\"reference\" data-numero=\"1\">[1]</sup>的文章熬到了凌晨 3 点，所以今天我只挑理查德（Richard）的评论来回复，并顺便解决我在第二天发现的一个小漏洞。</p><p data-pid=\"3TGpvS36\"><b>(A)</b> 理查德·查普尔（Richard Chappell）<a href=\"https://link.zhihu.com/?target=https%3A//www.greaterwrong.com/lw/p7/zombies_zombies/j7g\" data-draft-type=\"text-link\" class=\" wrap external\" target=\"_blank\" rel=\"nofollow noreferrer\">写道</a>：</p><blockquote data-pid=\"fz-acKqi\"> 一个术语上的注释（为了避免不必要的混淆）：你所谓的「可设想的（conceivable）」，我们这边的其他人通常只会称之为「<b>表面上</b>可设想的」。</blockquote><p data-pid=\"yg68rypc\">「我暂时还没看出任何矛盾」和「这在逻辑上是可能的」这两者之间的鸿沟实在是太巨大了（即便在某些看似极其简单的情况下，要证明逻辑可能性也是一个 NP-complete 问题），以至于你真的应该用两个完全不同的词来描述它们。考虑到整个僵尸论证的根基，都是建立在「把这条巨大的鸿沟轻描淡写地扫进微小术语差异的地毯底下」这种做法之上的；我真的认为，明确区分「可设想的」与「逻辑上可能的」，甚至搞出一个更显眼的界限，会是一个极好的主意。我无权左右那些已经约定俗成的专业术语，但在遇到这种极其容易误导人的情况时，我可能会严词拒绝使用它们。</p><p data-pid=\"K8qCDuBt\">也许我以后会用「表面上可设想的」，来指代僵尸论的支持者们闭着眼睛想象「僵尸世界」时获取的那种所谓的信息；然后用「逻辑上可能的」，来指代那些通过展示完整的模型或严格的逻辑证明所确立的信息。请注意这两种信息之间的差距有多大：一种是你闭上眼睛瞎想就能得到的，另一种是真正能支撑起「副现象论」大厦所必需的。</p><blockquote data-pid=\"XIa6ixnY\"> 也就是说，你的观点在学术上会被归类为一种「A 型唯物主义（Type-A materialism）」，即认为僵尸在根本上甚至连「（真正地）可设想」都算不上，更别提在形而上学上可能了。</blockquote><p data-pid=\"rM_oK7os\">「A 型唯物主义」是一个大杂烩般的标签；在你没有看到我对它里面打包的每一个观点都点头同意之前，你不该把这个标签直接扣在我头上。我认为，一个人如果去问「什么是意识？」，他是在提出一个合理的问题，并提出了对洞察力的合理需求；但我并不认为这个问题的<b>答案</b>非得长成这种形式：「由于某某原因，所以这里有一种包含了你所归因于意识所有属性的质料」。相反，答案很可能在很大程度上包含某种洞见，这种洞见会让你猛然醒悟：原来你一开始提问的方式就错了。</p><p data-pid=\"li8h1TSm\">这并不等于对意识采取「取消主义（eliminative，即认为意识根本不存在）」的立场。这只是一种实事求是的态度，旨在告诉你，在面对一个这样的问题时，你该期待获得何种类型的洞见。这个问题具备以下特征：（1）看起来必须存在<b>某种</b>解答；（2）但看起来又<a href=\"https://link.zhihu.com/?target=https%3A//www.readthesequences.com/WrongQuestions\" data-draft-type=\"text-link\" class=\" wrap external\" target=\"_blank\" rel=\"nofollow noreferrer\">似乎不可能有任何解答</a><sup data-text=\"错误的问题\" data-url=\"https://zhuanlan.zhihu.com/p/2072623513647714847\" data-draft-node=\"inline\" data-draft-type=\"reference\" data-numero=\"2\">[2]</sup>；（3）目前所有的<b>讨论</b>方式，都极其严重地依赖于人类那套东拼西凑、且尚未被我们完全理解的认知架构。</p><blockquote data-pid=\"a5Pe6n9F\"> (1) 据我所知，到目前为止，你并没有在对僵尸世界的描述中指出任何<b>逻辑上的矛盾</b>。你只是指出它「有点奇怪」。但是，可能世界本来就有很多千奇百怪的。那不能成为假设其中存在隐含矛盾的理由。所以我现在依然完全摸不着头脑，你所谓的这个「矛盾」究竟是什么。</blockquote><p data-pid=\"-UJELGJ_\">好吧，那我就站在唯物主义的立场上，把这个逻辑链条一步步掰开了讲清楚：</p><ol><li data-pid=\"IiuJ9OkQ\">根据定义，僵尸世界包含了我们这个世界中，处于任何可观察现象的「由……引起」或「导致……的结果」因果闭包内的所有物理部分。也就是说，它必定包含了<b>导致</b>我实打实地说出「我思故我在」这句话的物理原因。<br/><br/></li><li data-pid=\"HW9lrcHu\">当我把内心的觉知集中在我的内部觉知上时，紧接着我就会体验到我的内部独白在说：「我正在将内心的觉知集中在我的内部觉知上」；而且只要我愿意，我随时可以把这句话大声说出来。<br/><br/></li><li data-pid=\"ajCStHzs\">从直觉上看，事情<b>确实像是</b>我的内部觉知导致了我的内部独白说出某些话，而我的内部独白又导致了我的嘴唇说出某些话。<br/><br/></li><li data-pid=\"d9EV6Xq9\">「意识」这个词，如果它真的有任何意义的话，它<a href=\"https://link.zhihu.com/?target=https%3A//www.readthesequences.com/ReductiveReference\" data-draft-type=\"text-link\" class=\" wrap external\" target=\"_blank\" rel=\"nofollow noreferrer\">指代</a><sup data-text=\"还原性指代\" data-url=\"https://zhuanlan.zhihu.com/p/2086966654446082033\" data-draft-node=\"inline\" data-draft-type=\"reference\" data-numero=\"3\">[3]</sup>的就是那个「存在」、或者「导致」、或者「让我开口说我拥有」内部觉知的东西。<br/><br/></li><li data-pid=\"Sk_bwzvf\">由 (3) 和 (4) 必然可以推导出：如果僵尸世界在「导致我说出『我思故我在』」的因果链条上是闭合的（完整的），那么僵尸世界就必定包含了那个被我们称之为「意识」的东西。<br/><br/></li><li data-pid=\"f4JRzo2H\">但根据僵尸世界的初始定义，僵尸世界不包含意识。<br/><br/></li><li data-pid=\"CQKNnWdO\">在我看来，命题 (3) 在经验事实上为真的概率极高。因此，我评估「僵尸世界在逻辑上不可能存在」的经验概率极高。</li></ol><p data-pid=\"dg57ZDF_\">你当然可以试图去「拯救」僵尸世界，方法是强行假设：导致我的内心独白说出「我思故我在」的原因，是某种与意识八竿子打不着的东西。但是，再结合「意识确实客观存在」这个基本假设，这就是整个理论让我觉得它彻底疯癫的地方。</p><p data-pid=\"njHXJik9\">但如果上面这通强行假设在概念上是<b>可设想的</b>，那僵尸世界不就是可设想的了吗？</p><p data-pid=\"r61w3Urh\">不，因为这两种构建僵尸世界的方式，赋予了「意识」这个词截然不同的经验指代物（referents）。这就好比在我们这个世界里「水」意味着 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Ctext%7BH%7D_2%5Ctext%7BO%7D\" alt=\"\\text{H}_2\\text{O}\"/>，而在普特南的孪生地球里「水」意味着 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Ctext%7BXYZ%7D\" alt=\"\\text{XYZ}\"/>。想要让僵尸世界在逻辑上成立，光凭一句「就<b>你</b>对经验世界的了解而言，『意识』这个词<b>本可以</b><a href=\"https://link.zhihu.com/?target=https%3A//www.readthesequences.com/ReductiveReference\" data-draft-type=\"text-link\" class=\" wrap external\" target=\"_blank\" rel=\"nofollow noreferrer\">指代</a><sup data-text=\"还原性指代\" data-url=\"https://zhuanlan.zhihu.com/p/2086966654446082033\" data-draft-node=\"inline\" data-draft-type=\"reference\" data-numero=\"3\">[3]</sup>一种与我们熟知的意识截然不同的副现象」是远远不够的。僵尸世界缺失的是意识本身，而不是少了「意识」这个标签——它是一个没有 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=%5Ctext%7BH%7D_2%5Ctext%7BO%7D\" alt=\"\\text{H}_2\\text{O}\"/> 的世界，而不是一个没有「水」这个字的世界。只有这样，才能支撑起那个至关重要的经验陈述：「你可以从我们的世界中把『意识』所指代的任何客观实体抽走，同时保持所有原子的位置原封不动。」</p><p data-pid=\"OdI1C9dl\">也就是说：我坚持认为，基于「意识」这个词<a href=\"https://link.zhihu.com/?target=https%3A//www.readthesequences.com/ReductiveReference\" data-draft-type=\"text-link\" class=\" wrap external\" target=\"_blank\" rel=\"nofollow noreferrer\">实际指代的东西</a><sup data-text=\"还原性指代\" data-url=\"https://zhuanlan.zhihu.com/p/2086966654446082033\" data-draft-node=\"inline\" data-draft-type=\"reference\" data-numero=\"3\">[3]</sup>，要想在不移动任何原子的情况下消除意识，在<b>逻辑上</b>也是绝对不可能的；这是一个<b>经验事实</b>。至于如何从一个世界中消除「『意识』」这个词的标签，而不消除意识的客观实体，我就不加妄测了。</p><blockquote data-pid=\"_tYgFeZW\"> (2) 如果说（在属性二元论的观点下）我们的感受质（qualia）与物理世界如此严丝合缝地对齐是「奇迹般的」，那是很有误导性的。毕竟，有一条自然法则保证了这种对齐。因此，这跟物理定律中的其他常数一样，只不过是一种逻辑上偶然的法则必然性（nomic necessity），并不比它们更像奇迹。</blockquote><p data-pid=\"RZfZt3j6\">问题恰恰在于，正是这个「自然法则」本身太「奇迹般」了——它成了一个强加进理论里的、极其复杂且低概率的额外假设元素，而且这个元素根本无法用已知的事物来证明其自身的合理性。有人强行假设了（a）存在一个有意识的内在世界，（b）存在一个发生了机械故障、莫名其妙大谈意识的外在物理世界，以及（c）这两个世界之间存在完美对齐的法则。由于命题（c）根本无法从（a）和（b）推导出来，所以它必须作为一个单独的额外假设。</p><p data-pid=\"g2hsGx5o\">我同意，在哲学的语境里，我在这里使用「奇迹」一词与它「违背自然法则」的传统含义有冲突；我用这个词是想表达「没有任何明显来源却出现了极低概率的不可能性」，类似于<a href=\"https://link.zhihu.com/?target=https%3A//www.readthesequences.com/PerpetualMotionBeliefs\" data-draft-type=\"text-link\" class=\" wrap external\" target=\"_blank\" rel=\"nofollow noreferrer\">永动机信念</a><sup data-text=\"永动机信念\" data-url=\"https://zhuanlan.zhihu.com/p/2070084674295279996\" data-draft-node=\"inline\" data-draft-type=\"reference\" data-numero=\"4\">[4]</sup>。所以，在那个特定的语境下，我确实选词不当。但是，在<b>直觉上</b>，这难道不就是我们通常所说的奇迹吗？你的意识并没有真正导致你说出你有意识，而是存在着另一个独立的物理机制让你说出你有意识，但偏偏就是有一条不可思议的法则把这两者完美地绑定在了一起——这事儿的荒谬程度，就跟有人向你宣称：一块圣餐饼具有了基督血肉的本质，同时它又保留了薄脆饼干的确切外观和一切物理属性，你之所以觉得扯，是因为「恰好有一条自然法则保证了这种物理和神性互不干涉的同步」一样。</p><blockquote data-pid=\"zjGrxlmB\"> 也就是说，僵尸版的查尔默斯（或者说「外在的」查尔默斯）实际上并没有得出<b>任何</b>结论，因为他发出的声音是毫无意义的。退一万步讲，他也并没有在没有任何根据的情况下乱下结论。他只是在发出物理上的噪音；这些声音并不比鸟的叫声更具有什么认识论上的评估价值。</blockquote><p data-pid=\"5ASNlbNl\">如果站在设计人工智能的角度来看，我认为你应该完全有能力构建出一个 AI，它能够系统性地优化自身的内部模块，使这些模块与外部环境产生相关性（这里的相关性是指互信息或系统性关系）；这些模块里甚至可能包含某些浮点数，而我会管这些浮点数叫「概率」，因为当 AI 遭遇新信息——抱歉，是新的感官输入时，这些数字完全遵循考克斯定理（Cox’s Theorems）所要求的内部逻辑关系在更新。</p><p data-pid=\"wGkjZck3\">你肯定会反驳说，除非这个 AI 不仅仅是由一堆晶体管堆成的——除非它也拥有那种神秘的「二元属性」——否则 AI 就不能算作拥有「信念」。</p><p data-pid=\"K5xiJqsA\">我认为，我在<a href=\"https://link.zhihu.com/?target=https%3A//www.readthesequences.com/TheSimpleTruth\" data-draft-type=\"text-link\" class=\" wrap external\" target=\"_blank\" rel=\"nofollow noreferrer\">《简单的真实》</a><sup data-text=\"简单的真实\" data-url=\"https://hpmor.xyz/ai2zb_interlude_1/\" data-draft-node=\"inline\" data-draft-type=\"reference\" data-numero=\"5\">[5]</sup>一文中，已经把关于这点的观点表达得足够清晰了。</p><p data-pid=\"XoIBwcuP\">在我看来，构建出一个能以系统性方式映射客观疆域的认知地图，在这个过程中除了纯粹的物理因果律之外，完全不需要引入任何其他玄乎的概念，这是一件极其直白的事。这个 AI 输出了一张得克萨斯州的地图。然后另一个 AI 带着这张地图飞到了得克萨斯州，去核对那里的高速公路是否都在地图标示的位置上；如果它检测到匹配，它就会发出「真（True）」的鸣叫，如果它检测到不匹配，就会发出「假（False）」的鸣叫。你当然可以死鸭子嘴硬，拒绝承认那是一张「得克萨斯州的地图」，但这丝毫不会妨碍那两个 AI 继续鸣叫「真」或「假」；而且，当这些 AI 看到查尔默斯那套关于「副现象内部核心」的虚空信念时，它们肯定会狂响「假」的警报，而我个人，绝对会站在 AI 这边。</p><p data-pid=\"9KY9XuVx\">很显然，<b>绘制现实地图</b>的功能，是完完全全由那个「外在查尔默斯」去执行的。而整个<b>产生信念表征</b>的过程，也完全是由<a href=\"https://link.zhihu.com/?target=https%3A//www.readthesequences.com/WhatIsEvidence\" data-draft-type=\"text-link\" class=\" wrap external\" target=\"_blank\" rel=\"nofollow noreferrer\">因果交互</a><sup data-text=\"什么是证据？\" data-url=\"https://zhuanlan.zhihu.com/p/1345584102\" data-draft-node=\"inline\" data-draft-type=\"reference\" data-numero=\"6\">[6]</sup>过程中的<a href=\"https://link.zhihu.com/?target=https%3A//www.readthesequences.com/SearchingForBayesStructure\" data-draft-type=\"text-link\" class=\" wrap external\" target=\"_blank\" rel=\"nofollow noreferrer\">贝叶斯结构</a><sup data-text=\"寻找贝叶斯结构\" data-url=\"https://zhuanlan.zhihu.com/p/2070630452243779970\" data-draft-node=\"inline\" data-draft-type=\"reference\" data-numero=\"7\">[7]</sup>来处理的。那个神秘的「内在查尔默斯」根本无事可做，它唯一能做的，就是像个老神棍一样，用一种副现象的<b>「意义（meaning）」</b>来给整个物理过程开光赐福。但在这里，「意义」已经变成了一个与「系统性地进行地图-疆域映射」，或者与「使用该地图在现实中导航的能力」<b>完全无关</b>的词汇。所以，当我们谈论「准确性」，更不用说「系统性的准确性」时，我实在看不出为什么我们不能<b>仅仅</b>通过观察「外在查尔默斯」来决定一切。</p><p data-pid=\"5GB6_psO\"><b>(B)</b> 在昨天发布的内容中，我在写下面这段话时遗漏了一个关键的假设：</p><blockquote data-pid=\"__TMAJ62\"> 如果一个会自我修改的 AI 审视自己的某一部分，发现这部分在条件 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=A\" alt=\"A\"/> 成立时总是得出结论「<img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=B\" alt=\"B\"/>」——也就是说，只要条件 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=A\" alt=\"A\"/> 为真，这部分代码就会往内存里写入「<img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=B\" alt=\"B\"/>」——于是 AI 进一步审查这部分代码，确定了它在更宏大的物理宇宙中究竟是如何（在因果层面上）运作的；然后 AI 判定，这部分代码其实有一种系统性的缺陷，总是倾向于把错误的数据写入内存；那么，AI 就会认定自己找到了一个 Bug，并且它会修改自己的源代码，确保以后在条件 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=A\" alt=\"A\"/> 成立时，不再把「<img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=B\" alt=\"B\"/>」写入自己的信念池中。<br/> …<br/> 但是，对于外在的查尔默斯，<b>或者任何一个反思连贯、能够自我审查的 AI</b> 来说，绝对没有任何站得住脚的理由，去相信这种充满神秘色彩的「巧合正确性」。我认为，一个优秀的 AI 设计，它看起来应该像是一个具身于因果物理系统中的、反思连贯的智能体；并且，它必须拥有一套<b>可检验的</b>理论，能够清晰地解释这个与自身同质的因果系统，在<a href=\"https://link.zhihu.com/?target=https%3A//www.readthesequences.com/SomethingToProtect\" data-draft-type=\"text-link\" class=\" wrap external\" target=\"_blank\" rel=\"nofollow noreferrer\">努力实现其目标</a>的过程中，究竟是如何系统性地输出<a href=\"https://link.zhihu.com/?target=https%3A//www.readthesequences.com/QualitativelyConfused\" data-draft-type=\"text-link\" class=\" wrap external\" target=\"_blank\" rel=\"nofollow noreferrer\">准确</a><sup data-text=\"定性思维导致的混淆\" data-url=\"https://zhuanlan.zhihu.com/p/2074569348044284505\" data-draft-node=\"inline\" data-draft-type=\"reference\" data-numero=\"8\">[8]</sup><a href=\"https://link.zhihu.com/?target=https%3A//www.readthesequences.com/QualitativelyConfused\" data-draft-type=\"text-link\" class=\" wrap external\" target=\"_blank\" rel=\"nofollow noreferrer\">的</a>信念的。</blockquote><p data-pid=\"tGOOaVHW\">实际上，在上述推导中，你需要补充一个额外的假设，那就是：一个「优秀的 AI 设计」（至少是我构想中的那种）是以一种<b>模块化</b>的方式来评判自身的理性的；它通过强制保证局部理性，来确保全局理性。如果在它的代码中存在一个模块，相对于其自身的运行语境，在局部系统性上是不可靠的——也就是说，对于某些可能的信念「<img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=B_i\" alt=\"B_i\"/>」和前提条件 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=A_i\" alt=\"A_i\"/>，它会在局部条件 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=A_i\" alt=\"A_i\"/> 成立时将「<img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=B_i\" alt=\"B_i\"/>」添加到信念池中；但系统的高层反思却表明，当局部条件 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=A_i\" alt=\"A_i\"/> 为真时，<img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=B_i\" alt=\"B_i\"/> 在客观上并不为真（或者在概率信念的情况下，不准确）——那么，这就是一个必须被修复的 Bug。这种模块化的设计，是让这种复杂的认知问题变得<b>可解</b>的必由之路，也是我目前对于初代 AI 架构的构想。[2013 年注：我在这里初步构想的概念，现在已经在 <i>Tiling Agents for Self-Modifying AI</i> 第 6 节中得到了完善和形式化。]</p><p data-pid=\"CG-W7w9g\">这个概念的核心在于：一个因果封闭的认知系统——比如一个被程序员设计为只使用具备物理因果效力模块的 AI；或者一个对其自身运作机制拥有完全可检验理论的 AI；又或者那个负责敲击键盘写哲学论文的「外在查尔默斯」——如果它在内部得出了「自己拥有一个副现象的内在自我」的信念，那它内部必定有某个模块在进行着系统性不可靠的运算，因为它在没有意识的僵尸世界里，居然也会通过一模一样的推导得出相同的结论。一个心智，如果它的所有局部模块相对于其上下文都是系统性可靠的，那么这个心智在全局层面上也必然是系统性可靠的。反之，一个在全局上不可靠的心智，必然包含至少一个在局部上不可靠的模块。因此，如果一个因果封闭的认知系统在对自身的局部可靠性进行审查，它必定会发现：导致它往信念池里添加「副现象内部自我存在」这个信念的推理链条中，至少有一个步骤是完全不可靠的。</p><p data-pid=\"0mkcEZJK\">如果哲学家们能想出其他让心智实现反思连贯性的方法，从而成功避开这套「证明僵尸不被相信」的逻辑，随时欢迎他们来尝试并明确写下来。</p><p data-pid=\"4wF1b9ay\">我之所以必须把这些约束条件规定得如此细致，是因为如果不这样，你就会得到一种廉价得令人发指的「反思连贯性」；在这种体系下，AI 永远不会将自己标记为不可靠。例如，如果 AI 发现自己内部有个模块算出了 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=2+%2B+2+%3D+5\" alt=\"2 + 2 = 5\"/>（在数羊的特定情境下），AI 可能会这样自我开脱：「嗯，这部分代码确实出了点故障，说 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=2+%2B+2+%3D+5\" alt=\"2 + 2 = 5\"/>……但纯粹是出于奇迹般的巧合，在外部现实中 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=2+%2B+2\" alt=\"2 + 2\"/> 恰好就等于 <img eeimg=\"1\" src=\"https://www.zhihu.com/equation?tex=5\" alt=\"5\"/>，至少在我看来是这样的……所以，虽然这部分代码看起来系统性地不靠谱，我最好还是别去动它了，免得它在处理这个极其特殊的案例时反而搞错了。」这就是为什么我强调要通过强制「局部系统可靠性」来确保「全局可靠性」的原因——如果你只是拿你的全局信念去对照你的另一个全局信念，这就成了纯粹的循环论证，你哪儿也去不了。</p><p data-pid=\"LtIwK4fO\">这确实给我们留下了一个极具普适性的教训：你必须通过证明推理的每一步在<b>局部</b>都是可靠的，来证明你的论点在全局上是可靠的；而不能仅仅是拿你论点得出的总结论，去跟你直觉里预设的结论对对碰。[2013 年注：关于有效的逻辑为什么必须在局部有效，请参阅<a href=\"https://link.zhihu.com/?target=https%3A//www.greaterwrong.com/lw/f43/proofs_implications_and_models/\" data-draft-type=\"text-link\" class=\" wrap external\" target=\"_blank\" rel=\"nofollow noreferrer\">《证明、蕴涵和模型》</a>。]</p><p data-pid=\"UeaLI2UU\"><b>(C) </b>一位匿名发帖人写道：</p><blockquote data-pid=\"9bCv970B\">这里有一点偏题，但我认为你对「n’shama」一词的词源解释是错的。这个词的词源其实与「呼吸（breath）」有关，而不是「听（hear）」。代表「听」的词根包含一个 ayin（希伯来字母），而 n’shama 里并没有。</blockquote><p data-pid=\"FlwwixgN\">瞧，这才是所谓的「奇迹般且极具误导性的巧合」啊——尽管 <i>N’Shama</i> 这个词最初是因为完全不同的原因而产生的，但它在发音和字面上看起来<b>恰好完全符合</b>我的误解，以至于让我坚信它指的就是一个内部的倾听者。</p><p data-pid=\"Xtu68mGc\">糟了（Oops）。</p><hr/><p data-pid=\"FcMm1Y-_\">总目录：</p><a href=\"https://zhuanlan.zhihu.com/p/2056344770390373406\" data-draft-node=\"block\" data-draft-type=\"link-card\" data-draft-title=\"《理性：从人工智能到僵尸》导读与目录\" data-draft-cover=\"https://pica.zhimg.com/v2-3fef08abf83e7421c313574aac5dde16.png?source=7e7ef6e2&amp;needBackground=1\" class=\"internal\">《理性：从人工智能到僵尸》导读与目录</a><p data-pid=\"CQ6oFMJf\">卷：</p><a href=\"https://zhuanlan.zhihu.com/p/2064365098970436713\" data-draft-node=\"block\" data-draft-type=\"link-card\" data-draft-title=\"第四卷：区区现实\" data-draft-cover=\"https://pic1.zhimg.com/v2-28e9661e962caec2608202b8f2662d4d.jpg?source=7e7ef6e2&amp;needBackground=1\" class=\"internal\">第四卷：区区现实</a><p data-pid=\"lxaEYXSR\">章节：</p><a href=\"https://zhuanlan.zhihu.com/p/2083996452456490783\" data-draft-node=\"block\" data-draft-type=\"link-card\" data-draft-title=\"物理主义导论\" data-draft-cover=\"https://picx.zhimg.com/v2-e0bbadd0b7b225aa887679add2dc7f08.jpg?source=7e7ef6e2&amp;needBackground=1\" class=\"internal\">物理主义导论</a><p data-pid=\"bS0SpYD7\">上一篇：</p><a href=\"https://zhuanlan.zhihu.com/p/2087674441681594268\" data-draft-node=\"block\" data-draft-type=\"link-card\" data-draft-title=\"僵尸！僵尸？\" data-draft-cover=\"https://pic1.zhimg.com/v2-b951b69f2ed044b7eb751a20a585469d.webp?source=7e7ef6e2&amp;needBackground=1\" class=\"internal\">僵尸！僵尸？</a><p data-pid=\"EBOhqfJR\">下一篇：</p><a href=\"https://zhuanlan.zhihu.com/p/2091826482167522750\" data-draft-node=\"block\" data-draft-type=\"link-card\" data-draft-title=\"广义反僵尸原则\" data-draft-cover=\"https://picx.zhimg.com/v2-20c22bb52d099287186ef62267e7fc22.jpg?source=7e7ef6e2&amp;needBackground=1\" class=\"internal\">广义反僵尸原则</a><hr/><blockquote data-pid=\"GdZaEsBs\"><a href=\"https://link.zhihu.com/?target=http%3A//paratranz.cn/projects/3131\" data-draft-type=\"text-link\" class=\" wrap external\" target=\"_blank\" rel=\"nofollow noreferrer\">Thoughts Memo</a> 汉化组译制<br/>感谢主要译者 gemini-3.1-pro，校对 Jarrett Ye<br/>原文：<a href=\"https://link.zhihu.com/?target=https%3A//www.readthesequences.com/Zombie-Responses\" data-draft-type=\"text-link\" class=\" wrap external\" target=\"_blank\" rel=\"nofollow noreferrer\">Zombie Responses</a></blockquote>",
+        "excerpt": "我今天有点累，因为昨天为了写那篇超过 6,000 字的关于 <a href=\"https://link.zhihu.com/?target=https%3A//www.readthesequences.com/ZombiesZombies\" data-draft-type=\"text-link\" class=\" wrap external\" target=\"_blank\" rel=\"nofollow noreferrer\">僵尸</a>[1]的文章熬到了凌晨 3 点，所以今天我只挑理查德（Richard）的评论来回复，并顺便解决我在第二天发现的一个小漏洞。 <b>(A)</b> 理查德·查普尔（Richard Chappell）<a href=\"https://link.zhihu.com/?target=https%3A//www.greaterwrong.com/lw/p7/zombies_zombies/j7g\" data-draft-type=\"text-link\" class=\" wrap external\" target=\"_blank\" rel=\"nofollow noreferrer\">写道</a>： 一个术语上的注释（为了避免不必要的混淆）：你所谓的「可设想的（conceivable）」，我们这边的其他人通常只会称之为「<b>表面上</b>可设想的」。「我暂时还没看出任何矛盾」和「这在逻辑上是可能的」这两者之…",
+        "excerpt_new": "我今天有点累，因为昨天为了写那篇超过 6,000 字的关于 <a href=\"https://link.zhihu.com/?target=https%3A//www.readthesequences.com/ZombiesZombies\" data-draft-type=\"text-link\" class=\" wrap external\" target=\"_blank\" rel=\"nofollow noreferrer\">僵尸</a>[1]的文章熬到了凌晨 3 点，所以今天我只挑理查德（Richard）的评论来回复，并顺便解决我在第二天发现的一个小漏洞。 <b>(A)</b> 理查德·查普尔（Richard Chappell）<a href=\"https://link.zhihu.com/?target=https%3A//www.greaterwrong.com/lw/p7/zombies_zombies/j7g\" data-draft-type=\"text-link\" class=\" wrap external\" target=\"_blank\" rel=\"nofollow noreferrer\">写道</a>： 一个术语上的注释（为了避免不必要的混淆）：你所谓的「可设想的（conceivable）」，我们这边的其他人通常只会称之为「<b>表面上</b>可设想的」。「我暂时还没看出任何矛盾」和「这在逻辑上是可能的」这两者之…",
+        "preview_type": "default",
+        "preview_text": "",
+        "url": "https://zhuanlan.zhihu.com/p/2091473271388747005",
+        "comment_permission": "all",
+        "voteup_count": 18,
+        "comment_count": 1,
+        "image_url": "https://picx.zhimg.com/v2-b136613023d378147bcd56715709909d_r.jpg?source=172ae18b",
+        "linkbox": {
+          "url": "",
+          "category": "",
+          "pic": "",
+          "title": ""
+        },
+        "reaction_instruction": {},
+        "upvoted_followees": [],
+        "voting": 0,
+        "content_need_truncated": false,
+        "force_login_when_click_read_more": false,
+        "is_navigator": false,
+        "navigator_vote": false,
+        "vote_next_step": "vote",
+        "allow_segment_interaction": 1,
+        "endorsements": [
+          {
+            "elements": [
+              {
+                "type": "IMAGE",
+                "image_key": "zhicon_icon_24_flag",
+                "image_color": {
+                  "alpha": 1,
+                  "group": "MapHighlight"
+                },
+                "width": 16,
+                "height": 16
+              },
+              {
+                "type": "TEXT",
+                "content": "一起参与科学 · 科学季 2026",
+                "font_size": 13,
+                "font_color": {
+                  "alpha": 1,
+                  "group": "MapHighlight"
+                },
+                "is_bold": true,
+                "max_line": 1
+              },
+              {
+                "type": "TEXT",
+                "content": "",
+                "font_size": 13,
+                "font_color": {
+                  "alpha": 1,
+                  "group": "MapHighlight"
+                },
+                "is_bold": false,
+                "max_line": 1
+              },
+              {
+                "type": "IMAGE",
+                "image_key": "zhicon_icon_16_arrow_right",
+                "image_color": {
+                  "alpha": 1,
+                  "group": "MapHighlight"
+                },
+                "width": 12,
+                "height": 12
+              }
+            ],
+            "sub_elements": [],
+            "sub_elements_type": "DESCRIPTION",
+            "background_color": {
+              "alpha": 0.08,
+              "group": "MapHighlight"
+            },
+            "action_url": " https://www.zhihu.com/parker/campaign/2081789902673426369?zh_hide_nav_bar=true",
+            "za": {
+              "block_text": "YellowActivity",
+              "type": "text",
+              "text": "一起参与科学 · 科学季 2026"
+            }
+          },
+          {
+            "elements": [
+              {
+                "type": "IMAGE",
+                "image_key": "zhicon_icon_24_column_fill",
+                "image_color": {
+                  "alpha": 1,
+                  "group": "GBL01A"
+                },
+                "width": 16,
+                "height": 16
+              },
+              {
+                "type": "TEXT",
+                "content": "收录于 · 理性 & 克服偏见",
+                "font_size": 13,
+                "font_color": {
+                  "alpha": 1,
+                  "group": "GBL01A"
+                },
+                "is_bold": false,
+                "max_line": 1
+              },
+              {
+                "type": "IMAGE",
+                "image_key": "zhicon_icon_16_arrow_right",
+                "image_color": {
+                  "alpha": 1,
+                  "group": "GBL01A"
+                },
+                "width": 12,
+                "height": 12
+              }
+            ],
+            "sub_elements": [],
+            "sub_elements_type": "DESCRIPTION",
+            "background_color": {
+              "alpha": 0.08,
+              "group": "GBL01A"
+            },
+            "action_url": "https://www.zhihu.com/column/c_1826322587032117248",
+            "za": {
+              "block_text": "Column",
+              "type": "text",
+              "text": "收录于 · 理性 & 克服偏见"
+            }
+          }
+        ]
+      },
+      "verb": "MEMBER_CREATE_ARTICLE",
+      "created_time": 1791454124,
+      "interaction": {
+        "can_show_sticker": true
+      },
+      "actor": {
+        "id": "follow-user-1",
+        "name": "用户1",
+        "headline": "",
+        "type": "people",
+        "user_type": "people",
+        "url": "https://api.zhihu.com/people/follow-user-1",
+        "url_token": "follow-user-1",
+        "avatar_url": "",
+        "gender": 0,
+        "is_following": true,
+        "is_followed": false,
+        "is_org": false,
+        "badge": [
+          {
+            "type": "identity",
+            "description": "信息技术行业 算法工程师",
+            "topic_names": [],
+            "topics": []
+          }
+        ],
+        "badge_v2": {
+          "title": "知势榜影响力榜教育校园领域上榜答主",
+          "merged_badges": [
+            {
+              "type": "best",
+              "detail_type": "best",
+              "title": "社区成就",
+              "description": "知势榜影响力榜教育校园领域上榜答主",
+              "url": "",
+              "sources": [],
+              "icon": "",
+              "night_icon": ""
+            },
+            {
+              "type": "identity",
+              "detail_type": "identity_people",
+              "title": "认证",
+              "description": "信息技术行业 算法工程师",
+              "url": "https://zhuanlan.zhihu.com/p/96956163",
+              "sources": [],
+              "icon": "",
+              "night_icon": ""
+            }
+          ],
+          "detail_badges": [
+            {
+              "type": "reward",
+              "detail_type": "super_activity",
+              "title": "社区成就",
+              "description": "知势榜影响力榜教育校园领域上榜答主",
+              "url": "",
+              "sources": [
+                {
+                  "id": "27",
+                  "token": "",
+                  "type": "content_potential_category",
+                  "url": "",
+                  "name": "知势榜8月",
+                  "avatar_path": "",
+                  "avatar_url": "",
+                  "description": "",
+                  "priority": 27
+                }
+              ],
+              "icon": "https://pic1.zhimg.com/v2-4a07bc69c4bb04444721f35b32125c75_l.png?source=32738c0c",
+              "night_icon": "https://picx.zhimg.com/v2-4a07bc69c4bb04444721f35b32125c75_l.png?source=32738c0c"
+            },
+            {
+              "type": "identity",
+              "detail_type": "identity_people",
+              "title": "已认证的个人",
+              "description": "信息技术行业 算法工程师",
+              "url": "https://zhuanlan.zhihu.com/p/96956163",
+              "sources": [],
+              "icon": "https://picx.zhimg.com/v2-2ddc5cc683982648f6f123616fb4ec09_l.png?source=32738c0c",
+              "night_icon": "https://picx.zhimg.com/v2-2ddc5cc683982648f6f123616fb4ec09_l.png?source=32738c0c"
+            }
+          ],
+          "icon": "https://picx.zhimg.com/v2-27bfcba90e66db79ce8768ab807e017e_l.png?source=32738c0c",
+          "night_icon": "https://pic1.zhimg.com/v2-27bfcba90e66db79ce8768ab807e017e_l.png?source=32738c0c"
+        },
+        "vip_info": {
+          "is_vip": false,
+          "widget": {
+            "url": "https://picx.zhimg.com/v2-b88b290ca44322b80f8dc57e6caed616_r.jpg?source=5a24d060",
+            "night_mode_url": "https://picx.zhimg.com/v2-b88b290ca44322b80f8dc57e6caed616_r.jpg?source=5a24d060",
+            "id": 40103
+          },
+          "target_url": ""
+        },
+        "kvip_info": {
+          "is_vip": false,
+          "target_url": ""
+        }
+      },
+      "action_text": "发表了文章",
+      "is_sticky": false
+    }
+  ],
+  "paging": {
+    "is_end": false,
+    "need_force_login": false,
+    "next": "https://www.zhihu.com/api/v3/moments/follow-user-1/activities?offset=1791454124626&page_num=2"
+  }
+}
