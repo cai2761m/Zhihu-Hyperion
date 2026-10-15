@@ -93,6 +93,7 @@ URL 解析集中在 `resolveContent()`。支持知乎问题、回答、文章、
 | `liquidGlass` | 液态玻璃 | 主壳底栏换成悬浮的 `LiquidGlassTabBar`，回答页 `BottomFloatingToolbar` 换成玻璃底板 | 常量与默认值在 `:core:glass`：只有 iOS 默认开启；只在 `isLiquidGlassSupported`（Android 13+、iOS、macOS、桌面）时显示开关；随平台调整默认值，不进 WebDAV 同步 |
 | `showFeedThumbnail` | Feed 卡片缩略图 | 信息流卡片是否显示图 | 由复用 `FeedCard` 的页面读取 |
 | `showRefreshFab` | 刷新 FAB | 首页/列表可拖动刷新按钮显示 | 123Duo3 总开关会关闭它 |
+| `creationEntryPosition` | 外观与阅读体验 → 信息流 → 发布入口位置 | `floating`（默认）、`top`、`bottom`，实时切换发布入口 | 常量和枚举在 `AppearanceSettingsScreen`；`ZhihuMain` 观察设置并传给首页，悬浮发布按钮为 48dp；顶部模式按通知、发布排列，两者之间不额外留白；底部模式为导航栏中央的动作，宽屏并入导航轨；没有共享导航栏的平台使用首页顶部入口。发布动作不加入 pager，不改变主 tab 选择或排序 |
 | `feedCardStyle` | 信息流样式 | `card`（默认，色调圆角卡片，卡片间 8dp）或 `divider` | 常量 `FEED_CARD_STYLE_PREFERENCE_KEY` / `DEFAULT_FEED_CARD_STYLE`，影响所有复用 FeedCard 的列表 |
 | `webviewRender` | 使用 WebView 显示文章 | 文章、问题详情、想法正文渲染路径 | 常量名是 `ARTICLE_USE_WEBVIEW_PREFERENCE_KEY` |
 | `webviewCustomFontName` | WebView 自定义字体 | WebView 注入字体 | 仅 WebView 路径 |

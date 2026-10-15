@@ -142,6 +142,7 @@ import com.github.zly2006.zhihu.ui.components.SettingItemOverall
 import com.github.zly2006.zhihu.ui.components.SettingItemWithSwitch
 import com.github.zly2006.zhihu.ui.components.normalizedAnswerSwitchSensitivity
 import com.github.zly2006.zhihu.ui.components.pageTurnViewportWithGuide
+import com.github.zly2006.zhihu.ui.components.rememberObservedSetting
 import com.github.zly2006.zhihu.ui.components.rememberPageTurnTarget
 import kotlinx.coroutines.delay
 import org.koin.compose.koinInject
@@ -172,6 +173,17 @@ const val BOTTOM_BAR_ITEM_ORDER_PREFERENCE_KEY = "bottom_bar_item_order"
 const val COLLECTION_DIRECT_BROWSE_PREFERENCE_KEY = "collectionDirectBrowse"
 const val LANDSCAPE_LIST_DETAIL_PREFERENCE_KEY = "landscapeListDetail"
 const val TOP_LEVEL_BACK_TO_LAUNCHER_PREFERENCE_KEY = "topLevelBackToLauncher"
+const val CREATION_ENTRY_POSITION_PREFERENCE_KEY = "creationEntryPosition"
+
+enum class CreationEntryPosition(
+    val key: String,
+    val label: String,
+) {
+    Floating("floating", "悬浮按钮"),
+    Top("top", "顶部导航"),
+    Bottom("bottom", "底部导航"),
+}
+
 private const val BOTTOM_BAR_ITEM_ORDER_SEPARATOR = ","
 internal val contentFontSizeLevels = (50..120 step 5).toList() + (130..200 step 10).toList()
 private val bottomBarSettingItemHeight = 64.dp
@@ -742,6 +754,26 @@ fun AppearanceSettingsScreen(
             SettingItemGroup(
                 title = "信息流",
             ) {
+                val creationPosition by rememberObservedSetting(settings, CREATION_ENTRY_POSITION_PREFERENCE_KEY) {
+                    getString(CREATION_ENTRY_POSITION_PREFERENCE_KEY, CreationEntryPosition.Floating.key)
+                }
+                SettingItem(
+                    title = { Text("发布入口位置") },
+                    icon = { Icon(AppIcons.Add, contentDescription = null) },
+                    description = { Text("将发布入口放入导航栏，减少对阅读区域的遮挡。切换后立即生效。") },
+                    settingKey = CREATION_ENTRY_POSITION_PREFERENCE_KEY,
+                    highlightedKey = settingKey,
+                    bringIntoViewRequester = requesterFor(CREATION_ENTRY_POSITION_PREFERENCE_KEY),
+                    modifier = Modifier.testTag("appearanceSettings.creationEntryPosition"),
+                    bottomAction = {
+                        ChoiceButtonGroup(
+                            options = CreationEntryPosition.entries.map { ChoiceOption(it.key, it.label) },
+                            selected = creationPosition,
+                            onSelect = { settings.putString(CREATION_ENTRY_POSITION_PREFERENCE_KEY, it) },
+                            modifier = Modifier.fillMaxWidth(),
+                        )
+                    },
+                )
                 val showFeedThumbnail = remember { mutableStateOf(settings.getBoolean("showFeedThumbnail", true)) }
                 SettingItemWithSwitch(
                     title = { Text("显示 Feed 卡片缩略图") },

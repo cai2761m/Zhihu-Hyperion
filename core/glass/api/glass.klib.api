@@ -9,10 +9,12 @@
 final class com.github.zly2006.zhihu.glass/GlassBackdrop // com.github.zly2006.zhihu.glass/GlassBackdrop|null[0]
 
 final class com.github.zly2006.zhihu.glass/LiquidGlassTab { // com.github.zly2006.zhihu.glass/LiquidGlassTab|null[0]
-    constructor <init>(kotlin/String, kotlin/String, kotlin/Function3<kotlin/Boolean, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, kotlin/Function0<kotlin/Unit>) // com.github.zly2006.zhihu.glass/LiquidGlassTab.<init>|<init>(kotlin.String;kotlin.String;kotlin.Function3<kotlin.Boolean,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;kotlin.Function0<kotlin.Unit>){}[0]
+    constructor <init>(kotlin/String, kotlin/String, kotlin/Function3<kotlin/Boolean, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, kotlin/Function0<kotlin/Unit>, kotlin/Boolean = ...) // com.github.zly2006.zhihu.glass/LiquidGlassTab.<init>|<init>(kotlin.String;kotlin.String;kotlin.Function3<kotlin.Boolean,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;kotlin.Function0<kotlin.Unit>;kotlin.Boolean){}[0]
 
     final val icon // com.github.zly2006.zhihu.glass/LiquidGlassTab.icon|{}icon[0]
         final fun <get-icon>(): kotlin/Function3<kotlin/Boolean, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit> // com.github.zly2006.zhihu.glass/LiquidGlassTab.icon.<get-icon>|<get-icon>(){}[0]
+    final val isNavigation // com.github.zly2006.zhihu.glass/LiquidGlassTab.isNavigation|{}isNavigation[0]
+        final fun <get-isNavigation>(): kotlin/Boolean // com.github.zly2006.zhihu.glass/LiquidGlassTab.isNavigation.<get-isNavigation>|<get-isNavigation>(){}[0]
     final val label // com.github.zly2006.zhihu.glass/LiquidGlassTab.label|{}label[0]
         final fun <get-label>(): kotlin/String // com.github.zly2006.zhihu.glass/LiquidGlassTab.label.<get-label>|<get-label>(){}[0]
     final val onClick // com.github.zly2006.zhihu.glass/LiquidGlassTab.onClick|{}onClick[0]
