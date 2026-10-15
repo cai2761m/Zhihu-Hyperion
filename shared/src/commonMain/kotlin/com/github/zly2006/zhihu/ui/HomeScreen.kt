@@ -95,7 +95,6 @@ import com.github.zly2006.zhihu.navigation.LocalNavigator
 import com.github.zly2006.zhihu.navigation.Notification
 import com.github.zly2006.zhihu.navigation.Pin
 import com.github.zly2006.zhihu.navigation.Search
-import com.github.zly2006.zhihu.navigation.WritePin
 import com.github.zly2006.zhihu.navigation.requestLoginNavigation
 import com.github.zly2006.zhihu.notification.NotificationSettingsStore
 import com.github.zly2006.zhihu.platform.SettingsStore
@@ -113,7 +112,6 @@ import com.github.zly2006.zhihu.ui.components.DraggableRefreshButton
 import com.github.zly2006.zhihu.ui.components.EmptyState
 import com.github.zly2006.zhihu.ui.components.EmptyStateAction
 import com.github.zly2006.zhihu.ui.components.FabMenu
-import com.github.zly2006.zhihu.ui.components.FabMenuAction
 import com.github.zly2006.zhihu.ui.components.FeedAuthorBlockConfirmDialog
 import com.github.zly2006.zhihu.ui.components.FeedAuthorBlockRequest
 import com.github.zly2006.zhihu.ui.components.FeedAuthorBlockType
@@ -125,6 +123,7 @@ import com.github.zly2006.zhihu.ui.components.ProgressIndicatorFooter
 import com.github.zly2006.zhihu.ui.components.feedKeywordExtractionAvailable
 import com.github.zly2006.zhihu.ui.components.pageTurnViewportWithGuide
 import com.github.zly2006.zhihu.ui.components.rememberPageTurnTarget
+import com.github.zly2006.zhihu.ui.subscreens.CreationEntryPosition
 import com.github.zly2006.zhihu.update.UpdateController
 import com.github.zly2006.zhihu.update.UpdateState
 import com.github.zly2006.zhihu.util.json
@@ -187,6 +186,7 @@ fun HomeScreen(
     innerPadding: PaddingValues,
     showTopActions: Boolean = true,
     isActive: Boolean = true,
+    creationEntryPosition: CreationEntryPosition = CreationEntryPosition.Floating,
 ) {
     val readingPlayerOverlayPadding = LocalReadingPlayerOverlayPadding.current
     val navigator = LocalNavigator.current
@@ -209,7 +209,7 @@ fun HomeScreen(
     var showAccountBottomSheet by remember { mutableStateOf(false) }
     var showCreateMenu by remember { mutableStateOf(false) }
     // 点底栏切到别的页面时收起创作菜单，回来不会看到残留的展开态。
-    LaunchedEffect(isActive) { if (!isActive) showCreateMenu = false }
+    LaunchedEffect(isActive, creationEntryPosition) { showCreateMenu = false }
     val createMenuBlurRadius by animateDpAsState(
         targetValue = if (showCreateMenu) 8.dp else 0.dp,
         animationSpec = tween(durationMillis = 200),
@@ -439,7 +439,7 @@ fun HomeScreen(
                     .blur(createMenuBlurRadius)
             },
             topBar = {
-                if (!showTopActions) {
+                if (!showTopActions && creationEntryPosition != CreationEntryPosition.Top) {
                     return@Scaffold
                 }
                 if (duo3HomeAccount) {
@@ -531,6 +531,11 @@ fun HomeScreen(
                                     }
                                 }
                             }
+                            if (creationEntryPosition == CreationEntryPosition.Top) {
+                                Spacer(modifier = Modifier.width(8.dp))
+                                HomeNotificationButton(showUnreadBadge, unreadCount) { navigator.onNavigate(Notification) }
+                                CreationTopBarButton(isActive)
+                            }
                         }
                     }
                 } else {
@@ -575,38 +580,9 @@ fun HomeScreen(
                                 }
                             }
                             Spacer(modifier = Modifier.width(8.dp))
-                            Box(
-                                modifier = Modifier
-                                    .size(48.dp)
-                                    .testTag(HOME_NOTIFICATION_BUTTON_TAG)
-                                    .clickable(role = Role.Button) {
-                                        navigator.onNavigate(Notification)
-                                    },
-                                contentAlignment = Alignment.Center,
-                            ) {
-                                // 点击盒与内容盒分离，避免 IconButton 的裁剪边界截掉 BadgedBox 的 badge。
-                                Box(
-                                    modifier = Modifier
-                                        .size(40.dp)
-                                        .testTag(HOME_NOTIFICATION_BUTTON_CONTENT_TAG),
-                                    contentAlignment = Alignment.Center,
-                                ) {
-                                    BadgedBox(
-                                        badge = {
-                                            if (showUnreadBadge && unreadCount > 0) {
-                                                Badge(modifier = Modifier.testTag(HOME_NOTIFICATION_BADGE_TAG)) {
-                                                    Text("$unreadCount")
-                                                }
-                                            }
-                                        },
-                                    ) {
-                                        Icon(
-                                            AppIcons.Notifications,
-                                            contentDescription = "通知",
-                                            tint = MaterialTheme.colorScheme.onSurface,
-                                        )
-                                    }
-                                }
+                            HomeNotificationButton(showUnreadBadge, unreadCount) { navigator.onNavigate(Notification) }
+                            if (creationEntryPosition == CreationEntryPosition.Top) {
+                                CreationTopBarButton(isActive)
                             }
                         }
                     }
@@ -763,9 +739,9 @@ fun HomeScreen(
                     }
                 }
 
-                // 创作菜单展开时隐藏可拖动按钮，免得它被遮罩模糊成色块；收起时让出创作按钮（56dp）和间距的高度。
+                // 创作菜单展开时隐藏可拖动按钮；收起时让出 48dp 创作按钮和间距。
                 if (showRefreshFab && !showCreateMenu) {
-                    val fabAvoidance = readingPlayerOverlayPadding + 72.dp
+                    val fabAvoidance = readingPlayerOverlayPadding + if (creationEntryPosition == CreationEntryPosition.Floating) 64.dp else 0.dp
                     if (isDebuggable) {
                         DraggableRefreshButton(
                             onClick = {
@@ -813,25 +789,23 @@ fun HomeScreen(
             )
         }
 
-        FabMenu(
-            expanded = showCreateMenu,
-            onExpandedChange = { showCreateMenu = it },
-            icon = AppIcons.Add,
-            contentDescription = "创作",
-            actions = listOf(
-                FabMenuAction("提问题", AppIcons.Help, HOME_WRITE_QUESTION_BUTTON_TAG) { userMessages.showShortMessage("正在施工") },
-                FabMenuAction("写回答", AppIcons.Edit, HOME_WRITE_ANSWER_BUTTON_TAG) { userMessages.showShortMessage("正在施工") },
-                FabMenuAction("发想法", AppIcons.AddComment, HOME_WRITE_PIN_BUTTON_TAG) { navigator.onNavigate(WritePin()) },
-            ),
-            modifier = Modifier
-                .align(Alignment.BottomEnd)
-                .padding(bottom = innerPadding.calculateBottomPadding() + readingPlayerOverlayPadding)
-                .testTag(HOME_CREATE_MENU_TAG),
-            buttonModifier = Modifier.testTag(HOME_CREATE_FAB_TAG),
-            buttonAlpha = remember(settings) {
-                settings.getInt(PREF_FAB_OPACITY, DEFAULT_FAB_OPACITY).coerceIn(10, 100) / 100f
-            },
-        )
+        if (creationEntryPosition == CreationEntryPosition.Floating) {
+            FabMenu(
+                expanded = showCreateMenu,
+                onExpandedChange = { showCreateMenu = it },
+                icon = AppIcons.Add,
+                contentDescription = "创作",
+                actions = creationMenuActions(navigator.onNavigate),
+                modifier = Modifier
+                    .align(Alignment.BottomEnd)
+                    .padding(bottom = innerPadding.calculateBottomPadding() + readingPlayerOverlayPadding)
+                    .testTag(HOME_CREATE_MENU_TAG),
+                buttonModifier = Modifier.testTag(HOME_CREATE_FAB_TAG),
+                buttonAlpha = remember(settings) {
+                    settings.getInt(PREF_FAB_OPACITY, DEFAULT_FAB_OPACITY).coerceIn(10, 100) / 100f
+                },
+            )
+        }
     }
 
     FeedAuthorBlockConfirmDialog(
@@ -860,5 +834,40 @@ fun HomeScreen(
                 feedToBlockByKeywords = null
             },
         )
+    }
+}
+
+@Composable
+private fun HomeNotificationButton(showUnreadBadge: Boolean, unreadCount: Int, onClick: () -> Unit) {
+    Box(
+        modifier = Modifier
+            .size(48.dp)
+            .testTag(HOME_NOTIFICATION_BUTTON_TAG)
+            .clickable(role = Role.Button, onClick = onClick),
+        contentAlignment = Alignment.Center,
+    ) {
+        // 点击盒与内容盒分离，避免 IconButton 的裁剪边界截掉 BadgedBox 的 badge。
+        Box(
+            modifier = Modifier
+                .size(40.dp)
+                .testTag(HOME_NOTIFICATION_BUTTON_CONTENT_TAG),
+            contentAlignment = Alignment.Center,
+        ) {
+            BadgedBox(
+                badge = {
+                    if (showUnreadBadge && unreadCount > 0) {
+                        Badge(modifier = Modifier.testTag(HOME_NOTIFICATION_BADGE_TAG)) {
+                            Text("$unreadCount")
+                        }
+                    }
+                },
+            ) {
+                Icon(
+                    AppIcons.Notifications,
+                    contentDescription = "通知",
+                    tint = MaterialTheme.colorScheme.onSurface,
+                )
+            }
+        }
     }
 }
